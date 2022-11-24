@@ -15,16 +15,18 @@ export const SidebarNav = () => {
       <ul>
         {boardData.map((item, index) => {
           return (
-            <NavLink
-              to={`/${urlSplit(item.name)}`}
-              className={({ isActive }) =>
-                isActive ? "nav-item activeClassName" : "nav-item"
-              }
-              key={index}
-            >
-              <MdOutlineSpaceDashboard size={"1.5em"} className="btn-icon" />
-              <li>{item.name}</li>
-            </NavLink>
+            <li>
+              <NavLink
+                to={`/${urlSplit(item.name)}`}
+                className={({ isActive }) =>
+                  isActive ? "nav-item activeClassName" : "nav-item"
+                }
+                key={index}
+              >
+                <MdOutlineSpaceDashboard size={"1.5em"} className="btn-icon" />
+                <span>{item.name}</span>
+              </NavLink>
+            </li>
           );
         })}
       </ul>
@@ -37,8 +39,8 @@ const SidebarNavContainer = styled.nav`
 
   h2 {
     font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
     letter-spacing: 2.4px;
     text-transform: uppercase;
     padding: 0px 0 19px 24px;
@@ -46,6 +48,15 @@ const SidebarNavContainer = styled.nav`
     @media screen and (min-width: 1024px) {
       padding: 0px 0 19px 32px;
     }
+  }
+
+  li {
+    width: 100%;
+    max-width: 240px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+    text-transform: capitalize;
   }
 
   ul {
@@ -85,15 +96,6 @@ const SidebarNavContainer = styled.nav`
 
       svg {
         margin-right: 12px;
-      }
-
-      li {
-        width: 100%;
-        max-width: 240px;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 19px;
-        text-transform: capitalize;
       }
     }
   }
