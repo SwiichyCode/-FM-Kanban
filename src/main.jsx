@@ -1,22 +1,17 @@
 import React from "react";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { RecoilRoot } from "recoil";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Board } from "./routes/Board";
-import "./styles/index.css";
+import { App } from "./routes/App";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <RecoilRoot>
-        <Board />
+        <GlobalStyle />
+        <App />
       </RecoilRoot>
     ),
   },
