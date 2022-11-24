@@ -44,6 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --main-purple: #635FC7;
         --black: #000112;
+        --white: #fff;
         --very-dark-grey: #20212C;
         --dark-grey: #2B2C37;
         --medium-grey: #828FA3;

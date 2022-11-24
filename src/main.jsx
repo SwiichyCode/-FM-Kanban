@@ -1,7 +1,14 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import { App } from "./routes/App";
 import { GlobalStyle } from "./styles/GlobalStyle";
 
@@ -14,6 +21,12 @@ const router = createBrowserRouter([
         <App />
       </RecoilRoot>
     ),
+    children: [
+      {
+        path: "/:name",
+        element: <App />,
+      },
+    ],
   },
 ]);
 
