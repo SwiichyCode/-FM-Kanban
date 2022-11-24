@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarNav } from "./SidebarNav";
 import { SidebarContainer } from "./style";
@@ -17,3 +18,26 @@ export const Sidebar = () => {
     </SidebarContainer>
   );
 };
+
+const SidebarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 260px;
+  height: 100vh;
+  padding: 32px 0;
+  border-right: 1px solid var(--line-light);
+  background: var(--white);
+
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+  }
+
+  .sidebar-bot {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+`;
