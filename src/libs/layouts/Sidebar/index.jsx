@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarNav } from "./SidebarNav";
-import { SidebarContainer } from "./style";
 
 export const Sidebar = () => {
   return (
