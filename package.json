@@ -14,7 +14,9 @@
     "prop-types": "^15.8.1",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.4.3",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

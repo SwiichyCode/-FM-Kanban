@@ -1,29 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Input } from "../libs/components/Form/Input";
+import { boardState } from "../libs/data/store";
+import { useRecoilValue } from "recoil";
 
 export const Board = () => {
-  const [name, setName] = useState("");
+  // Get data from store
+  const boardData = useRecoilValue(boardState);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(name);
-  };
-
+  console.log(boardData);
   return (
     <Container>
-      <Wrapper>
-        <form onSubmit={handleSubmit}>
-          <Input
-            labelText="Text Field (Idle)"
-            placeholder="Enter task name"
-            value={name}
-            onchange={(e) => setName(e.target.value)}
-            error={true}
-          />
-          <button type="submit">submit</button>
-        </form>
-      </Wrapper>
+      <Wrapper>Construction</Wrapper>
     </Container>
   );
 };
