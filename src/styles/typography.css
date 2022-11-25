@@ -1,0 +1,23 @@
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--black);
+
+  @media screen and (min-width: 750px) {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}

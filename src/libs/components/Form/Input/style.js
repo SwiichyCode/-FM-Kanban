@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  max-width: ${(props) => (props.maxW ? `${props.maxW}px` : "initial")};
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `;
 
 export const Wrapper = styled.div`

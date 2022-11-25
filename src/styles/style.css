@@ -1,0 +1,43 @@
+/* //Header */
+.h-xl {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 30px;
+}
+.h-l {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.438rem;
+}
+.h-m {
+  font-size: 0.938rem;
+  font-weight: bold;
+  line-height: 1.188rem;
+}
+.h-s {
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 0.938rem;
+  font-kerning: 0.15rem;
+}
+/* //Body */
+.b-l {
+  font-size: 0.813rem;
+  font-weight: normal;
+  line-height: 1.438rem;
+}
+.b-m {
+  font-size: 0.813rem;
+  font-weight: normal;
+  line-height: 1.438rem;
+}
+
+/* Modal Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
