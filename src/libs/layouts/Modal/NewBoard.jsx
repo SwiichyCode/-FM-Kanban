@@ -6,6 +6,7 @@ import { useSubtasks } from "../../hooks/useSubtasks";
 import { LayoutModal } from "../../components/layouts/LayoutModal";
 import { SubtasksGenerator } from "../../components/Form/SubtasksGenerator/index";
 import { Input } from "../../components/Form/Input/index";
+import { Button } from "../../components/Button";
 
 export const NewBoard = ({ isOpen, setIsOpen }) => {
   const [name, setName] = useState("");
@@ -43,7 +44,7 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
           addFormFields={addFormFields}
           removeFormFields={removeFormFields}
         />
-        <button type="submit">submit</button>
+        <Button type="submit" theme="secondary" text="Create a New Board" />
       </Form>
     </LayoutModal>
   );

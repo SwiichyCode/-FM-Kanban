@@ -6,6 +6,7 @@ import { MdClose } from "react-icons/md";
 // import InputLabel from "@mui/material/InputLabel";
 import { Input } from "../Input/index";
 import { Label } from "../Label";
+import { Button } from "../../Button";
 export const SubtasksGenerator = ({
   labelText,
   columns,
@@ -34,9 +35,12 @@ export const SubtasksGenerator = ({
               />
             </div>
           ))}
-        <button type="button" onClick={addFormFields}>
-          Add new Column
-        </button>
+        <Button
+          type="button"
+          text="Add new Column"
+          theme="primary"
+          onClick={addFormFields}
+        />
       </div>
     </SubtasksGeneratorContainer>
   );
