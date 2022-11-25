@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -7,14 +8,16 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    marginRight: "-50%",
+
     transform: "translate(-50%, -50%)",
+    width: "480px",
+    padding: "32px",
   },
 };
 
 Modal.setAppElement("#root");
 
-export const LayoutModal = ({ isOpen, onRequestClose, children }) => {
+export const LayoutModal = ({ isOpen, onRequestClose, children, title }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -23,7 +26,13 @@ export const LayoutModal = ({ isOpen, onRequestClose, children }) => {
       contentLabel="Example Modal"
       overlayClassName="overlay"
     >
+      <Title>{title}</Title>
       {children}
     </Modal>
   );
 };
+
+const Title = styled.h2`
+  font-size: var(--fz-xl);
+  text-transform: capitalize;
+`;

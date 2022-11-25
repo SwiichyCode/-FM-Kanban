@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { boardState } from "../../data/store";
+import { SidebarModal } from "./SidebarModal";
 
 export const SidebarNav = () => {
   const boardData = useRecoilValue(boardState);
@@ -29,6 +30,8 @@ export const SidebarNav = () => {
             </li>
           );
         })}
+        {/* New Board (Modal) */}
+        <SidebarModal />
       </ul>
     </SidebarNavContainer>
   );
@@ -57,6 +60,10 @@ const SidebarNavContainer = styled.nav`
     font-size: 1.5rem;
     line-height: 1.9rem;
     text-transform: capitalize;
+
+    &:last-child {
+      color: var(--main-purple) !important;
+    }
   }
 
   ul {
@@ -84,10 +91,6 @@ const SidebarNavContainer = styled.nav`
       @media screen and (min-width: 1024px) {
         padding: 14px 0 15px 32px;
       }
-
-      /* &:last-child {
-        color: var(--main-purple);
-      } */
 
       &:hover {
         background: #f0effa;
