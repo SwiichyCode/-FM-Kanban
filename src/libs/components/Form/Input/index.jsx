@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./style";
+import { Label } from "../Label";
 
 export const Input = ({
   name,
@@ -9,10 +10,11 @@ export const Input = ({
   value,
   onChange,
   error,
+  maxW,
 }) => {
   return (
-    <S.Container>
-      <S.StyledLabel for={name}>{labelText}</S.StyledLabel>
+    <S.Container maxW={maxW}>
+      {labelText && <Label for={name} labelText={labelText} />}
       <S.Wrapper error={error}>
         <S.StyledInput
           name={name}

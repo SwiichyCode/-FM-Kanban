@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { LayoutModal } from "../../components/layouts/LayoutModal";
-import { Input } from "../../components/Form/Input/index";
 import { useSetRecoilState } from "recoil";
+import styled from "styled-components";
 import { boardState } from "../../data/store";
+import { useSubtasks } from "../../hooks/useSubtasks";
+import { LayoutModal } from "../../components/layouts/LayoutModal";
+import { SubtasksGenerator } from "../../components/Form/SubtasksGenerator/index";
+import { Input } from "../../components/Form/Input/index";
 
 export const NewBoard = ({ isOpen, setIsOpen }) => {
   const [name, setName] = useState("");
   const setBoardData = useSetRecoilState(boardState);
+  const { columns, handleChange, addFormFields, removeFormFields } =
+    useSubtasks();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,15 +29,28 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
 
   return (
     <LayoutModal isOpen={isOpen} onRequestClose={setIsOpen} title="new board">
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input
-          labelText="name"
+          labelText="Name"
           placeholder="e.g Web Design"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <button type="subit">submit</button>
-      </form>
+        <SubtasksGenerator
+          labelText="Columns"
+          columns={columns}
+          handleChange={handleChange}
+          addFormFields={addFormFields}
+          removeFormFields={removeFormFields}
+        />
+        <button type="submit">submit</button>
+      </Form>
     </LayoutModal>
   );
 };
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`;
