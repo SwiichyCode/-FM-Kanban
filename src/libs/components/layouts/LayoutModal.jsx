@@ -35,4 +35,5 @@ export const LayoutModal = ({ isOpen, onRequestClose, children, title }) => {
 const Title = styled.h2`
   font-size: var(--fz-xl);
   text-transform: capitalize;
+  margin-bottom: 2.4rem;
 `;
