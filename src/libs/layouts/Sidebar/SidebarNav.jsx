@@ -5,10 +5,10 @@ import { useRecoilValue } from "recoil";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { boardState } from "../../data/store";
 import { SidebarModal } from "./SidebarModal";
+import { urlSplit } from "../../utils/urlSplit";
 
 export const SidebarNav = () => {
   const boardData = useRecoilValue(boardState);
-  const urlSplit = (item) => item.split(" ").join("_");
 
   return (
     <SidebarNavContainer>
