@@ -22,7 +22,7 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 260px;
+  min-width: 300px;
   height: 100vh;
   padding: 32px 0;
   border-right: 1px solid var(--line-light);
