@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
 export const ToggleSwitchContainer = styled.div`
+  width: 100%;
+  display: flex;
+  max-width: 60px;
+  position: relative;
+
   .react-switch-checkbox {
+    position: absolute;
     height: 0;
     width: 0;
     visibility: hidden;
@@ -34,7 +40,7 @@ export const ToggleSwitchContainer = styled.div`
   }
 
   .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
-    left: calc(100% - 2px);
+    left: calc(100% - 4px);
     transform: translateX(-100%);
   }
 `;

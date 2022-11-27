@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { SidebarLogo } from "./SidebarLogo";
 import { SidebarNav } from "./SidebarNav";
+import { SidebarTheme } from "./SidebarTheme";
 
 export const Sidebar = () => {
   return (
@@ -11,7 +12,7 @@ export const Sidebar = () => {
         <SidebarNav />
       </div>
       <div className="sidebar-bottom">
-        {/* ToggleTheme */}
+        <SidebarTheme />
         {/* SidebarHide */}
       </div>
     </SidebarContainer>
@@ -34,7 +35,7 @@ const SidebarContainer = styled.div`
     gap: 54px;
   }
 
-  .sidebar-bot {
+  .sidebar-bottom {
     display: flex;
     flex-direction: column;
     gap: 16px;

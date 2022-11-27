@@ -3,7 +3,7 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { boardState } from "../../data/store";
 import { useSubtasks } from "../../hooks/useSubtasks";
-import { LayoutModal } from "../../components/layouts/LayoutModal";
+import { LayoutModal } from "../../components/Layouts/LayoutModal";
 import { SubtasksGenerator } from "../../components/Form/SubtasksGenerator/index";
 import { Input } from "../../components/Form/Input/index";
 import { Button } from "../../components/Button";
