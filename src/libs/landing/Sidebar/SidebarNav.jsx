@@ -1,48 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { boardState } from "../../../store/store";
 import { SidebarModal } from "./Modal/SidebarModal";
-import { urlSplit } from "../../../helpers/urlSplit";
-import { useToggle } from "../../../hooks/useToggle";
-import { SidebarNavFilter } from "./SidebarNavFilter";
+import { SidebarNavLink } from "./SidebarNavLink";
 
 export const SidebarNav = () => {
-  const [alphabetically, setAlphabetically] = useToggle();
   const boardData = useRecoilValue(boardState);
-  const boardName = boardData.map((item) => item.name);
-
-  const Link = ({ item, index }) => {
-    return (
-      <li>
-        <NavLink
-          to={`/${urlSplit(item)}`}
-          className={({ isActive }) =>
-            isActive ? "nav-item activeClassName" : "nav-item"
-          }
-          key={index}
-        >
-          <MdOutlineSpaceDashboard size={"1.5em"} className="btn-icon" />
-          <span>{item}</span>
-        </NavLink>
-      </li>
-    );
-  };
-
+  console.log("no");
   const SidebarNavItem = () => {
-    if (alphabetically) {
-      return boardName
-        .sort((a, b) => a.localeCompare(b))
-        .map((item, index) => {
-          return <Link item={item} index={index} />;
-        });
-    } else {
-      return boardName.map((item, index) => {
-        return <Link item={item} index={index} />;
-      });
-    }
+    return boardData.map((item, index) => {
+      return <SidebarNavLink item={item.name} index={index} />;
+    });
   };
 
   return (
@@ -50,7 +19,6 @@ export const SidebarNav = () => {
       <h2>all boards ({boardData.length})</h2>
       <ul>
         <SidebarNavItem />
-        <SidebarNavFilter setAlphabetically={setAlphabetically} />
         <SidebarModal />
       </ul>
     </SidebarNavContainer>

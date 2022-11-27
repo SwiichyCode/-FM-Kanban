@@ -1,1 +1,1 @@
-export const urlSplit = (item) => item.split(" ").join("_");
+export const urlSplit = (item) => item && item.split(" ").join("_");

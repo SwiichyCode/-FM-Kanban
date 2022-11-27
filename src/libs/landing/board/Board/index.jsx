@@ -12,7 +12,7 @@ export const Board = () => {
   return (
     <BoardContainer>
       {boardData
-        .filter((item) => urlSplit(item.name) === name)
+        .filter((item) => item.name && item.name.split(" ").join("_") === name)
         .map((item, index) => (
           <p key={index}>{item.name}</p>
         ))}
