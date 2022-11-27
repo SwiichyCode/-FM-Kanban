@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
-import { boardState } from "../../data/store";
+import { boardState } from "../../../store/store";
 import { SidebarModal } from "./SidebarModal";
-import { urlSplit } from "../../utils/urlSplit";
-import { useToggle } from "../../hooks/useToggle";
+import { urlSplit } from "../../../helpers/urlSplit";
+import { useToggle } from "../../../hooks/useToggle";
 import { SidebarNavFilter } from "./SidebarNavFilter";
 
 export const SidebarNav = () => {
