@@ -1,15 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
 import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import { App } from "./routes/App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { App } from "./views/App";
 import "./styles/index.css";
 
 const router = createBrowserRouter([

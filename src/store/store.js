@@ -6,7 +6,7 @@ import {
   useRecoilValue,
 } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import data from "./data.json";
+import data from "../api/data.json";
 
 const { persistAtom } = recoilPersist();
 

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { boardState } from "../../data/store";
-import { urlSplit } from "../../utils/urlSplit";
+import { boardState } from "../../../store/store";
+import { urlSplit } from "../../../helpers/urlSplit";
 import { ToggleSwitch } from "../../components/ToggleSwitch";
 
 export const Board = () => {
