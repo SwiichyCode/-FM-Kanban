@@ -1,18 +1,33 @@
 import React from "react";
-import { LayoutApp } from "../libs/components/wrapper/LayoutApp";
-import { LayoutMain } from "../libs/components/wrapper/LayoutMain";
-import { Sidebar } from "../libs/landing/Sidebar";
-import { Board } from "../libs/landing/Board";
-import { Header } from "../libs/landing/Header";
+import styled from "styled-components";
+import { Sidebar } from "../libs/landing/Sidebar/Sidebar";
+import { Board } from "../libs/landing/board/Board";
+import { Header } from "../libs/landing/header/Header";
 
 export const App = () => {
   return (
-    <LayoutApp>
+    <AppWrapper>
       <Sidebar />
-      <LayoutMain>
+      <MainWrapper>
         <Header />
         <Board />
-      </LayoutMain>
-    </LayoutApp>
+      </MainWrapper>
+    </AppWrapper>
   );
 };
+
+const AppWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  /* Temporaire */
+  background: var(--light-grey-light);
+`;
+
+const MainWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;

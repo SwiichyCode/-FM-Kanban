@@ -22,6 +22,7 @@ const handleColorType = (theme) => {
 };
 
 const StyledButton = styled.button`
+  width: 100%;
   font-weight: 700;
   font-size: 1.3rem;
   line-height: 2.3rem;

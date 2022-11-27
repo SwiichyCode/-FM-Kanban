@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { boardState } from "../../../store/store";
-import { useSubtasks } from "../../../hooks/useSubtasks";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
-import { SubtasksGenerator } from "../../components/Form/SubtasksGenerator/index";
-import { Input } from "../../components/Form/Input/index";
-import { Button } from "../../components/Button";
+import { boardState } from "../../../../store/store";
+import { useSubtasks } from "../../../../hooks/useSubtasks";
+import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
+import { SubtasksGenerator } from "../../../components/Form/SubtasksGenerator/index";
+import { Input } from "../../../components/Form/Input/index";
+import { Button } from "../../../components/Button";
 
 export const NewBoard = ({ isOpen, setIsOpen }) => {
   const [name, setName] = useState("");

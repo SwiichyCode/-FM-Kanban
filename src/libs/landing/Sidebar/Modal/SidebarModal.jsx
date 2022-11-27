@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
-import { useToggle } from "../../../hooks/useToggle";
-import { NewBoard } from "../Modal/NewBoard";
+import { useToggle } from "../../../../hooks/useToggle";
+import { NewBoard } from "./NewBoard";
 
 export const SidebarModal = () => {
   const [isOpen, setIsOpen] = useToggle();

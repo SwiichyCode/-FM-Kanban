@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import LogoMobile from "../../../assets/logo-mobile.svg";
 
+import { ManageBoard } from "../Modal/ManageBoard";
 export const Header = () => {
   return (
     <HeaderContainer>
       <div className="left-side">
         <h1>Platform Launch</h1>
       </div>
-      <div className="right-side"></div>
+      <div className="right-side">
+        <ManageBoard />
+      </div>
     </HeaderContainer>
   );
 };

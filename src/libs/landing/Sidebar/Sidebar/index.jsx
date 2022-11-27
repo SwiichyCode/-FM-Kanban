@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { SidebarLogo } from "./SidebarLogo";
-import { SidebarNav } from "./SidebarNav";
-import { SidebarTheme } from "./SidebarTheme";
+import { SidebarLogo } from "../SidebarLogo";
+import { SidebarNav } from "../SidebarNav";
+import { SidebarTheme } from "../SidebarTheme";
 
 export const Sidebar = () => {
   return (

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { boardState } from "../../../store/store";
-import { SidebarModal } from "./SidebarModal";
+import { SidebarModal } from "./Modal/SidebarModal";
 import { urlSplit } from "../../../helpers/urlSplit";
 import { useToggle } from "../../../hooks/useToggle";
 import { SidebarNavFilter } from "./SidebarNavFilter";

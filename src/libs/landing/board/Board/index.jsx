@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { boardState } from "../../../store/store";
-import { urlSplit } from "../../../helpers/urlSplit";
-import { ToggleSwitch } from "../../components/ToggleSwitch";
+import { boardState } from "../../../../store/store";
+import { urlSplit } from "../../../../helpers/urlSplit";
 
 export const Board = () => {
   let { name } = useParams();
   const boardData = useRecoilValue(boardState);
-  const [value, setValue] = useState(false);
 
   return (
     <BoardContainer>
@@ -18,7 +16,6 @@ export const Board = () => {
         .map((item, index) => (
           <p key={index}>{item.name}</p>
         ))}
-      <ToggleSwitch isOn={value} handleToggle={() => setValue(!value)} />
     </BoardContainer>
   );
 };
