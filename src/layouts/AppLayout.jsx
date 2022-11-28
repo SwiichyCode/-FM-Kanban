@@ -10,6 +10,7 @@ export const AppLayout = ({ children }) => {
   const location = useLocation();
   let navigate = useNavigate();
 
+  // Redirect to the 1st board of the list
   useEffect(() => {
     if (location.pathname === "/" && boardData.length > 0) {
       const item = urlSplit(boardData[0].name);

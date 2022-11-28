@@ -24,8 +24,8 @@ const SidebarHideContainer = styled.div`
 
   span {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 1.5rem;
     height: 20px;
-    color: #828fa3;
+    color: var(--medium-grey);
   }
 `;

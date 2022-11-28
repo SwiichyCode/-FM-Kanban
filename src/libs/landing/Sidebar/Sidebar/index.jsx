@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SidebarLogo } from "../SidebarLogo";
 import { SidebarNav } from "../SidebarNav";
 import { SidebarTheme } from "../SidebarTheme";
-
+import { SidebarHide } from "../SidebarHide";
 export const Sidebar = () => {
   return (
     <SidebarContainer>
@@ -13,7 +13,7 @@ export const Sidebar = () => {
       </div>
       <div className="sidebar-bottom">
         <SidebarTheme />
-        {/* SidebarHide */}
+        <SidebarHide />
       </div>
     </SidebarContainer>
   );

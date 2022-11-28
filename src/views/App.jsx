@@ -6,15 +6,14 @@ import { Header } from "../libs/landing/header/Header";
 import { AppLayout } from "../layouts/AppLayout";
 
 export const App = () => {
-  console.log("test2");
   return (
-    <AppLayoutContainer>
+    <AppLayout>
       <Sidebar />
       <MainWrapper>
         <Header />
         <Board />
       </MainWrapper>
-    </AppLayoutContainer>
+    </AppLayout>
   );
 };
 
