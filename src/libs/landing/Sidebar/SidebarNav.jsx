@@ -7,7 +7,7 @@ import { SidebarNavLink } from "./SidebarNavLink";
 
 export const SidebarNav = () => {
   const boardData = useRecoilValue(boardState);
-  console.log("no");
+
   const SidebarNavItem = () => {
     return boardData.map((item, index) => {
       return <SidebarNavLink item={item.name} index={index} />;

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Sidebar } from "../libs/landing/Sidebar/Sidebar";
+import { Sidebar } from "../libs/landing/sidebar/Sidebar/index";
 import { Board } from "../libs/landing/board/Board";
 import { Header } from "../libs/landing/header/Header";
 import { AppLayout } from "../layouts/AppLayout";
 
 export const App = () => {
+  console.log("test2");
   return (
     <AppLayoutContainer>
       <Sidebar />

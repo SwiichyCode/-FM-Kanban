@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { urlSplit } from "../../../helpers/urlSplit";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { urlSplit } from "../../../helpers/urlSplit";
 
 export const SidebarNavLink = ({ item, index }) => {
   return (
