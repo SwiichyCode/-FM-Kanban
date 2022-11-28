@@ -41,3 +41,29 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.popover {
+  display: flex;
+  flex-direction: column;
+  width: 192px;
+  position: absolute;
+  top: 22px;
+  right: 0;
+  padding: 1.6rem;
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
+  background: #ffffff;
+  gap: 16px;
+}
+
+.modal-paragraph {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 23px;
+  color: #828fa3;
+  padding-bottom: 24px;
+}
+.modal-box {
+  display: flex;
+  gap: 16px;
+}

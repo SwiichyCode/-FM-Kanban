@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import LogoDark from "../../../assets/logo-dark.svg";
 
 export const SidebarLogo = () => {
   return (
     <SidebarLogoContainer>
-      <img src={LogoDark} />
+      <img src="/logo-dark.svg" alt="" />
     </SidebarLogoContainer>
   );
 };

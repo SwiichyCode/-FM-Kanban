@@ -14,9 +14,9 @@
     "prop-types": "^15.8.1",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
-    "react-icons": "^4.6.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.4.3",
+    "react-tiny-popover": "^7.2.0",
     "recoil": "^0.7.6",
     "recoil-persist": "^4.2.0",
     "styled-components": "^5.3.6"
