@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { boardState } from "../../../../store/store";
 import { urlSplit } from "../../../../helpers/urlSplit";
-import { EmptyBoard } from "../EmptyBoard";
+import { EmptyBoard } from "./EmptyBoard";
+import { ColumnWrapper } from "../Column/ColumnWrapper";
 
 export const Board = () => {
   let { name } = useParams();
@@ -15,7 +16,7 @@ export const Board = () => {
       {boardData.length !== 0 ? (
         boardData
           .filter((item) => urlSplit(item.name) === name)
-          .map((item, index) => <p key={index}>{item.name}</p>)
+          .map((item, index) => <ColumnWrapper item={item} key={index} />)
       ) : (
         <EmptyBoard />
       )}
@@ -23,4 +24,8 @@ export const Board = () => {
   );
 };
 
-const BoardContainer = styled.div``;
+const BoardContainer = styled.div`
+  width: 100%;
+  height: calc(100vh - var(--header-h));
+  padding: 24px;
+`;
