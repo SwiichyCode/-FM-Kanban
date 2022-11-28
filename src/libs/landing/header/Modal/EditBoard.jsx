@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../../../components/Button";
 import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
 
 export const EditBoard = ({ openEdit, setOpenEdit }) => {

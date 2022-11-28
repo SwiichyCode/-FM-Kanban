@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Checkbox } from "../../../components/Form/Checkbox";
 import { Column } from "./Column";
 
 export const ColumnWrapper = ({ item }) => {
@@ -11,7 +10,6 @@ export const ColumnWrapper = ({ item }) => {
       {columns.map((item, index) => {
         return <Column item={item} key={index} />;
       })}
-      <Checkbox label={"test"} />
     </Container>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { ManageBoard } from "../Modal/ManageBoard";
+import { NewTask } from "../Modal/NewTask";
 export const Header = () => {
   return (
     <HeaderContainer>
@@ -9,6 +10,7 @@ export const Header = () => {
         <h1>Platform Launch</h1>
       </div>
       <div className="right-side">
+        <NewTask />
         <ManageBoard />
       </div>
     </HeaderContainer>
@@ -79,7 +81,7 @@ const HeaderContainer = styled.header`
   .right-side {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 16px;
 
     .board-edit {
