@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Container } from "./style";
 import PropTypes from "prop-types";
 
-export const Checkbox = ({ label }) => {
-  const [checked, setChecked] = useState(false);
+export const Checkbox = ({ label, completed }) => {
+  const [isChecked, setIsChecked] = useState(completed);
   return (
-    <Container checked={checked}>
-      <input type="checkbox" onClick={() => setChecked((prev) => !prev)} />
+    <Container isChecked={isChecked}>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onClick={() => setIsChecked((prev) => !prev)}
+      />
       <label>{label}</label>
     </Container>
   );

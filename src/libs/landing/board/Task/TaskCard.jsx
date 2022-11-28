@@ -1,12 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { TaskModal } from "./TaskModal";
+import { useToggle } from "../../../../hooks/useToggle";
 
 export const TaskCard = ({ item }) => {
+  const [open, setOpen] = useToggle();
+  const completedSubtasks = item.subtasks.filter((item) => item.isCompleted);
   return (
-    <Container>
-      <h2>{item.title}</h2>
-      <p>0 of 3 subtasks</p>
-    </Container>
+    <>
+      <Container onClick={setOpen}>
+        <h2>{item.title}</h2>
+        <p>
+          {completedSubtasks.length} of {item.subtasks.length} subtasks
+        </p>
+      </Container>
+      <TaskModal
+        open={open}
+        setOpen={setOpen}
+        item={item}
+        completedSubtasks={completedSubtasks}
+      />
+    </>
   );
 };
 

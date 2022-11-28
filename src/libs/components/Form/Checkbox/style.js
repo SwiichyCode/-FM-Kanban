@@ -23,8 +23,8 @@ export const Container = styled.div`
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
-    text-decoration-line: ${({ checked }) =>
-      checked ? "line-through" : "default"};
+    text-decoration-line: ${({ isChecked }) =>
+      isChecked ? "line-through" : "default"};
     color: #000112;
     mix-blend-mode: normal;
     opacity: 0.5;
