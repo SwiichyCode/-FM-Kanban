@@ -5,7 +5,6 @@ import { TaskCard } from "../Task/TaskCard";
 
 export const Column = ({ item }) => {
   const { tasks } = item;
-  // console.log(tasks);
   return (
     <Container>
       <ColumnTitle title={item.name} item={item} />

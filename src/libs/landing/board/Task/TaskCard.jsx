@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 export const TaskCard = ({ item }) => {
-  console.log(item);
   return (
     <Container>
       <h2>{item.title}</h2>
