@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import IconHide from "../../../assets/icon-hide-sidebar.svg";
 
-export const SidebarHide = ({ cycleOpen }) => {
+export const SidebarHide = ({ setOpenSidebar }) => {
   return (
-    <SidebarHideContainer onClick={cycleOpen}>
+    <SidebarHideContainer onClick={setOpenSidebar}>
       <img src={IconHide} alt="icon hide" />
       <span>hide sidebar</span>
     </SidebarHideContainer>

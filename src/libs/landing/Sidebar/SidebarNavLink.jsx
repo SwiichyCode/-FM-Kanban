@@ -1,11 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { urlSplit } from "../../../helpers/urlSplit";
+import { IconBoard } from "./IconBoard";
 
 export const SidebarNavLink = ({ item, index }) => {
   return (
-    <li>
+    <Container>
       <NavLink
         to={`/${urlSplit(item)}`}
         className={({ isActive }) =>
@@ -13,9 +14,11 @@ export const SidebarNavLink = ({ item, index }) => {
         }
         key={index}
       >
-        <MdOutlineSpaceDashboard size={"1.5em"} className="btn-icon" />
+        <IconBoard />
         <span>{item}</span>
       </NavLink>
-    </li>
+    </Container>
   );
 };
+
+const Container = styled.li``;

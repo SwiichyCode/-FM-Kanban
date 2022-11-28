@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { MdClose } from "react-icons/md";
-// import { StyledInput } from "../Form/Input";
-// import { StyledButton } from "../Button/Button";
-// import InputLabel from "@mui/material/InputLabel";
 import { Input } from "../Input/index";
 import { Label } from "../Label";
 import { Button } from "../../Button";
+import iconCross from "../../../../assets/icon-cross.svg";
 export const SubtasksGenerator = ({
   labelText,
   columns,
@@ -28,10 +25,10 @@ export const SubtasksGenerator = ({
                 placeholder={item.placeholder}
                 maxW={385}
               />
-              <MdClose
-                color="#828FA3"
-                size={"1.5em"}
+              <IconClose
+                src={iconCross}
                 onClick={() => removeFormFields(index)}
+                alt=""
               />
             </div>
           ))}
@@ -67,11 +64,4 @@ const SubtasksGeneratorContainer = styled.div`
   }
 `;
 
-const StyledLabel = styled.label`
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 15px;
-  color: #828fa3;
-  text-transform: capitalize;
-  padding-bottom: 8px;
-`;
+const IconClose = styled.img``;

@@ -4,8 +4,13 @@ import { SidebarLogo } from "../SidebarLogo";
 import { SidebarNav } from "../SidebarNav";
 import { SidebarTheme } from "../SidebarTheme";
 import { SidebarHide } from "../SidebarHide";
+import { useToggle } from "../../../../hooks/useToggle";
+import iconShow from "../../../../assets/icon-show-sidebar.svg";
+
 export const Sidebar = () => {
-  return (
+  const [openSidebar, setOpenSidebar] = useToggle(true);
+
+  return openSidebar ? (
     <SidebarContainer>
       <div className="sidebar-top">
         <SidebarLogo />
@@ -13,11 +18,28 @@ export const Sidebar = () => {
       </div>
       <div className="sidebar-bottom">
         <SidebarTheme />
-        <SidebarHide />
+        <SidebarHide setOpenSidebar={setOpenSidebar} />
       </div>
     </SidebarContainer>
+  ) : (
+    <SidebarShow onClick={setOpenSidebar}>
+      <img src={iconShow} alt="" />
+    </SidebarShow>
   );
 };
+
+const SidebarShow = styled.div`
+  position: absolute;
+  bottom: 32px;
+  width: 56px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-purple);
+  border-radius: 0px 100px 100px 0px;
+  cursor: pointer;
+`;
 
 const SidebarContainer = styled.div`
   display: flex;
