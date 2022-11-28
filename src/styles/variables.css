@@ -26,4 +26,7 @@
   --fz-lg: 1.5rem;
   --fz-xl: 1.8rem;
   --fz-xxl: 2.4rem;
+
+  /* Global landing size */
+  --header-h: 97px;
 }

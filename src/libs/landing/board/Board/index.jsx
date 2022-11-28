@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { boardState } from "../../../../store/store";
 import { urlSplit } from "../../../../helpers/urlSplit";
+import { EmptyBoard } from "../EmptyBoard";
 
 export const Board = () => {
   let { name } = useParams();
@@ -11,11 +12,13 @@ export const Board = () => {
 
   return (
     <BoardContainer>
-      {boardData
-        .filter((item) => item.name && item.name.split(" ").join("_") === name)
-        .map((item, index) => (
-          <p key={index}>{item.name}</p>
-        ))}
+      {boardData.length !== 0 ? (
+        boardData
+          .filter((item) => urlSplit(item.name) === name)
+          .map((item, index) => <p key={index}>{item.name}</p>)
+      ) : (
+        <EmptyBoard />
+      )}
     </BoardContainer>
   );
 };
