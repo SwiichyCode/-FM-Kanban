@@ -11,6 +11,10 @@ export const Container = styled.div`
   gap: 16px;
   cursor: pointer;
 
+  &:hover {
+    background: ${({ isChecked }) => (isChecked ? "#f4f7fd" : "#d8d7f1")};
+  }
+
   & > * {
     cursor: pointer;
   }
