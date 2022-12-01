@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TaskModal } from "./TaskModal";
 import { useToggle } from "../../../../hooks/useToggle";
 
-export const TaskCard = ({ item }) => {
+export const TaskCard = ({ item, columns }) => {
   const [open, setOpen] = useToggle();
   const completedSubtasks = item.subtasks.filter((item) => item.isCompleted);
   return (
@@ -19,6 +19,7 @@ export const TaskCard = ({ item }) => {
         setOpen={setOpen}
         item={item}
         completedSubtasks={completedSubtasks}
+        columns={columns}
       />
     </>
   );
