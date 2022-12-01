@@ -31,9 +31,9 @@ export const Container = styled.div`
     line-height: 15px;
     text-decoration-line: ${({ isChecked }) =>
       isChecked ? "line-through" : "default"};
-    color: #000112;
-    mix-blend-mode: normal;
-    opacity: 0.5;
+
+    color: ${({ isChecked }) => (isChecked ? "#7A7C88" : "#000112")};
+
     transition: all 200ms ease-in-out;
     user-select: none;
   }

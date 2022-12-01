@@ -13,7 +13,7 @@ export const Select = ({ label, columns, currentItem }) => {
   };
 
   return (
-    <CustomSelect>
+    <CustomSelect open={open}>
       <label className="select-label">{label}</label>
 
       <div className="current-select" onClick={() => isOpen((prev) => !prev)}>

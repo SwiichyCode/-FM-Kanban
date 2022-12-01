@@ -19,10 +19,15 @@ export const CustomSelect = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid var(--main-purple);
+    border: ${({ open }) =>
+      open ? "1px solid var(--main-purple);" : "1px solid var(--white-grey);"};
     border-radius: 4px;
     padding: 0 16px;
     cursor: pointer;
+
+    &:hover {
+      border: 1px solid var(--main-purple);
+    }
 
     span {
       font-weight: 500;
@@ -36,9 +41,6 @@ export const CustomSelect = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* position: absolute;
-    top: 45px;
-    left: 0; */
     background: var(--white);
     box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
     border-radius: 8px;
