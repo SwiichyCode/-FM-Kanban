@@ -43,7 +43,7 @@ export const DeleteBoard = ({ openDelete, setOpenDelete }) => {
             onClick={deleteItem}
             type="button"
           />
-          <Button text="Cancel" theme="secondary" />
+          <Button text="Cancel" theme="secondary" onClick={setOpenDelete} />
         </div>
       </LayoutModal>
     </DeleteBoardContainer>
