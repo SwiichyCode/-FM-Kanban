@@ -9,11 +9,17 @@ export const Container = styled.div`
   border-radius: 4px;
   padding: 0 12px;
   gap: 16px;
+  cursor: pointer;
+
+  & > * {
+    cursor: pointer;
+  }
 
   input {
     width: 16px;
     height: 16px;
   }
+
   input[type="checkbox"] {
     accent-color: var(--main-purple);
   }
@@ -29,5 +35,6 @@ export const Container = styled.div`
     mix-blend-mode: normal;
     opacity: 0.5;
     transition: all 200ms ease-in-out;
+    user-select: none;
   }
 `;

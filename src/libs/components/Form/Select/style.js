@@ -36,9 +36,9 @@ export const CustomSelect = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    position: absolute;
+    /* position: absolute;
     top: 45px;
-    left: 0;
+    left: 0; */
     background: var(--white);
     box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
     border-radius: 8px;
@@ -55,6 +55,7 @@ export const CustomSelect = styled.div`
         font-size: 13px;
         line-height: 23px;
         color: #828fa3;
+        cursor: pointer;
       }
     }
   }
