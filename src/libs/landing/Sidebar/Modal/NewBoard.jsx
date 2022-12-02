@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { boardState } from "../../../../store/store";
-import { useSubtasks } from "../../../../hooks/useSubtasks";
 import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
-import { SubtasksGenerator } from "../../../components/Form/SubtasksGenerator/index";
+import { InputGenerator } from "../../../components/Form/InputGenerator/index";
 import { Input } from "../../../components/Form/Input/index";
 import { Button } from "../../../components/Button";
 
 export const NewBoard = ({ isOpen, setIsOpen }) => {
   const [name, setName] = useState("");
   const setBoardData = useSetRecoilState(boardState);
-  const { columns, handleChange, addFormFields, removeFormFields } =
-    useSubtasks();
+  const [inputFields, setInputFields] = useState([{ name: "", tasks: [] }]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,15 +19,20 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
       ...oldBoardData,
       {
         name: name,
+        columns: inputFields,
       },
     ]);
 
     setName("");
+    setInputFields([{ name: "", tasks: [] }]);
     setIsOpen(false);
   };
 
   return (
     <LayoutModal isOpen={isOpen} onRequestClose={setIsOpen} title="new board">
+      <div className="modal-header">
+        <h2 className="modal-title">Add New Board</h2>
+      </div>
       <Form onSubmit={handleSubmit}>
         <Input
           labelText="Name"
@@ -37,13 +40,12 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <SubtasksGenerator
-          labelText="Columns"
-          columns={columns}
-          handleChange={handleChange}
-          addFormFields={addFormFields}
-          removeFormFields={removeFormFields}
+        <InputGenerator
+          label="Columns"
+          inputFields={inputFields}
+          setInputFields={setInputFields}
         />
+
         <Button type="submit" theme="secondary" text="Create a New Board" />
       </Form>
     </LayoutModal>
@@ -53,5 +55,5 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 24px;
 `;
