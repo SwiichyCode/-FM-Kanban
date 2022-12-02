@@ -4,7 +4,7 @@ import { Column } from "./Column";
 
 export const ColumnWrapper = ({ item }) => {
   const { columns } = item;
-  console.log(columns);
+
   return (
     <Container>
       {columns.map((item, index) => {

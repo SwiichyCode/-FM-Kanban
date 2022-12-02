@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
 import { Checkbox } from "../../../components/Form/Checkbox/index";
 import { Select } from "../../../components/Form/Select";
+import { CustomPopover } from "../../../components/Popover";
+import { useToggle } from "../../../../hooks/useToggle";
+import { EditTask } from "./EditTask";
+import { DeleteTask } from "./DeleteTask";
 
 export const TaskModal = ({
   open,
@@ -11,9 +15,37 @@ export const TaskModal = ({
   completedSubtasks,
   columns,
 }) => {
-  console.log(item);
+  const [openDelete, setOpenDelete] = useToggle();
+  const [openEdit, setOpenEdit] = useToggle();
+
   return (
-    <LayoutModal isOpen={open} onRequestClose={setOpen} title={item.title}>
+    <LayoutModal isOpen={open} onRequestClose={setOpen}>
+      <div className="modal-header">
+        <h2 className="modal-title">{item.title}</h2>
+        <CustomPopover
+          children={
+            <div
+              className={`${
+                openDelete || openEdit
+                  ? "popoverInvisible"
+                  : "popover popover-center"
+              }`}
+            >
+              <EditTask
+                openEdit={openEdit}
+                setOpenEdit={setOpenEdit}
+                setOpen={setOpen}
+              />
+              <DeleteTask
+                openDelete={openDelete}
+                setOpenDelete={setOpenDelete}
+                setOpen={setOpen}
+              />
+            </div>
+          }
+        />
+      </div>
+
       <p className="modal-paragraph">{item.description}</p>
       <Subtasks className="modal-subtasks">
         <Label>

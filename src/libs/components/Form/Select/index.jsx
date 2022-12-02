@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import chevronDown from "../../../../assets/icon-chevron-down.svg";
+import PropTypes from "prop-types";
 import { useToggle } from "../../../../hooks/useToggle";
+import chevronDown from "../../../../assets/icon-chevron-down.svg";
 import { CustomSelect } from "./style";
 
 export const Select = ({ label, columns, currentItem }) => {
@@ -17,7 +18,7 @@ export const Select = ({ label, columns, currentItem }) => {
       <label className="select-label">{label}</label>
 
       <div className="current-select" onClick={() => isOpen((prev) => !prev)}>
-        <span>{currentValue || currentItem}</span>
+        <span>{currentItem || currentValue || "Choose a status"}</span>
         <img src={chevronDown} alt="" />
       </div>
 
@@ -41,4 +42,10 @@ export const Select = ({ label, columns, currentItem }) => {
       )}
     </CustomSelect>
   );
+};
+
+Select.propTypes = {
+  label: PropTypes.string.isRequired,
+  columns: PropTypes.array.isRequired,
+  currentItem: PropTypes.string,
 };

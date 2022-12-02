@@ -21,3 +21,37 @@ h1 {
     line-height: 25px;
   }
 }
+
+/* //Header */
+.h-xl {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 30px;
+}
+.h-l {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.438rem;
+}
+.h-m {
+  font-size: 0.938rem;
+  font-weight: bold;
+  line-height: 1.188rem;
+}
+.h-s {
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 0.938rem;
+  font-kerning: 0.15rem;
+}
+/* //Body */
+.b-l {
+  font-size: 0.813rem;
+  font-weight: normal;
+  line-height: 1.438rem;
+}
+.b-m {
+  font-size: 0.813rem;
+  font-weight: normal;
+  line-height: 1.438rem;
+}

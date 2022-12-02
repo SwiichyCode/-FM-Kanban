@@ -11,6 +11,8 @@ export const Board = () => {
   let { name } = useParams();
   const boardData = useRecoilValue(boardState);
 
+  console.log(boardData);
+
   return (
     <BoardContainer>
       {boardData.length !== 0 ? (

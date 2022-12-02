@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -26,14 +25,7 @@ export const LayoutModal = ({ isOpen, onRequestClose, children, title }) => {
       contentLabel="Example Modal"
       overlayClassName="overlay"
     >
-      <Title>{title}</Title>
       {children}
     </Modal>
   );
 };
-
-const Title = styled.h2`
-  font-size: var(--fz-xl);
-  text-transform: capitalize;
-  margin-bottom: 2.4rem;
-`;
