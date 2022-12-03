@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
     error ? "1px solid #ea5555" : "1px solid rgba(130, 143, 163, 0.25)"};
   background: transparent;
   border-radius: 4px;
-  padding: 8px 16px 9px 16px;
 `;
 
 export const Error = styled.span`
@@ -26,16 +25,20 @@ export const Error = styled.span`
 `;
 
 export const StyledInput = styled.input`
-  width: 70%;
+  width: 100%;
   background: transparent;
   border: none;
   font-weight: 500;
   font-size: 15px;
   line-height: 23px;
+  padding: 8px 16px 9px 16px;
+  border-radius: 4px;
 
   &:focus {
-    outline: none;
+    outline: 1px solid var(--main-purple);
+    box-shadow: 0px 0px 15px -2px #635fc7;
   }
+
   &::placeholder {
     color: #bfbfc3;
   }

@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { Button } from "../../Button";
 import { Input } from "../Input";
 import iconClose from "../../../../assets/icon-cross.svg";
+import { Container } from "./style";
 
 export const InputGenerator = ({ label, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
@@ -50,31 +50,3 @@ export const InputGenerator = ({ label, inputFields, setInputFields }) => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  label {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    color: #828fa3;
-  }
-
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .input-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    img {
-      cursor: pointer;
-    }
-  }
-`;
