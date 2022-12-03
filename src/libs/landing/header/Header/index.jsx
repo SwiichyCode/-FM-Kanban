@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-
 import { ManageBoard } from "../Modal/ManageBoard";
 import { NewTask } from "../Modal/NewTask";
-export const Header = () => {
+
+export const Header = ({ filteredData }) => {
   return (
     <HeaderContainer>
       <div className="left-side">
         <h1>Platform Launch</h1>
       </div>
       <div className="right-side">
-        <NewTask />
+        {filteredData.map((item, index) => {
+          return <NewTask item={item} key={index} />;
+        })}
         <ManageBoard />
       </div>
     </HeaderContainer>
