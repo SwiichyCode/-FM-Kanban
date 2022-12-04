@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { EmptyBoard } from "./EmptyBoard";
 import { ColumnWrapper } from "../Column/ColumnWrapper";
+import { useFilteredData } from "../../../../hooks/useFilteredData";
 
-export const Board = ({ filteredData }) => {
+export const Board = () => {
+  const boardData = useFilteredData();
+
   return (
     <BoardContainer>
-      {filteredData.length !== 0 ? (
-        filteredData.map((item, index) => (
+      {boardData.length !== 0 ? (
+        boardData.map((item, index) => (
           <ColumnWrapper item={item} key={index} />
         ))
       ) : (

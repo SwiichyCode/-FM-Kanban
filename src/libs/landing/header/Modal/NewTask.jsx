@@ -32,7 +32,7 @@ export const NewTask = ({ item }) => {
             inputFields={inputFields}
             setInputFields={setInputFields}
           />
-          <Select label="Status" columns={columns} />
+          <Select label="Status" columns={columns} currentItem={item.status} />
         </Form>
       </LayoutModal>
     </Container>

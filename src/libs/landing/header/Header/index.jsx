@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { ManageBoard } from "../Modal/ManageBoard";
 import { NewTask } from "../Modal/NewTask";
+import { useFilteredData } from "../../../../hooks/useFilteredData";
 
-export const Header = ({ filteredData }) => {
+export const Header = () => {
+  const boardData = useFilteredData();
+
   return (
     <HeaderContainer>
       <div className="left-side">
         <h1>Platform Launch</h1>
       </div>
       <div className="right-side">
-        {filteredData.map((item, index) => {
+        {boardData.map((item, index) => {
           return <NewTask item={item} key={index} />;
         })}
         <ManageBoard />
