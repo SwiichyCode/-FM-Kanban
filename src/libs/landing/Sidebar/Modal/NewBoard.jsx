@@ -10,7 +10,10 @@ import { Button } from "../../../components/Button";
 export const NewBoard = ({ isOpen, setIsOpen }) => {
   const [name, setName] = useState("");
   const setBoardData = useSetRecoilState(boardState);
-  const [inputFields, setInputFields] = useState([{ name: "", tasks: [] }]);
+  const [inputFields, setInputFields] = useState([
+    { name: "", placeholder: "Todo..." },
+    { name: "", placeholder: "Doing..." },
+  ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +46,7 @@ export const NewBoard = ({ isOpen, setIsOpen }) => {
         <InputGenerator
           label="Columns"
           inputFields={inputFields}
+          placeholder={inputFields.placeholder}
           setInputFields={setInputFields}
         />
 

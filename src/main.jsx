@@ -5,13 +5,25 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./views/App";
 import "./styles/index.css";
 
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+
+const queryClient = new QueryClient();
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+      </QueryClientProvider>
     ),
     children: [
       {

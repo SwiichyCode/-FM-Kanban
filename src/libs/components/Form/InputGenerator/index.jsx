@@ -3,6 +3,7 @@ import { Button } from "../../Button";
 import { Input } from "../Input";
 import iconClose from "../../../../assets/icon-cross.svg";
 import { Container } from "./style";
+import { Label } from "../Label";
 
 export const InputGenerator = ({ label, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
@@ -24,7 +25,7 @@ export const InputGenerator = ({ label, inputFields, setInputFields }) => {
 
   return (
     <Container>
-      <label>{label}</label>
+      <Label labelText={label} />
 
       <div className="input-container">
         {inputFields.map((input, index) => {
@@ -33,6 +34,7 @@ export const InputGenerator = ({ label, inputFields, setInputFields }) => {
               <Input
                 name="name"
                 value={input.name}
+                placeholder={input.placeholder}
                 onChange={(event) => handleFormChange(index, event)}
                 maxW={385}
               />
@@ -43,7 +45,7 @@ export const InputGenerator = ({ label, inputFields, setInputFields }) => {
         <Button
           onClick={addFields}
           text="+Add New Column"
-          theme="primary"
+          theme="secondary"
           type="button"
         />
       </div>

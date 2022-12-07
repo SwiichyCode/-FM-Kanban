@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { ManageBoard } from "../Modal/ManageBoard";
 import { NewTask } from "../Modal/NewTask";
+import { useRecoilValue } from "recoil";
 import { useFilteredData } from "../../../../hooks/useFilteredData";
+import { boardState } from "../../../../store/store";
 
 export const Header = () => {
-  const boardData = useFilteredData();
+  const data = useRecoilValue(boardState);
+  const boardData = useFilteredData(data);
 
   return (
     <HeaderContainer>

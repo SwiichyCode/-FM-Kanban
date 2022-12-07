@@ -54,7 +54,7 @@ Button.propTypes = {
   theme: PropTypes.oneOf(["primary", "secondary", "destructive"]).isRequired,
   size: PropTypes.string,
   text: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(["submit", "reset", "button"]),
   onClick: PropTypes.func,
   maxW: PropTypes.number,
 };

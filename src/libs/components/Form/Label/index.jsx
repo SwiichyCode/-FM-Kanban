@@ -11,5 +11,5 @@ const StyledLabel = styled.label`
   line-height: 15px;
   color: #828fa3;
   text-transform: capitalize;
-  padding-bottom: 8px;
+  padding-bottom: 11px;
 `;

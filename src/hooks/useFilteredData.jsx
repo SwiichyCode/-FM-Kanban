@@ -1,13 +1,13 @@
+import React from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilValue } from "recoil";
 import { urlSplit } from "../helpers/urlSplit";
-import { boardState } from "../store/store";
 
-export const useFilteredData = () => {
+export const useFilteredData = (initialData) => {
   let { name } = useParams();
-  const data = useRecoilValue(boardState);
 
-  const filteredData = data.filter((item) => urlSplit(item.name) === name);
+  const filteredData = initialData.filter(
+    (item) => urlSplit(item.name) === name
+  );
 
   return filteredData;
 };

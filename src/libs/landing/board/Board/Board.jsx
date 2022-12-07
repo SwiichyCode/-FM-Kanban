@@ -3,13 +3,16 @@ import styled from "styled-components";
 import { EmptyBoard } from "./EmptyBoard";
 import { ColumnWrapper } from "../Column/ColumnWrapper";
 import { useFilteredData } from "../../../../hooks/useFilteredData";
+import { useRecoilValue } from "recoil";
+import { boardState } from "../../../../store/store";
 
 export const Board = () => {
-  const boardData = useFilteredData();
+  const data = useRecoilValue(boardState);
+  const boardData = useFilteredData(data);
 
   return (
     <BoardContainer>
-      {boardData.length !== 0 ? (
+      {boardData.length > 0 ? (
         boardData.map((item, index) => (
           <ColumnWrapper item={item} key={index} />
         ))

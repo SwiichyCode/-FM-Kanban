@@ -5,7 +5,7 @@ import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
 export const DeleteTask = ({ openDelete, setOpenDelete }) => {
   return (
     <Container>
-      <span onClick={setOpenDelete}>Delite Task</span>
+      <span onClick={setOpenDelete}>Delete Task</span>
       <LayoutModal
         isOpen={openDelete}
         onRequestClose={setOpenDelete}
