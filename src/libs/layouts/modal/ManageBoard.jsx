@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useToggle } from "../../../../hooks/useToggle";
+import { useToggle } from "../../../hooks/useToggle";
 import { DeleteBoard } from "./DeleteBoard";
 import { EditBoard } from "./EditBoard";
-import { CustomPopover } from "../../../components/Popover";
+import { CustomPopover } from "../../components/Popover";
 
 export const ManageBoard = () => {
   const [openDelete, setOpenDelete] = useToggle();

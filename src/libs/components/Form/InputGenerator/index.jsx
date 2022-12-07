@@ -5,7 +5,7 @@ import iconClose from "../../../../assets/icon-cross.svg";
 import { Container } from "./style";
 import { Label } from "../Label";
 
-export const InputGenerator = ({ label, inputFields, setInputFields }) => {
+export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
     let data = [...inputFields];
     data[index][event.target.name] = event.target.value;
@@ -25,7 +25,7 @@ export const InputGenerator = ({ label, inputFields, setInputFields }) => {
 
   return (
     <Container>
-      <Label labelText={label} />
+      <Label labelText={labelText} />
 
       <div className="input-container">
         {inputFields.map((input, index) => {

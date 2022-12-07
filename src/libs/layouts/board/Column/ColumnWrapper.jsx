@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Column } from "./Column";
-import { NewColumn } from "./NewColumn";
+import { NewColumn } from "../../modal/NewColumn";
 
 export const ColumnWrapper = ({ item }) => {
   const { columns } = item;

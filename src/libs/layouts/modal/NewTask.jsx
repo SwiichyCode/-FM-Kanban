@@ -1,40 +1,33 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../../../components/Button";
-import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
-import { useToggle } from "../../../../hooks/useToggle";
-import { Input } from "../../../components/Form/Input/index";
-import { InputGenerator } from "../../../components/Form/InputGenerator/index";
-import { Select } from "../../../components/Form/Select";
-import { TextArea } from "../../../components/Form/TextArea";
-import { useSetRecoilState } from "recoil";
-import { boardState } from "../../../../store/store";
+import { Button } from "../../components/Button";
+import { LayoutModal } from "../../components/Wrapper/LayoutModal";
+import { useToggle } from "../../../hooks/useToggle";
+import { Input } from "../../components/Form/Input/index";
+import { InputGenerator } from "../../components/Form/InputGenerator/index";
+import { Select } from "../../components/Form/Select";
+import { TextArea } from "../../components/Form/TextArea";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { boardState } from "../../../store/store";
 
 export const NewTask = ({ item }) => {
   const [open, setOpen] = useToggle();
   const { columns } = item;
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [inputFields, setInputFields] = useState([{ name: "", tasks: [] }]);
+  const [inputFields, setInputFields] = useState([
+    { name: "", placeholder: "e.g Make coffee", tasks: [] },
+    { name: "", placeholder: "e.g Drink coffee & smile", tasks: [] },
+  ]);
   const [status, setStatus] = useState("");
 
   const setBoardData = useSetRecoilState(boardState);
 
-  // console.log(setBoardData((oldata) => [...oldata]));
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const currentIndex = columns.findIndex((item) => item.name === status);
-    const addTask = Object.assign({}, columns[currentIndex]);
-    addTask.tasks = [...addTask.tasks, { title: title }];
-
-    const newColumn = [...columns];
-    newColumn[currentIndex] = addTask;
-
-    console.log(newColumn);
   };
+
+  console.log(item);
 
   // console.log(title, description, inputFields, status);
   return (
@@ -65,6 +58,7 @@ export const NewTask = ({ item }) => {
           <InputGenerator
             label="Subtasks"
             inputFields={inputFields}
+            placeholder={inputFields.placeholder}
             setInputFields={setInputFields}
           />
           <Select

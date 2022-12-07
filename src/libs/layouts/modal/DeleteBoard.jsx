@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { Button } from "../../../components/Button";
-import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
-import { boardState } from "../../../../store/store";
-import { urlSplit } from "../../../../helpers/urlSplit";
+import { Button } from "../../components/Button";
+import { LayoutModal } from "../../components/Wrapper/LayoutModal";
+import { boardState } from "../../../store/store";
+import { urlSplit } from "../../../helpers/urlSplit";
 
 export const DeleteBoard = ({ openDelete, setOpenDelete }) => {
   const [boardData, setBoardData] = useRecoilState(boardState);

@@ -2,24 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { boardState } from "../../../store/store";
-import { SidebarModal } from "./Modal/SidebarModal";
 import { SidebarNavLink } from "./SidebarNavLink";
+import { NewBoard } from "../modal/NewBoard";
 
 export const SidebarNav = () => {
   const boardData = useRecoilValue(boardState);
-
-  const SidebarNavItem = () => {
-    return boardData.map((item, index) => {
-      return <SidebarNavLink item={item.name} index={index} />;
-    });
-  };
 
   return (
     <SidebarNavContainer>
       <h2>all boards ({boardData.length})</h2>
       <ul>
-        <SidebarNavItem />
-        <SidebarModal />
+        {boardData.map((item, index) => {
+          return <SidebarNavLink item={item.name} index={index} />;
+        })}
+        <NewBoard />
       </ul>
     </SidebarNavContainer>
   );
@@ -48,10 +44,6 @@ const SidebarNavContainer = styled.nav`
     font-size: 1.5rem;
     line-height: 1.9rem;
     text-transform: capitalize;
-
-    &:last-child {
-      color: var(--main-purple) !important;
-    }
   }
 
   ul {

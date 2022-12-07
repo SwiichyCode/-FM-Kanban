@@ -16,3 +16,8 @@ export const boardState = atom({
   default: data,
   effects_UNSTABLE: [persistAtom],
 });
+
+// export const columnState = atom({
+//   key: "columnState",
+//   default: data.map((item) => item.columns),
+// });

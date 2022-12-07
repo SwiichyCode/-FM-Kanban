@@ -1,31 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import { ManageBoard } from "../Modal/ManageBoard";
-import { NewTask } from "../Modal/NewTask";
-import { useRecoilValue } from "recoil";
-import { useFilteredData } from "../../../../hooks/useFilteredData";
-import { boardState } from "../../../../store/store";
 
-export const Header = () => {
-  const data = useRecoilValue(boardState);
-  const boardData = useFilteredData(data);
-
-  return (
-    <HeaderContainer>
-      <div className="left-side">
-        <h1>Platform Launch</h1>
-      </div>
-      <div className="right-side">
-        {boardData.map((item, index) => {
-          return <NewTask item={item} key={index} />;
-        })}
-        <ManageBoard />
-      </div>
-    </HeaderContainer>
-  );
-};
-
-const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header`
   width: 100%;
   min-height: 64px;
   display: flex;
@@ -122,25 +97,5 @@ const HeaderContainer = styled.header`
     .icon-add {
       display: none;
     }
-  }
-`;
-
-export const PopoverContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  span {
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 23px;
-  }
-
-  .edit-board {
-    color: #828fa3;
-  }
-  .delete-board {
-    color: #ea5555;
   }
 `;

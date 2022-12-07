@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
+import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 
 export const EditTask = ({ openEdit, setOpenEdit }) => {
   return (

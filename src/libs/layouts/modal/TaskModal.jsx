@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { LayoutModal } from "../../../components/Wrapper/LayoutModal";
-import { Checkbox } from "../../../components/Form/Checkbox/index";
-import { Select } from "../../../components/Form/Select";
-import { CustomPopover } from "../../../components/Popover";
-import { useToggle } from "../../../../hooks/useToggle";
+import { LayoutModal } from "../../components/Wrapper/LayoutModal";
+import { Checkbox } from "../../components/Form/Checkbox/index";
+import { Select } from "../../components/Form/Select";
+import { CustomPopover } from "../../components/Popover";
+import { useToggle } from "../../../hooks/useToggle";
 import { EditTask } from "./EditTask";
 import { DeleteTask } from "./DeleteTask";
 

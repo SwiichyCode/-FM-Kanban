@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { SidebarLogo } from "../SidebarLogo";
-import { SidebarNav } from "../SidebarNav";
-import { SidebarTheme } from "../SidebarTheme";
-import { SidebarHide } from "../SidebarHide";
-import { useToggle } from "../../../../hooks/useToggle";
-import iconShow from "../../../../assets/icon-show-sidebar.svg";
+import { SidebarLogo } from "./SidebarLogo";
+import { SidebarNav } from "./SidebarNav";
+import { SidebarTheme } from "./SidebarTheme";
+import { SidebarHide } from "./SidebarHide";
+import { useToggle } from "../../../hooks/useToggle";
+import iconShow from "../../../assets/icon-show-sidebar.svg";
 
 export const Sidebar = () => {
   const [openSidebar, setOpenSidebar] = useToggle(true);

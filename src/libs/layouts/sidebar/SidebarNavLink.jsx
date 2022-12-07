@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { urlSplit } from "../../../helpers/urlSplit";
-import { IconBoard } from "./IconBoard";
+import { IconBoard } from "./SidebarIcon";
 
 export const SidebarNavLink = ({ item, index }) => {
   return (
