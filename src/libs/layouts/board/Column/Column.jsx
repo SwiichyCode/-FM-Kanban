@@ -10,9 +10,10 @@ export const Column = ({ item, columns }) => {
     <Container>
       <ColumnTitle title={item.name} item={item} />
       <div className="column-cards">
-        {tasks.map((item, index) => {
-          return <TaskCard item={item} key={index} columns={columns} />;
-        })}
+        {tasks &&
+          tasks.map((item, index) => {
+            return <TaskCard item={item} key={index} columns={columns} />;
+          })}
       </div>
     </Container>
   );

@@ -8,7 +8,10 @@ import { Label } from "../Label";
 export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
     let data = [...inputFields];
-    data[index][event.target.name] = event.target.value;
+
+    if (event.target.name === "name") {
+      data[index] = { ...data[index], name: event.target.value };
+    }
     setInputFields(data);
   };
 

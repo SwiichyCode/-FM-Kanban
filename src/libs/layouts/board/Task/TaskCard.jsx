@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TaskModal } from "../../modal/TaskModal";
+import { TaskModal } from "../../modal/ManageTask";
 import { useToggle } from "../../../../hooks/useToggle";
 
 export const TaskCard = ({ item, columns }) => {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { useToggle } from "../../../hooks/useToggle";
@@ -7,12 +8,12 @@ import { Input } from "../../components/Form/Input/index";
 import { InputGenerator } from "../../components/Form/InputGenerator/index";
 import { Select } from "../../components/Form/Select";
 import { TextArea } from "../../components/Form/TextArea";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { boardState } from "../../../store/store";
+import { urlSplit } from "../../../helpers/urlSplit";
 
 export const NewTask = ({ item }) => {
   const [open, setOpen] = useToggle();
-  const { columns } = item;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [inputFields, setInputFields] = useState([
@@ -20,16 +21,41 @@ export const NewTask = ({ item }) => {
     { name: "", placeholder: "e.g Drink coffee & smile", tasks: [] },
   ]);
   const [status, setStatus] = useState("");
-
-  const setBoardData = useSetRecoilState(boardState);
+  const [boardData, setBoardData] = useRecoilState(boardState);
+  const { columns } = item;
+  let { name } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newTask = {
+      title,
+      description,
+      subtasks: inputFields,
+      status,
+    };
+
+    const newBoardData = [...boardData].map((board) => {
+      if (urlSplit(board.name) === name) {
+        return {
+          ...board,
+          columns: board.columns.map((column) => {
+            if (column.name === status) {
+              return {
+                ...column,
+                tasks: [...column.tasks, newTask],
+              };
+            }
+            return column;
+          }),
+        };
+      }
+      return board;
+    });
+
+    setBoardData(newBoardData);
+    setOpen();
   };
-
-  console.log(item);
-
-  // console.log(title, description, inputFields, status);
   return (
     <Container>
       <Button

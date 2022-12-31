@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { EditBoard } from "./EditBoard";
+import { useToggle } from "../../../hooks/useToggle";
 
 export const NewColumn = () => {
-  return <Container>+ New Column</Container>;
+  const [open, setOpen] = useToggle(false);
+
+  return (
+    <>
+      <Container onClick={setOpen}>+ New Column</Container>
+      <EditBoard openEdit={open} setOpenEdit={setOpen} trigger={false} />
+    </>
+  );
 };
 
 const Container = styled.div`

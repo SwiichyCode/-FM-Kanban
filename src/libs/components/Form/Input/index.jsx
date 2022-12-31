@@ -8,6 +8,7 @@ export const Input = ({
   labelText,
   placeholder,
   value,
+  defaultValue,
   onChange,
   error,
   maxW,
@@ -22,6 +23,7 @@ export const Input = ({
           placeholder={placeholder}
           value={value || ""}
           onChange={onChange}
+          defaultValue={defaultValue}
         ></S.StyledInput>
         {error && <S.Error>Can't be empty</S.Error>}
       </S.Wrapper>

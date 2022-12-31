@@ -7,7 +7,7 @@ import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { boardState } from "../../../store/store";
 import { urlSplit } from "../../../helpers/urlSplit";
 
-export const DeleteBoard = ({ openDelete, setOpenDelete }) => {
+export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
   const [boardData, setBoardData] = useRecoilState(boardState);
   let { name } = useParams();
   let navigate = useNavigate();
@@ -31,9 +31,12 @@ export const DeleteBoard = ({ openDelete, setOpenDelete }) => {
         onRequestClose={setOpenDelete}
         title="Delete this board?"
       >
+        <div className="modal-header">
+          <h2 className="modal-title alert">Delete this board?</h2>
+        </div>
         <p className="modal-paragraph">
-          Are you sure you want to delete the ‘Platform Launch’ board? This
-          action will remove all columns and tasks and cannot be reversed.
+          Are you sure you want to delete the ‘{boardName}’ board? This action
+          will remove all columns and tasks and cannot be reversed.
         </p>
 
         <div className="modal-box">

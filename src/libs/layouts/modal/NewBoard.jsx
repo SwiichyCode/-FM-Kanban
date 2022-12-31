@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { boardState } from "../../../store/store";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
@@ -12,11 +12,11 @@ import { IconBoard } from "../sidebar/SidebarIcon";
 export const NewBoard = () => {
   const [isOpen, setIsOpen] = useToggle();
   const [name, setName] = useState("");
-  const setBoardData = useSetRecoilState(boardState);
   const [inputFields, setInputFields] = useState([
-    { name: "", placeholder: "Todo..." },
-    { name: "", placeholder: "Doing..." },
+    { name: "", placeholder: "Todo...", tasks: [] },
+    { name: "", placeholder: "Doing...", tasks: [] },
   ]);
+  const setBoardData = useSetRecoilState(boardState);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -15,7 +15,11 @@
 }
 .modal-title {
   font-size: var(--fz-xl);
+  color: var(--black);
   text-transform: capitalize;
+}
+.modal-title.alert {
+  color: var(--red);
 }
 .modal-paragraph {
   font-weight: 500;

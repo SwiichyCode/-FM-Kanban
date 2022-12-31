@@ -9,17 +9,18 @@ import { HeaderContainer } from "./style";
 export const Header = () => {
   const data = useRecoilValue(boardState);
   const boardData = useFilteredData(data);
+  const boardName = boardData.map((item) => item.name);
 
   return (
     <HeaderContainer>
       <div className="left-side">
-        <h1>Platform Launch</h1>
+        <h1>{boardName}</h1>
       </div>
       <div className="right-side">
         {boardData.map((item, index) => {
           return <NewTask item={item} key={index} />;
         })}
-        <ManageBoard />
+        <ManageBoard boardName={boardName} />
       </div>
     </HeaderContainer>
   );

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { useState } from "react";
@@ -11,32 +11,58 @@ import { Input } from "../../components/Form/Input";
 import { InputGenerator } from "../../components/Form/InputGenerator";
 import { Button } from "../../components/Button";
 
-export const EditBoard = ({ openEdit, setOpenEdit }) => {
+export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   const [boardData, setBoardData] = useRecoilState(boardState);
   const [actualBoard, setActualBoard] = useState({ name: "", columns: [] });
-  const [boardName, setBoardName] = useState("");
   const [inputFields, setInputFields] = useState([]);
-
   let { name } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!name && actualBoard) return;
     const actualboard = [...boardData].filter(
       (board) => urlSplit(board.name) === name
     );
-
     setActualBoard(...actualboard);
+
+    return () => {
+      setActualBoard({ name: "", columns: [] });
+    };
   }, [name]);
 
-  useEffect(() => {
-    const inputfields = actualBoard.columns;
-    setInputFields(inputfields);
-  });
+  // Edit Board
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
 
-  // console.log(inputFields.map((item) => item.name));
+      const newBoardData = [...boardData].map((board) => {
+        if (urlSplit(board.name) === name) {
+          return {
+            ...board,
+            name: actualBoard.name,
+            columns: inputFields,
+          };
+        }
+        return board;
+      });
+      setBoardData(newBoardData);
+      setOpenEdit(false);
+      navigate(`/${urlSplit(actualBoard.name)}`);
+    },
+    [actualBoard, inputFields, name]
+  );
+
+  useEffect(() => {
+    setInputFields(actualBoard.columns);
+
+    return () => {
+      setInputFields([]);
+    };
+  }, [actualBoard]);
 
   return (
     <DeleteBoardContainer>
-      <span onClick={setOpenEdit}>Edit board</span>
+      {trigger && <span onClick={setOpenEdit}>Edit board</span>}
       <LayoutModal
         isOpen={openEdit}
         onRequestClose={setOpenEdit}
@@ -45,11 +71,13 @@ export const EditBoard = ({ openEdit, setOpenEdit }) => {
         <div className="modal-header">
           <h2 className="modal-title">Edit Board</h2>
         </div>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Input
+            name="name"
             labelText={"Board Name"}
-            name={boardName}
-            onChange={(e) => setBoardName(e.target.value)}
+            onChange={(e) =>
+              setActualBoard({ ...actualBoard, name: e.target.value })
+            }
             value={actualBoard.name}
           />
           <InputGenerator

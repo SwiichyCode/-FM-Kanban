@@ -5,7 +5,7 @@ import { DeleteBoard } from "./DeleteBoard";
 import { EditBoard } from "./EditBoard";
 import { CustomPopover } from "../../components/Popover";
 
-export const ManageBoard = () => {
+export const ManageBoard = ({ boardName }) => {
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
 
@@ -19,6 +19,7 @@ export const ManageBoard = () => {
             <DeleteBoard
               openDelete={openDelete}
               setOpenDelete={setOpenDelete}
+              boardName={boardName}
             />
           </div>
         }

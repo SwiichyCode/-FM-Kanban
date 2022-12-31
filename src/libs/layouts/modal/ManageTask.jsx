@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { Checkbox } from "../../components/Form/Checkbox/index";
@@ -7,6 +7,8 @@ import { CustomPopover } from "../../components/Popover";
 import { useToggle } from "../../../hooks/useToggle";
 import { EditTask } from "./EditTask";
 import { DeleteTask } from "./DeleteTask";
+import { useRecoilState } from "recoil";
+import { boardState } from "../../../store/store";
 
 export const TaskModal = ({
   open,
@@ -17,12 +19,20 @@ export const TaskModal = ({
 }) => {
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
+  const [visible, setVisible] = useState();
+  const [boardData, setBoardData] = useRecoilState(boardState);
+  const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    openDelete || openEdit ? setVisible(false) : setVisible(true);
+  }, [openDelete, openEdit]);
 
   return (
-    <LayoutModal isOpen={open} onRequestClose={setOpen}>
+    <LayoutModal isOpen={open} onRequestClose={setOpen} visibility={visible}>
       <div className="modal-header">
         <h2 className="modal-title">{item.title}</h2>
         <CustomPopover
+          state={[openDelete, openEdit]}
           children={
             <div
               className={`${
@@ -35,11 +45,13 @@ export const TaskModal = ({
                 openEdit={openEdit}
                 setOpenEdit={setOpenEdit}
                 setOpen={setOpen}
+                item={item}
               />
               <DeleteTask
                 openDelete={openDelete}
                 setOpenDelete={setOpenDelete}
                 setOpen={setOpen}
+                item={item}
               />
             </div>
           }
@@ -68,6 +80,7 @@ export const TaskModal = ({
         label="Current Status"
         currentItem={item.status}
         columns={columns}
+        setStatus={setStatus}
       />
     </LayoutModal>
   );
