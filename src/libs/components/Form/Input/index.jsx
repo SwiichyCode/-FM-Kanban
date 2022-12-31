@@ -11,12 +11,14 @@ export const Input = ({
   defaultValue,
   onChange,
   error,
+  errorMessage,
   maxW,
 }) => {
   return (
     <S.Container maxW={maxW}>
       {labelText && <Label for={name} labelText={labelText} />}
-      <S.Wrapper error={error}>
+
+      <S.Wrapper>
         <S.StyledInput
           name={name}
           type="text"
@@ -24,8 +26,9 @@ export const Input = ({
           value={value || ""}
           onChange={onChange}
           defaultValue={defaultValue}
-        ></S.StyledInput>
-        {error && <S.Error>Can't be empty</S.Error>}
+          error={error}
+        />
+        {error && <S.Error>{errorMessage}</S.Error>}
       </S.Wrapper>
     </S.Container>
   );
