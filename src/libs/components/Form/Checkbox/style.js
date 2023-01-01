@@ -9,11 +9,21 @@ export const Container = styled.div`
   border-radius: 4px;
   padding: 0 12px;
   gap: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ isChecked }) => (isChecked ? "#f4f7fd" : "#d8d7f1")};
+  }
+
+  & > * {
+    cursor: pointer;
+  }
 
   input {
     width: 16px;
     height: 16px;
   }
+
   input[type="checkbox"] {
     accent-color: var(--main-purple);
   }
@@ -23,11 +33,12 @@ export const Container = styled.div`
     font-weight: 700;
     font-size: 12px;
     line-height: 15px;
-    text-decoration-line: ${({ checked }) =>
-      checked ? "line-through" : "default"};
-    color: #000112;
-    mix-blend-mode: normal;
-    opacity: 0.5;
+    text-decoration-line: ${({ isChecked }) =>
+      isChecked ? "line-through" : "default"};
+
+    color: ${({ isChecked }) => (isChecked ? "#7A7C88" : "#000112")};
+
     transition: all 200ms ease-in-out;
+    user-select: none;
   }
 `;

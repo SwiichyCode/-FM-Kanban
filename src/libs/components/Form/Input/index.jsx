@@ -8,22 +8,27 @@ export const Input = ({
   labelText,
   placeholder,
   value,
+  defaultValue,
   onChange,
   error,
+  errorMessage,
   maxW,
 }) => {
   return (
     <S.Container maxW={maxW}>
       {labelText && <Label for={name} labelText={labelText} />}
-      <S.Wrapper error={error}>
+
+      <S.Wrapper>
         <S.StyledInput
           name={name}
           type="text"
           placeholder={placeholder}
           value={value || ""}
           onChange={onChange}
-        ></S.StyledInput>
-        {error && <S.Error>Can't be empty</S.Error>}
+          defaultValue={defaultValue}
+          error={error}
+        />
+        {error && <S.Error>{errorMessage}</S.Error>}
       </S.Wrapper>
     </S.Container>
   );

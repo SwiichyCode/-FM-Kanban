@@ -9,13 +9,8 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: ${({ error }) =>
-    error ? "1px solid #ea5555" : "1px solid rgba(130, 143, 163, 0.25)"};
-  background: transparent;
-  border-radius: 4px;
-  padding: 8px 16px 9px 16px;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const Error = styled.span`
@@ -26,16 +21,24 @@ export const Error = styled.span`
 `;
 
 export const StyledInput = styled.input`
-  width: 70%;
+  width: 100%;
   background: transparent;
   border: none;
   font-weight: 500;
   font-size: 15px;
   line-height: 23px;
+  padding: 8px 16px 9px 16px;
+  border-radius: 4px;
+  border: ${({ error }) =>
+    error ? "1px solid #ea5555" : "1px solid rgba(130, 143, 163, 0.25)"};
 
   &:focus {
-    outline: none;
+    outline: ${({ error }) =>
+      error ? "1px solid #ea5555" : "1px solid var(--main-purple)"};
+    box-shadow: ${({ error }) =>
+      error ? "0px 0px 15px -2px #ea5555" : "0px 0px 15px -2px #635fc7"};
   }
+
   &::placeholder {
     color: #bfbfc3;
   }
