@@ -23,8 +23,6 @@ export const TaskModal = ({
   const [boardData, setBoardData] = useRecoilState(boardState);
   const [status, setStatus] = useState("");
 
-  console.log(columns);
-
   useEffect(() => {
     openDelete || openEdit ? setVisible(false) : setVisible(true);
   }, [openDelete, openEdit]);

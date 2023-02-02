@@ -5,11 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 const initialDashboard = [
   {
     id: "68633346-daa5-48b3-ba80-e35887561d8d",
-    name: "Board 1",
+    name: "Platform Launch",
     columns: [
       {
         id: "68633346-daa5-48b3-ba80-e35887561d8c",
-        name: "Column 1",
+        name: "Todo",
         tasks: [
           {
             id: "68633346-daa5-48b3-ba80-e35887561d8e",

@@ -8,9 +8,6 @@ import { Input } from "../../components/Form/Input/index";
 import { InputGenerator } from "../../components/Form/InputGenerator/index";
 import { Select } from "../../components/Form/Select";
 import { TextArea } from "../../components/Form/TextArea";
-import { useRecoilState } from "recoil";
-import { boardState } from "../../../store/store";
-import { urlSplit } from "../../../helpers/urlSplit";
 import useDashboardStore from "../../../store/dashboardStore";
 import { v4 as uuidv4 } from "uuid";
 
@@ -29,8 +26,6 @@ export const NewTask = () => {
   const addTask = useDashboardStore((state) => state.addTask);
   const currentBoard = board.find((item) => item.id === id);
 
-  // console.log(currentBoard);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -45,10 +40,8 @@ export const NewTask = () => {
     console.log(id, status, newTask);
 
     addTask(id, status, newTask);
-    // setOpen();
+    setOpen();
   };
-
-  console.log(board);
 
   return (
     <Container>
