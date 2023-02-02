@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { ColumnTitle } from "./ColumnTitle";
 import { TaskCard } from "../Task/TaskCard";
+import { Link } from "react-router-dom";
 
 export const Column = ({ item, columns }) => {
   const { tasks } = item;
+
+  console.log(columns);
 
   return (
     <Container>
@@ -12,7 +15,11 @@ export const Column = ({ item, columns }) => {
       <div className="column-cards">
         {tasks &&
           tasks.map((item, index) => {
-            return <TaskCard item={item} key={index} columns={columns} />;
+            return (
+              <Link>
+                <TaskCard item={item} key={index} columns={columns} />
+              </Link>
+            );
           })}
       </div>
     </Container>

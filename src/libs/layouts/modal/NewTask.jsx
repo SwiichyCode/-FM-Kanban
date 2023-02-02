@@ -36,9 +36,10 @@ export const NewTask = () => {
 
     const newTask = {
       id: uuidv4(),
-      name: "New Task",
+      name: title,
       description: description,
       subtasks: inputFields,
+      columnId: status,
     };
 
     console.log(id, status, newTask);

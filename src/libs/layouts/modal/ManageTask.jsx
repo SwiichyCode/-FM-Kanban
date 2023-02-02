@@ -23,6 +23,8 @@ export const TaskModal = ({
   const [boardData, setBoardData] = useRecoilState(boardState);
   const [status, setStatus] = useState("");
 
+  console.log(columns);
+
   useEffect(() => {
     openDelete || openEdit ? setVisible(false) : setVisible(true);
   }, [openDelete, openEdit]);
@@ -30,7 +32,7 @@ export const TaskModal = ({
   return (
     <LayoutModal isOpen={open} onRequestClose={setOpen} visibility={visible}>
       <div className="modal-header">
-        <h2 className="modal-title">{item.title}</h2>
+        <h2 className="modal-title">{item.name}</h2>
         <CustomPopover
           state={[openDelete, openEdit]}
           children={
@@ -52,6 +54,7 @@ export const TaskModal = ({
                 setOpenDelete={setOpenDelete}
                 setOpen={setOpen}
                 item={item}
+                columns={columns}
               />
             </div>
           }

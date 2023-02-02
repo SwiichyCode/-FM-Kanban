@@ -1,23 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import useDashboardStore from "../../../store/dashboardStore";
 import { Button } from "../../components/Button";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
-import { boardState } from "../../../store/store";
-import { urlSplit } from "../../../helpers/urlSplit";
 
 export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
-  const [boardData, setBoardData] = useRecoilState(boardState);
-  let { name } = useParams();
+  let { id } = useParams();
   let navigate = useNavigate();
+  const deleteBoard = useDashboardStore((state) => state.deleteBoard);
 
   const deleteItem = () => {
-    const newBoard = [...boardData].filter(
-      (board) => urlSplit(board.name) != name
-    );
-
-    setBoardData(newBoard);
+    deleteBoard(id);
     setOpenDelete();
 
     navigate("/");
@@ -35,7 +29,7 @@ export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
           <h2 className="modal-title alert">Delete this board?</h2>
         </div>
         <p className="modal-paragraph">
-          Are you sure you want to delete the ‘{boardName}’ board? This action
+          Are you sure you want to delete the {boardName} board? This action
           will remove all columns and tasks and cannot be reversed.
         </p>
 

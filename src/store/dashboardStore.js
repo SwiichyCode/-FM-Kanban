@@ -1,17 +1,38 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-
 import { v4 as uuidv4 } from "uuid";
 
 const initialDashboard = [
   {
-    id: uuidv4(),
+    id: "68633346-daa5-48b3-ba80-e35887561d8d",
     name: "Board 1",
     columns: [
       {
-        id: uuidv4(),
+        id: "68633346-daa5-48b3-ba80-e35887561d8c",
         name: "Column 1",
-        tasks: [],
+        tasks: [
+          {
+            id: "68633346-daa5-48b3-ba80-e35887561d8e",
+            name: "Build UI for onboarding flow",
+            description: "",
+            columnId: "68633346-daa5-48b3-ba80-e35887561d8c",
+
+            subtasks: [
+              {
+                title: "Sign up page",
+                isCompleted: true,
+              },
+              {
+                title: "Sign in page",
+                isCompleted: false,
+              },
+              {
+                title: "Welcome page",
+                isCompleted: false,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
@@ -54,6 +75,29 @@ const useDashboardStore = create(
               : board
           ),
         })),
+
+      deleteTask: (boardId, columnId, taskId) =>
+        set((state) => ({
+          dashboard: state.dashboard.map((board) =>
+            board.id === boardId
+              ? {
+                  ...board,
+                  columns: board.columns.map((column) =>
+                    column.id === columnId
+                      ? {
+                          ...column,
+                          tasks: column.tasks.filter(
+                            (task) => task.id !== taskId
+                          ),
+                        }
+                      : column
+                  ),
+                }
+              : board
+          ),
+        })),
+
+      resetStorage: () => set(() => ({ dashboard: initialDashboard })),
     }),
     {
       name: "dashboard-storage", // name of the item in the storage (must be unique)

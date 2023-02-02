@@ -6,30 +6,15 @@ import { Button } from "../../components/Button";
 import { useRecoilState } from "recoil";
 import { boardState } from "../../../store/store";
 import { urlSplit } from "../../../helpers/urlSplit";
+import useDashboardStore from "../../../store/dashboardStore";
 
-export const DeleteTask = ({ openDelete, setOpenDelete, item }) => {
+export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
   const [boardData, setBoardData] = useRecoilState(boardState);
-  let { name } = useParams();
+  const deleteTask = useDashboardStore((state) => state.deleteTask);
+  let { id } = useParams();
 
   const deleteItem = () => {
-    const newBoardData = [...boardData].map((board) => {
-      if (urlSplit(board.name) === name) {
-        return {
-          ...board,
-          columns: board.columns.map((column) => {
-            if (column.name === item.status) {
-              return {
-                ...column,
-                tasks: column.tasks.filter((task) => task.title !== item.title),
-              };
-            }
-            return column;
-          }),
-        };
-      }
-      return board;
-    });
-    setBoardData(newBoardData);
+    deleteTask(id, item.columnId, item.id);
     setOpenDelete();
   };
 
@@ -46,7 +31,7 @@ export const DeleteTask = ({ openDelete, setOpenDelete, item }) => {
         </div>
 
         <p className="modal-paragraph">
-          Are you sure you want to delete the '{item.title}' task and its
+          Are you sure you want to delete the '{item.name}' task and its
           subtasks? This action cannot be reversed.
         </p>
 

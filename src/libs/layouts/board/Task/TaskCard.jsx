@@ -9,7 +9,7 @@ export const TaskCard = ({ item, columns }) => {
   return (
     <>
       <Container onClick={setOpen}>
-        <h2>{item.title}</h2>
+        <h2>{item.name}</h2>
         <p>
           {completedSubtasks.length} of {item.subtasks.length} subtasks
         </p>
