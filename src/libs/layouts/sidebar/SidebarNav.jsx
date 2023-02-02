@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
-import { boardState } from "../../../store/store";
 import { SidebarNavLink } from "./SidebarNavLink";
 import { NewBoard } from "../modal/NewBoard";
+import useDashboardStore from "../../../store/dashboardStore";
 
 export const SidebarNav = () => {
-  const boardData = useRecoilValue(boardState);
+  const board = useDashboardStore((state) => state.dashboard);
 
   return (
     <SidebarNavContainer>
-      <h2>all boards ({boardData.length})</h2>
+      <h2>all boards ({board.length})</h2>
       <ul>
-        {boardData.map((item, index) => {
-          return <SidebarNavLink item={item.name} index={index} />;
+        {board.map((item, index) => {
+          return <SidebarNavLink item={item} index={index} />;
         })}
         <NewBoard />
       </ul>

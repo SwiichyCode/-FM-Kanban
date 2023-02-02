@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
+import useDashboardStore from "../../../store/dashboardStore";
+import { useRecoilState } from "recoil";
 import { boardState } from "../../../store/store";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { InputGenerator } from "../../components/Form/InputGenerator/index";
@@ -11,14 +13,15 @@ import { IconBoard } from "../sidebar/SidebarIcon";
 
 export const NewBoard = () => {
   const initialInputFields = [
-    { name: "Todo", placeholder: "Todo...", tasks: [] },
-    { name: "Doing", placeholder: "Doing...", tasks: [] },
+    // { name: "Todo", placeholder: "Todo...", tasks: [], id: uuidv4() },
+    // { name: "Doing", placeholder: "Doing...", tasks: [], id: uuidv4() },
   ];
   const [isOpen, setIsOpen] = useToggle();
   const [name, setName] = useState("");
   const [inputFields, setInputFields] = useState(initialInputFields);
   const [errorMessage, setErrorMessage] = useState("");
   const [boardData, setBoardData] = useRecoilState(boardState);
+  const addBoard = useDashboardStore((state) => state.addBoard);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,13 +35,13 @@ export const NewBoard = () => {
       return;
     }
 
-    setBoardData((oldBoardData) => [
-      ...oldBoardData,
-      {
-        name: name,
-        columns: inputFields,
-      },
-    ]);
+    const newBoard = {
+      name: name,
+      id: uuidv4(),
+      columns: inputFields,
+    };
+
+    addBoard(newBoard);
 
     setName("");
     setInputFields(initialInputFields);

@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-import styled from "styled-components";
 
 Modal.setAppElement("#root");
 
@@ -8,7 +7,6 @@ export const LayoutModal = ({
   isOpen,
   onRequestClose,
   children,
-  title,
   visibility = true,
 }) => {
   const customStyles = {

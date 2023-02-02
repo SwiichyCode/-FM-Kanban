@@ -8,8 +8,8 @@ export const ColumnWrapper = ({ item }) => {
 
   return (
     <Container>
-      {columns.map((item, index) => {
-        return <Column item={item} key={index} columns={columns} />;
+      {columns.map((item) => {
+        return <Column item={item} key={item.id} columns={columns} />;
       })}
       <NewColumn />
     </Container>
@@ -18,6 +18,5 @@ export const ColumnWrapper = ({ item }) => {
 
 const Container = styled.div`
   display: flex;
-
   gap: 24px;
 `;

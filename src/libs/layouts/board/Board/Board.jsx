@@ -1,21 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import useDashboardStore from "../../../../store/dashboardStore";
 import { EmptyBoard } from "./EmptyBoard";
 import { ColumnWrapper } from "../Column/ColumnWrapper";
-import { useFilteredData } from "../../../../hooks/useFilteredData";
-import { useRecoilValue } from "recoil";
-import { boardState } from "../../../../store/store";
 
 export const Board = () => {
-  const data = useRecoilValue(boardState);
-  const boardData = useFilteredData(data);
+  const { id } = useParams();
+  const board = useDashboardStore((state) => state.dashboard);
+  const currentBoard = board.filter((item) => item.id === id);
 
   return (
     <BoardContainer>
-      {boardData.length > 0 ? (
-        boardData.map((item, index) => (
-          <ColumnWrapper item={item} key={index} />
-        ))
+      {currentBoard.length > 0 ? (
+        currentBoard.map((item) => <ColumnWrapper item={item} key={board.id} />)
       ) : (
         <EmptyBoard />
       )}
