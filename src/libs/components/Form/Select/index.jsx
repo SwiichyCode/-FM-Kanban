@@ -4,13 +4,13 @@ import { useToggle } from "../../../../hooks/useToggle";
 import chevronDown from "../../../../assets/icon-chevron-down.svg";
 import { CustomSelect } from "./style";
 
-export const Select = ({ label, columns, currentItem, setStatus }) => {
+export const Select = ({ label, columns, currentItem }) => {
   const [open, isOpen] = useToggle(false);
   const [currentValue, setCurrentValue] = useState("");
 
-  const handleClick = (e) => {
-    setCurrentValue(e.target.value);
-    setStatus(e.target.value);
+  const handleClick = (id) => {
+    setCurrentValue(id);
+    // setStatus(e.target.value);
     isOpen(false);
   };
 
@@ -32,12 +32,21 @@ export const Select = ({ label, columns, currentItem, setStatus }) => {
                 <option
                   value={item.name}
                   key={index}
-                  onClick={(e) => handleClick(e)}
+                  onClick={(e) => handleClick(item.id)}
                 >
                   {item.name}
                 </option>
               );
             })}
+            {/* <option value="To Do" onClick={(e) => handleClick(e)}>
+              To Do
+            </option>
+            <option value="In Progress" onClick={(e) => handleClick(e)}>
+              In Progress
+            </option>
+            <option value="Done" onClick={(e) => handleClick(e)}>
+              Done
+            </option> */}
           </ul>
         </div>
       )}

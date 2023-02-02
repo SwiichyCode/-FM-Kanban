@@ -4,6 +4,7 @@ import { Input } from "../Input";
 import iconClose from "../../../../assets/icon-cross.svg";
 import { Container } from "./style";
 import { Label } from "../Label";
+import { v4 as uuidv4 } from "uuid";
 
 export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
@@ -16,7 +17,7 @@ export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   };
 
   const addFields = () => {
-    let newfield = { name: "", tasks: [] };
+    let newfield = { id: uuidv4(), name: "", tasks: [] };
     setInputFields([...inputFields, newfield]);
   };
 
