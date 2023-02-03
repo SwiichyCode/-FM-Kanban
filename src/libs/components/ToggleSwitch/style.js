@@ -6,6 +6,12 @@ export const ToggleSwitchContainer = styled.div`
   max-width: 60px;
   position: relative;
 
+  &:hover {
+    .react-switch-label {
+      background: #a8a4ff;
+    }
+  }
+
   .react-switch-checkbox {
     position: absolute;
     height: 0;
@@ -18,8 +24,8 @@ export const ToggleSwitchContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    width: 60px;
-    height: 30px;
+    width: 50px;
+    height: 26px;
     background: var(--main-purple);
     border-radius: 100px;
     position: relative;
@@ -31,8 +37,8 @@ export const ToggleSwitchContainer = styled.div`
     position: absolute;
     top: 4px;
     left: 4px;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     border-radius: 45px;
     transition: 0.2s;
     background: var(--white);

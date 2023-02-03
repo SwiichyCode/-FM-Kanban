@@ -37,6 +37,13 @@ const Container = styled.div`
   gap: 8px;
   cursor: pointer;
 
+  &:hover {
+    h2 {
+      color: var(--main-purple);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
   p {
     font-weight: 700;
     font-size: 1.2rem;

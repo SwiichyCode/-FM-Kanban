@@ -48,6 +48,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   ${({ theme }) => handleColorType(theme)};
   ${({ size }) => handleSizeType(size)};
+  transition: all 0.2s ease-in-out;
 `;
 
 Button.propTypes = {

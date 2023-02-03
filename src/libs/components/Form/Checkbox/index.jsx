@@ -5,24 +5,14 @@ import PropTypes from "prop-types";
 export const Checkbox = ({ label, completed, onChange }) => {
   const [isChecked, setIsChecked] = useState(completed);
 
-  // const handleCheck = () => {
-  //   setIsChecked((prev) => !prev);
-  // };
-
   const handleClick = () => {
     setIsChecked((prev) => !prev);
-
     onChange();
   };
 
   return (
     <Container isChecked={isChecked} onClick={handleClick}>
-      <input
-        type="checkbox"
-        checked={isChecked}
-        // onClick={handleClick}
-        onChange={onChange}
-      />
+      <input type="checkbox" checked={isChecked} />
       <label>{label}</label>
     </Container>
   );

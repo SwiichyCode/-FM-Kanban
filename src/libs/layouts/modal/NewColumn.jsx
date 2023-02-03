@@ -33,4 +33,9 @@ const Container = styled.div`
   color: #828fa3;
   cursor: pointer;
   margin-top: 44px;
+
+  &:hover {
+    color: var(--main-purple);
+    transition: all 0.2s ease-in-out;
+  }
 `;

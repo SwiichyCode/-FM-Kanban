@@ -16,8 +16,12 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    img {
+    svg {
       cursor: pointer;
+    }
+
+    svg:hover .icon-close {
+      fill: #ea5555;
     }
   }
 `;
