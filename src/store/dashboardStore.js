@@ -2,42 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { v4 as uuidv4 } from "uuid";
 import produce from "immer";
-
-const initialDashboard = [
-  {
-    id: "68633346-daa5-48b3-ba80-e35887561d8d",
-    name: "Platform Launch",
-    columns: [
-      {
-        id: "68633346-daa5-48b3-ba80-e35887561d8c",
-        name: "Todo",
-        tasks: [
-          {
-            id: "68633346-daa5-48b3-ba80-e35887561d8e",
-            name: "Build UI for onboarding flow",
-            description: "",
-            columnId: "68633346-daa5-48b3-ba80-e35887561d8c",
-
-            subtasks: [
-              {
-                title: "Sign up page",
-                isCompleted: true,
-              },
-              {
-                title: "Sign in page",
-                isCompleted: false,
-              },
-              {
-                title: "Welcome page",
-                isCompleted: false,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
+import { initialDashboard } from "./initialDashboard";
 
 const useDashboardStore = create(
   persist(
