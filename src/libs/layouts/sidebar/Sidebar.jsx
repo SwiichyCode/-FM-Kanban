@@ -7,24 +7,30 @@ import { SidebarHide } from "./SidebarHide";
 import { useToggle } from "../../../hooks/useToggle";
 import iconShow from "../../../assets/icon-show-sidebar.svg";
 
+// Todo 1: Refact animation sidebar
+
 export const Sidebar = () => {
   const [openSidebar, setOpenSidebar] = useToggle(true);
 
-  return openSidebar ? (
-    <SidebarContainer>
-      <div className="sidebar-top">
-        <SidebarLogo />
-        <SidebarNav />
-      </div>
-      <div className="sidebar-bottom">
-        <SidebarTheme />
-        <SidebarHide setOpenSidebar={setOpenSidebar} />
-      </div>
-    </SidebarContainer>
-  ) : (
-    <SidebarShow onClick={setOpenSidebar}>
-      <img src={iconShow} alt="" />
-    </SidebarShow>
+  return (
+    <>
+      <SidebarContainer openSidebar={openSidebar}>
+        <div className="sidebar-top">
+          <SidebarLogo />
+          <SidebarNav />
+        </div>
+        <div className="sidebar-bottom">
+          <SidebarTheme />
+          <SidebarHide setOpenSidebar={setOpenSidebar} />
+        </div>
+      </SidebarContainer>
+
+      {!openSidebar && (
+        <SidebarShow onClick={setOpenSidebar}>
+          <img src={iconShow} alt="" />
+        </SidebarShow>
+      )}
+    </>
   );
 };
 
@@ -42,14 +48,19 @@ const SidebarShow = styled.div`
 `;
 
 const SidebarContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 300px;
   height: 100vh;
   padding: 32px 0;
   border-right: 1px solid var(--line-light);
   background: var(--white);
+  ${({ openSidebar }) => (openSidebar ? "width: 300px" : "width: 0px")};
+  min-width: ${({ openSidebar }) => (openSidebar ? "300px" : "0px")} !important;
+  left: ${({ openSidebar }) => (openSidebar ? "0" : "-300px")};
+  opacity: ${({ openSidebar }) => (openSidebar ? "1" : "0")};
+  transition: all 0.2s ease-in-out;
 
   .sidebar-top {
     display: flex;

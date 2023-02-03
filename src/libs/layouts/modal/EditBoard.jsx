@@ -10,13 +10,19 @@ import { boardState } from "../../../store/store";
 import { Input } from "../../components/Form/Input";
 import { InputGenerator } from "../../components/Form/InputGenerator";
 import { Button } from "../../components/Button";
+import useDashboardStore from "../../../store/dashboardStore";
 
 export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   // const [boardData, setBoardData] = useRecoilState(boardState);
-  // const [actualBoard, setActualBoard] = useState({ name: "", columns: [] });
-  // const [inputFields, setInputFields] = useState([]);
-  // let { name } = useParams();
+  const [actualBoard, setActualBoard] = useState({ name: "", columns: [] });
+  const [inputFields, setInputFields] = useState([]);
+  let { id } = useParams();
+  // const board = useDashboardStore((state) => state.dashboard);
+  // const currentBoard = board.find((board) => board.id === id);
+
+  // console.log("currentBoard", currentBoard);
   // const navigate = useNavigate();
+
   // useEffect(() => {
   //   if (!name && actualBoard) return;
   //   const actualboard = [...boardData].filter(
@@ -27,26 +33,25 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   //     setActualBoard({ name: "", columns: [] });
   //   };
   // }, [name]);
-  // // Edit Board
-  // const handleSubmit = useCallback(
-  //   (e) => {
-  //     e.preventDefault();
-  //     const newBoardData = [...boardData].map((board) => {
-  //       if (urlSplit(board.name) === name) {
-  //         return {
-  //           ...board,
-  //           name: actualBoard.name,
-  //           columns: inputFields,
-  //         };
-  //       }
-  //       return board;
-  //     });
-  //     setBoardData(newBoardData);
-  //     setOpenEdit(false);
-  //     navigate(`/${urlSplit(actualBoard.name)}`);
-  //   },
-  //   [actualBoard, inputFields, name]
-  // );
+  // Edit Board
+  const handleSubmit = useCallback();
+  // (e) => {
+  //   e.preventDefault();
+  //   const newBoardData = [...boardData].map((board) => {
+  //     if (urlSplit(board.name) === name) {
+  //       return {
+  //         ...board,
+  //         name: actualBoard.name,
+  //         columns: inputFields,
+  //       };
+  //     }
+  //     return board;
+  //   });
+  //   setBoardData(newBoardData);
+  //   setOpenEdit(false);
+  //   navigate(`/${urlSplit(actualBoard.name)}`);
+  // },
+  // [actualBoard, inputFields, name]
   // useEffect(() => {
   //   setInputFields(actualBoard.columns);
   //   return () => {
@@ -71,7 +76,7 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   //           onChange={(e) =>
   //             setActualBoard({ ...actualBoard, name: e.target.value })
   //           }
-  //           value={actualBoard.name}
+  //           value={currentBoard.name}
   //         />
   //         <InputGenerator
   //           labelText={"Board Columns"}

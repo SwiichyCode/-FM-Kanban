@@ -1,22 +1,21 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
-import { boardState } from "../store/store";
 import { useLocation, useNavigate } from "react-router-dom";
-import { urlSplit } from "../helpers/urlSplit";
+import useDashboardStore from "../store/dashboardStore";
 
 export const AppLayout = ({ children }) => {
-  const boardData = useRecoilValue(boardState);
+  const board = useDashboardStore((state) => state.dashboard);
   const location = useLocation();
   let navigate = useNavigate();
 
   // Redirect to the 1st board of the list
   useEffect(() => {
-    if (location.pathname === "/" && boardData.length > 0) {
-      const item = urlSplit(boardData[0].name);
+    if (location.pathname === "/" && board.length > 0) {
+      const item = board[0].id;
       navigate(`/${item}`);
     }
-  }, [location, boardData]);
+  }, [location, board]);
+
   return <AppLayoutContainer>{children}</AppLayoutContainer>;
 };
 

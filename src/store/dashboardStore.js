@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { v4 as uuidv4 } from "uuid";
+import produce from "immer";
 
 const initialDashboard = [
   {
@@ -61,41 +62,36 @@ const useDashboardStore = create(
         })),
 
       addTask: (boardId, columnId, task) =>
-        set((state) => ({
-          dashboard: state.dashboard.map((board) =>
-            board.id === boardId
-              ? {
-                  ...board,
-                  columns: board.columns.map((column) =>
-                    column.id === columnId
-                      ? { ...column, tasks: [...column.tasks, task] }
-                      : column
-                  ),
-                }
-              : board
-          ),
-        })),
+        set(
+          produce((draft) => {
+            draft.dashboard.forEach((board) => {
+              if (board.id === boardId) {
+                board.columns.forEach((column) => {
+                  if (column.id === columnId) {
+                    column.tasks.push(task);
+                  }
+                });
+              }
+            });
+          })
+        ),
 
       deleteTask: (boardId, columnId, taskId) =>
-        set((state) => ({
-          dashboard: state.dashboard.map((board) =>
-            board.id === boardId
-              ? {
-                  ...board,
-                  columns: board.columns.map((column) =>
-                    column.id === columnId
-                      ? {
-                          ...column,
-                          tasks: column.tasks.filter(
-                            (task) => task.id !== taskId
-                          ),
-                        }
-                      : column
-                  ),
-                }
-              : board
-          ),
-        })),
+        set(
+          produce((draft) => {
+            draft.dashboard.forEach((board) => {
+              if (board.id === boardId) {
+                board.columns.forEach((column) => {
+                  if (column.id === columnId) {
+                    column.tasks = column.tasks.filter(
+                      (task) => task.id !== taskId
+                    );
+                  }
+                });
+              }
+            });
+          })
+        ),
 
       resetStorage: () => set(() => ({ dashboard: initialDashboard })),
     }),
