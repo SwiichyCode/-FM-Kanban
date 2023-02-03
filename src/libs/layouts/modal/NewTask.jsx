@@ -19,12 +19,12 @@ export const NewTask = () => {
     // { name: "", placeholder: "e.g Make coffee", tasks: [] },
     // { name: "", placeholder: "e.g Drink coffee & smile", tasks: [] },
   ]);
-  const [status, setStatus] = useState("");
 
   let { id } = useParams();
   const board = useDashboardStore((state) => state.dashboard);
   const addTask = useDashboardStore((state) => state.addTask);
   const currentBoard = board.find((item) => item.id === id);
+  const [status, setStatus] = useState(currentBoard.columns[0].id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,8 +36,6 @@ export const NewTask = () => {
       subtasks: inputFields,
       columnId: status,
     };
-
-    console.log(id, status, newTask);
 
     addTask(id, status, newTask);
     setOpen();
@@ -87,7 +85,10 @@ export const NewTask = () => {
               {currentBoard &&
                 currentBoard.columns.map((item) => {
                   return (
-                    <option onClick={() => setStatus(item.id)}>
+                    <option
+                      value={item.id}
+                      onClick={(e) => setStatus(e.target.value)}
+                    >
                       {item.name}
                     </option>
                   );
