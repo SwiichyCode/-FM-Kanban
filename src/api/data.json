@@ -384,7 +384,7 @@
     "columns": [
       {
         "name": "Now",
-        "color": "#21ce66",
+        "color": "#df0db5",
         "tasks": [
           {
             "title": "Launch version one",

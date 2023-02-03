@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as S from "./style";
 import { Label } from "../Label";
+import * as S from "./style";
 
 export const Input = ({
   name,
   labelText,
   placeholder,
-  value,
   defaultValue,
   onChange,
   error,
   errorMessage,
   maxW,
+  value,
 }) => {
   return (
     <S.Container maxW={maxW}>
@@ -22,8 +22,8 @@ export const Input = ({
         <S.StyledInput
           name={name}
           type="text"
+          value={value}
           placeholder={placeholder}
-          value={value || ""}
           onChange={onChange}
           defaultValue={defaultValue}
           error={error}

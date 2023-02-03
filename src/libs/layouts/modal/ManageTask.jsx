@@ -7,8 +7,8 @@ import { CustomPopover } from "../../components/Popover";
 import { useToggle } from "../../../hooks/useToggle";
 import { EditTask } from "./EditTask";
 import { DeleteTask } from "./DeleteTask";
-import { useRecoilState } from "recoil";
-import { boardState } from "../../../store/store";
+import useDashboardStore from "../../../store/dashboardStore";
+import { useParams } from "react-router-dom";
 
 export const TaskModal = ({
   open,
@@ -20,8 +20,15 @@ export const TaskModal = ({
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
   const [visible, setVisible] = useState();
-  const [boardData, setBoardData] = useRecoilState(boardState);
   const [status, setStatus] = useState("");
+  const toggleSubtask = useDashboardStore((state) => state.toggleSubtask);
+  // const toggleTaskColumn = useDashboardStore((state) => state.toggleTaskColumn);
+  const board = useDashboardStore((state) => state.dashboard);
+  const { id } = useParams();
+
+  const currentBoard = board.find((item) => item.id === id);
+
+  // console.log(status);
 
   useEffect(() => {
     openDelete || openEdit ? setVisible(false) : setVisible(true);
@@ -65,12 +72,15 @@ export const TaskModal = ({
           Subtasks ({completedSubtasks.length} of {item.subtasks.length})
         </Label>
         <div className="subtasks-wrapper">
-          {item.subtasks.map((item, index) => {
+          {item.subtasks.map((i, index) => {
             return (
               <Checkbox
-                label={item.title}
-                completed={item.isCompleted}
+                label={i.title}
+                completed={i.isCompleted}
                 key={index}
+                onChange={() =>
+                  toggleSubtask(currentBoard.id, item.columnId, item.id, i.id)
+                }
               />
             );
           })}
@@ -82,6 +92,9 @@ export const TaskModal = ({
         currentItem={item.status}
         columns={columns}
         setStatus={setStatus}
+        // onChange={() =>
+        //   toggleTaskColumn(currentBoard.id, item.columnId, item.id, status)
+        // }
       />
     </LayoutModal>
   );

@@ -1,8 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { v4 as uuidv4 } from "uuid";
-import produce from "immer";
 import { initialDashboard } from "./initialDashboard";
+import produce from "immer";
 
 const useDashboardStore = create(
   persist(
@@ -12,49 +11,68 @@ const useDashboardStore = create(
       addBoard: (board) =>
         set((state) => ({ dashboard: [...state.dashboard, board] })),
 
+      editBoard: (boardId, newBoard) =>
+        set((state) => ({
+          dashboard: state.dashboard.map((board) =>
+            board.id === boardId ? newBoard : board
+          ),
+        })),
+
       deleteBoard: (boardId) =>
         set((state) => ({
           dashboard: state.dashboard.filter((board) => board.id !== boardId),
         })),
 
-      addColumn: (boardId, column) =>
-        set((state) => ({
-          dashboard: state.dashboard.map((board) =>
-            board.id === boardId
-              ? { ...board, columns: [...board.columns, column] }
-              : board
-          ),
-        })),
-
       addTask: (boardId, columnId, task) =>
         set(
           produce((draft) => {
-            draft.dashboard.forEach((board) => {
-              if (board.id === boardId) {
-                board.columns.forEach((column) => {
-                  if (column.id === columnId) {
-                    column.tasks.push(task);
-                  }
-                });
-              }
-            });
+            const board = draft.dashboard.find((b) => b.id === boardId);
+            if (!board) return;
+            const column = board.columns.find((c) => c.id === columnId);
+            if (!column) return;
+            column.tasks.push(task);
           })
         ),
+
+      // toggleTaskColumn: (boardId, columnId, taskId, newColumnId) =>
+      //   set(
+      //     produce((draft) => {
+      //       const board = draft.dashboard.find((b) => b.id === boardId);
+      //       if (!board) return;
+      //       const column = board.columns.find((c) => c.id === columnId);
+      //       if (!column) return;
+      //       const task = column.tasks.find((t) => t.id === taskId);
+      //       if (!task) return;
+      //       const newColumn = board.columns.find((c) => c.id === newColumnId);
+      //       if (!newColumn) return;
+      //       newColumn.tasks.push(task);
+      //       column.tasks = column.tasks.filter((t) => t.id !== taskId);
+      //     })
+      //   ),
 
       deleteTask: (boardId, columnId, taskId) =>
         set(
           produce((draft) => {
-            draft.dashboard.forEach((board) => {
-              if (board.id === boardId) {
-                board.columns.forEach((column) => {
-                  if (column.id === columnId) {
-                    column.tasks = column.tasks.filter(
-                      (task) => task.id !== taskId
-                    );
-                  }
-                });
-              }
-            });
+            const board = draft.dashboard.find((b) => b.id === boardId);
+            if (!board) return;
+            const column = board.columns.find((c) => c.id === columnId);
+            if (!column) return;
+            column.tasks = column.tasks.filter((t) => t.id !== taskId);
+          })
+        ),
+
+      toggleSubtask: (boardId, columnId, taskId, subtaskId) =>
+        set(
+          produce((draft) => {
+            const board = draft.dashboard.find((b) => b.id === boardId);
+            if (!board) return;
+            const column = board.columns.find((c) => c.id === columnId);
+            if (!column) return;
+            const task = column.tasks.find((t) => t.id === taskId);
+            if (!task) return;
+            const subtask = task.subtasks.find((s) => s.id === subtaskId);
+            if (!subtask) return;
+            subtask.isCompleted = !subtask.isCompleted;
           })
         ),
 

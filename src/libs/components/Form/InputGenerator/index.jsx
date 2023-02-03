@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "../../Button";
 import { Input } from "../Input";
-import iconClose from "../../../../assets/icon-cross.svg";
 import { Container } from "./style";
 import { Label } from "../Label";
 import { v4 as uuidv4 } from "uuid";
+import hexaGenerator from "../../../../helpers/hexaGenerator";
+import iconClose from "../../../../assets/icon-cross.svg";
 
 export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   const handleFormChange = (index, event) => {
@@ -17,7 +18,13 @@ export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
   };
 
   const addFields = () => {
-    let newfield = { id: uuidv4(), name: "", tasks: [] };
+    let newfield = {
+      id: uuidv4(),
+      name: "",
+      color: hexaGenerator(),
+      tasks: [],
+    };
+
     setInputFields([...inputFields, newfield]);
   };
 
@@ -37,7 +44,7 @@ export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
             <div key={index} className="input-wrapper">
               <Input
                 name="name"
-                value={input.name}
+                defaultValue={input.name}
                 placeholder={input.placeholder}
                 onChange={(event) => handleFormChange(index, event)}
                 maxW={385}

@@ -6,6 +6,7 @@ export const initialDashboard = [
       {
         id: "68633346-daa5-48b3-ba80-e35887561d8c",
         name: "Todo",
+        color: "#49C4E5",
         tasks: [
           {
             id: "68633346-daa5-48b3-ba80-e35887561d8e",
@@ -15,14 +16,17 @@ export const initialDashboard = [
 
             subtasks: [
               {
+                id: "68633346-daa5-48b3-ba80-e35887551d8e",
                 title: "Sign up page",
                 isCompleted: true,
               },
               {
+                id: "68633346-dna5-48b3-ba80-e35887551d8e",
                 title: "Sign in page",
                 isCompleted: false,
               },
               {
+                id: "68633346-dua5-48b3-ba80-e35887551d8e",
                 title: "Welcome page",
                 isCompleted: false,
               },
@@ -70,6 +74,7 @@ export const initialDashboard = [
       {
         id: "68633346-daa5-48b3-ba80-e35887561d6a",
         name: "Doing",
+        color: "#8471F2",
         tasks: [
           {
             id: "68633346-daa5-48b3-ba80-a35887561d8e",
@@ -190,6 +195,7 @@ export const initialDashboard = [
       {
         id: "68633346-dba5-48b3-ba80-e35887561d8c",
         name: "Done",
+        color: "#67E2AE",
         tasks: [
           {
             id: "68633346-dba5-48b3-ba80-e35t87561d8c",
@@ -312,6 +318,7 @@ export const initialDashboard = [
       {
         id: "58631346-dba5-08b3-ba80-e35t87561d8c",
         name: "Todo",
+        color: "#d43d4c",
         tasks: [
           {
             id: "58631346-dba5-01b3-ba80-e35t87561d8c",
@@ -394,11 +401,13 @@ export const initialDashboard = [
       {
         id: "68633346-dam5-48b3-ba80-e35887561d8c",
         name: "Doing",
+        color: "#519754",
         tasks: [],
       },
       {
         id: "68633346-dap5-48b3-ba80-e35887561d8c",
         name: "Done",
+        color: "#df0db5",
         tasks: [],
       },
     ],
@@ -410,6 +419,7 @@ export const initialDashboard = [
       {
         id: "68633346-daa5-4813-ba80-e35887561d8c",
         name: "Now",
+        color: "#21ce66",
         tasks: [
           {
             id: "68633341-daa5-4813-ba80-e35887561d8c",
@@ -453,11 +463,13 @@ export const initialDashboard = [
       {
         id: "68633346-daa5-48b3-ba80-e35887961h8d",
         name: "Next",
+        color: "#3b3fad",
         tasks: [],
       },
       {
         id: "68633306-daa5-48b3-ba80-e35887961h8d",
         name: "Later",
+        color: "#ce4614",
         tasks: [],
       },
     ],

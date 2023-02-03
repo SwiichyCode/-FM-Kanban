@@ -4,13 +4,20 @@ import { useToggle } from "../../../../hooks/useToggle";
 import chevronDown from "../../../../assets/icon-chevron-down.svg";
 import { CustomSelect } from "./style";
 
-export const Select = ({ label, columns, currentItem }) => {
+export const Select = ({
+  label,
+  columns,
+  currentItem,
+  setStatus,
+  onChange,
+}) => {
   const [open, isOpen] = useToggle(false);
   const [currentValue, setCurrentValue] = useState("");
 
   const handleClick = (id) => {
     setCurrentValue(id);
-    // setStatus(e.target.value);
+    setStatus(id);
+    onChange();
     isOpen(false);
   };
 

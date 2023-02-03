@@ -15,7 +15,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 4px;
+  /* padding-bottom: 4px; */
 
   h2 {
     font-size: 12px;

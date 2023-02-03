@@ -17,7 +17,7 @@ export const NewColumn = () => {
 const Container = styled.div`
   width: 100%;
   max-width: 280px;
-  height: calc(100vh - var(--header-h) - 48px);
+  height: calc(100vh - var(--header-h) - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ const Container = styled.div`
   font-weight: 700;
   font-size: 24px;
   line-height: 30px;
-  text-align: center;
   color: #828fa3;
   cursor: pointer;
+  margin-top: 44px;
 `;
