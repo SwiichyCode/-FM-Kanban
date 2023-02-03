@@ -25,6 +25,13 @@ export const InputGeneratorTest = ({
     setInputFields([...inputFields, newfield]);
   }, [fields, inputFields]);
 
+  const removeFields = (index) => {
+    const newFields = [...fields];
+    newFields.splice(index, 1);
+    setFields(newFields);
+    setInputFields(newFields);
+  };
+
   const handleInputChange = (e, index) => {
     const newFields = [...fields];
     newFields[index] = { ...newFields[index], name: e.target.value };
@@ -44,7 +51,6 @@ export const InputGeneratorTest = ({
               onChange={(e) => handleInputChange(e, index)}
               maxW={385}
             />
-            {/* <img src={iconClose} alt="" onClick={() => removeFields(index)} /> */}
             <svg
               width="15"
               height="15"
