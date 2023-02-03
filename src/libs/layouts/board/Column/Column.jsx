@@ -23,14 +23,12 @@ export const Column = ({ item, columns }) => {
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
   min-width: 280px;
   gap: 24px;
 
   .column-header {
-    display: flex;
-    align-items: center;
+    ${({ theme }) => theme.mixins.flexAlignCenter}
     gap: 8px;
     margin-bottom: 4px;
 
@@ -43,8 +41,7 @@ const Container = styled.div`
   }
 
   .column-cards {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 20px;
   }
 `;

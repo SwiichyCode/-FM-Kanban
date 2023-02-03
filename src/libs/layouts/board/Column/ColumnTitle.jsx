@@ -12,8 +12,7 @@ export const ColumnTitle = ({ title, item }) => {
 };
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
+  ${({ theme }) => theme.mixins.flexAlignCenter}
   gap: 12px;
   /* padding-bottom: 4px; */
 

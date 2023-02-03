@@ -15,9 +15,7 @@ export const SidebarTheme = () => {
 };
 
 const SidebarThemeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${({ theme }) => theme.mixins.flexCenter}
   width: 100%;
   max-width: 251px;
   background: var(--light-grey-light);

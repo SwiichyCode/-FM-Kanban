@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import hexaGenerator from "../../../../helpers/hexaGenerator";
 import { Label } from "../Label";
 import { Container } from "./styles";
-import iconClose from "../../../../assets/icon-cross.svg";
 import { Input } from "../Input";
 import { Button } from "../../Button";
 

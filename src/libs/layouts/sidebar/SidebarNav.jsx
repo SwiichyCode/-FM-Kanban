@@ -46,15 +46,13 @@ const SidebarNavContainer = styled.nav`
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     width: 100%;
 
     .nav-item {
       width: 100%;
       max-width: 240px;
-      display: flex;
-      align-items: center;
+      ${({ theme }) => theme.mixins.flexAlignCenter}
       padding: 14px 0 15px 24px;
       border-radius: 0px 100px 100px 0px;
       text-decoration: none;

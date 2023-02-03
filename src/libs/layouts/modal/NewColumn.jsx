@@ -18,9 +18,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 280px;
   height: calc(100vh - var(--header-h) - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${({ theme }) => theme.mixins.flexCenter}
   background: linear-gradient(
     180deg,
     #e9effa 0%,

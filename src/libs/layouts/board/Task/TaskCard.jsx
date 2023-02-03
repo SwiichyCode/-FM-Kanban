@@ -28,8 +28,7 @@ export const TaskCard = ({ item, columns }) => {
 const Container = styled.div`
   width: 100%;
   max-width: 280px;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
   background: var(--white);
   box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
   border-radius: 8px;

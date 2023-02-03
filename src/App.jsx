@@ -4,16 +4,21 @@ import { Sidebar } from "./libs/layouts/sidebar/Sidebar";
 import { Board } from "./libs/layouts/board/Board/Board";
 import { Header } from "./libs/layouts/Header";
 import { AppLayout } from "./layouts/AppLayout";
+import { GlobalStyle } from "./styles/globalStyles";
+import { ThemeLayout } from "./layouts/ThemeLayout";
 
 export const App = () => {
   return (
-    <AppLayout>
-      <Sidebar />
-      <MainWrapper>
-        <Header />
-        <Board />
-      </MainWrapper>
-    </AppLayout>
+    <ThemeLayout>
+      <GlobalStyle />
+      <AppLayout>
+        <Sidebar />
+        <MainWrapper>
+          <Header />
+          <Board />
+        </MainWrapper>
+      </AppLayout>
+    </ThemeLayout>
   );
 };
 

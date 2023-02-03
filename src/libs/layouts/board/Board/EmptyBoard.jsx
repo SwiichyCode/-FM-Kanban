@@ -14,11 +14,15 @@ export const EmptyBoard = () => {
 const Container = styled.div`
   width: 100%;
   height: calc(100vh - var(--header-h));
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+
+  flex-direction: column;
   gap: 32px;
+
+  ${({ theme }) => theme.mixins.flexCenter}
 
   p {
     font-weight: 700;

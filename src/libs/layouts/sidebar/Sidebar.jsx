@@ -39,9 +39,8 @@ const SidebarShow = styled.div`
   bottom: 32px;
   width: 56px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  ${({ theme }) => theme.mixins.flexCenter}
   background: var(--main-purple);
   border-radius: 0px 100px 100px 0px;
   cursor: pointer;
@@ -49,8 +48,7 @@ const SidebarShow = styled.div`
 
 const SidebarContainer = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
   justify-content: space-between;
   height: 100vh;
   padding: 32px 0;
@@ -63,14 +61,12 @@ const SidebarContainer = styled.div`
   transition: all 0.2s ease-in-out;
 
   .sidebar-top {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 54px;
   }
 
   .sidebar-bottom {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 16px;
   }
 `;

@@ -20,16 +20,14 @@ export const SidebarHide = ({ setOpenSidebar }) => {
 const SidebarHideContainer = styled.div`
   width: 100%;
   max-width: 235px;
-  display: flex;
-  align-items: center;
+  ${({ theme }) => theme.mixins.flexAlignCenter}
   height: 52px;
   text-transform: capitalize;
   gap: 10px;
   border-radius: 0px 100px 100px 0px;
-  cursor: pointer;
   padding-left: 37px;
-  /* margin: auto; */
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background: #f0effa;

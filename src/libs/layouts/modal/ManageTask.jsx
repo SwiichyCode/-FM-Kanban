@@ -101,14 +101,12 @@ export const TaskModal = ({
 };
 
 const Subtasks = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
   gap: 16px;
   margin-bottom: 24px;
 
   .subtasks-wrapper {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 8px;
   }
 `;

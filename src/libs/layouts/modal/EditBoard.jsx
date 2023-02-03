@@ -96,7 +96,6 @@ const DeleteBoardContainer = styled.div`
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
   gap: 24px;
 `;

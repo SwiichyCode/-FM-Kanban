@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   width: 100%;
   min-height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  ${({ theme }) => theme.mixins.flexBetween}
   background: var(--white);
   border-bottom: 1px solid var(--line-light);
   transition: all 200ms ease-in-out;
@@ -32,8 +31,7 @@ export const HeaderContainer = styled.header`
   }
 
   .left-side {
-    display: flex;
-    align-items: center;
+    ${({ theme }) => theme.mixins.flexAlignCenter}
     gap: 16px;
 
     .header-title {
@@ -62,9 +60,7 @@ export const HeaderContainer = styled.header`
   }
 
   .right-side {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    ${({ theme }) => theme.mixins.flexBetween}
     gap: 16px;
 
     .board-edit {
@@ -78,8 +74,7 @@ export const HeaderContainer = styled.header`
   }
 
   .content-popover {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 16px;
     font-weight: 500;
     font-size: 13px;
