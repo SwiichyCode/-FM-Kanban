@@ -6,6 +6,7 @@ import { useToggle } from "../../../../hooks/useToggle";
 export const TaskCard = ({ item, columns }) => {
   const [open, setOpen] = useToggle();
   const completedSubtasks = item.subtasks.filter((item) => item.isCompleted);
+
   return (
     <>
       <Container onClick={setOpen}>
@@ -27,14 +28,19 @@ export const TaskCard = ({ item, columns }) => {
 
 const Container = styled.div`
   width: 100%;
-  max-width: 280px;
+  max-width: 28rem;
   ${({ theme }) => theme.mixins.flexColumn}
-  background: var(--white);
   box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.101545);
-  border-radius: 8px;
-  padding: 23px 16px;
+  border-radius: var(--borderR-md);
+  padding: 2.3rem 1.6rem;
   gap: 8px;
   cursor: pointer;
+  background: ${({ theme }) => theme.theme.card};
+
+  h2 {
+    font-size: var(--fz-lg);
+    color: ${({ theme }) => theme.theme.text};
+  }
 
   &:hover {
     h2 {
@@ -44,9 +50,9 @@ const Container = styled.div`
   }
 
   p {
-    font-weight: 700;
+    font-weight: var(--font-bold);
     font-size: 1.2rem;
     line-height: 1.5rem;
-    color: var(--medium-grey);
+    color: var(--color-grey);
   }
 `;

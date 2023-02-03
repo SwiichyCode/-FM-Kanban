@@ -6,10 +6,10 @@ export const Label = ({ labelText, labelFor }) => {
 };
 
 const StyledLabel = styled.label`
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 15px;
-  color: #828fa3;
+  font-weight: var(--font-bold);
+  font-size: var(--fz-lg);
+  line-height: 1.5rem;
+  color: var(--color-grey);
   text-transform: capitalize;
-  padding-bottom: 11px;
+  padding-bottom: 1.1rem;
 `;

@@ -2,42 +2,40 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  min-height: 64px;
-
+  min-height: 6.4rem;
   ${({ theme }) => theme.mixins.flexBetween}
-  background: var(--white);
+  background: ${({ theme }) => theme.theme.header};
   border-bottom: 1px solid var(--line-light);
   transition: all 200ms ease-in-out;
 
   @media screen and (min-width: 750px) {
-    height: 80px;
+    height: 8rem;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 97px;
+    height: 9.7rem;
   }
 
   h1 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 23px;
-    color: var(--black);
+    font-weight: var(--font-bold);
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    color: var(--color-black);
     padding-left: 2.4rem;
 
     @media screen and (min-width: 750px) {
-      font-size: 20px;
-      line-height: 25px;
+      font-size: 2rem;
+      line-height: 2.5rem;
     }
   }
 
   .left-side {
     ${({ theme }) => theme.mixins.flexAlignCenter}
-    gap: 16px;
+    gap: 1.6rem;
 
     .header-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      ${({ theme }) => theme.mixins.flexAlignCenter}
+      gap: .8rem;
       cursor: pointer;
 
       img {
@@ -61,7 +59,7 @@ export const HeaderContainer = styled.header`
 
   .right-side {
     ${({ theme }) => theme.mixins.flexBetween}
-    gap: 16px;
+    gap: 1.6rem;
 
     .board-edit {
       cursor: pointer;
@@ -69,22 +67,23 @@ export const HeaderContainer = styled.header`
 
     @media screen and (min-width: 750px) {
       width: 100%;
-      max-width: 192.62px;
+      max-width: 19.2rem;
     }
   }
 
   .content-popover {
     ${({ theme }) => theme.mixins.flexColumn}
-    gap: 16px;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 23px;
+
+    font-weight: var(--font-medium);
+    font-size: var(--fz-md);
+    line-height: 2.3rem;
+    gap: 1.6rem;
 
     .edit-board {
-      color: #828fa3;
+      color: var(--color-grey);
     }
     .delete-board {
-      color: #ea5555;
+      color: var(--color-red);
     }
   }
 

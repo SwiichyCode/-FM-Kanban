@@ -75,15 +75,15 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
 
 const DeleteBoardContainer = styled.div`
   span {
-    font-weight: 500;
+    font-weight: var(--font-medium);
     font-size: 1.3rem;
     line-height: 2.3rem;
-    color: var(--medium-grey);
+    color: var(--color-grey);
     cursor: pointer;
   }
 
   p {
-    font-weight: 500;
+    font-weight: var(--font-medium);
     font-size: 13px;
     line-height: 23px;
     color: #828fa3;
@@ -91,11 +91,11 @@ const DeleteBoardContainer = styled.div`
 
   .box {
     display: flex;
-    gap: 16px;
+    gap: 1.6rem;
   }
 `;
 
 const Form = styled.form`
   ${({ theme }) => theme.mixins.flexColumn}
-  gap: 24px;
+  gap: 2.4rem;
 `;

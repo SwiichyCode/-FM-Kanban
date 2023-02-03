@@ -24,12 +24,12 @@ export const Column = ({ item, columns }) => {
 
 const Container = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
-  min-width: 280px;
-  gap: 24px;
+  min-width: 28rem;
+  gap: 2.4rem;
 
   .column-header {
     ${({ theme }) => theme.mixins.flexAlignCenter}
-    gap: 8px;
+    gap: .8rem;
     margin-bottom: 4px;
 
     &__dot {
@@ -42,6 +42,6 @@ const Container = styled.div`
 
   .column-cards {
     ${({ theme }) => theme.mixins.flexColumn}
-    gap: 20px;
+    gap: 2rem;
   }
 `;

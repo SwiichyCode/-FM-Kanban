@@ -102,18 +102,18 @@ export const TaskModal = ({
 
 const Subtasks = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
 
   .subtasks-wrapper {
     ${({ theme }) => theme.mixins.flexColumn}
-    gap: 8px;
+    gap: .8rem;
   }
 `;
 
 const Label = styled.label`
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: #828fa3;
+  font-weight: var(--font-bold);
+  font-size: var(--fz-xxs);
+  line-height: 1.5rem;
+  color: var(--color-grey);
 `;

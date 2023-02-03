@@ -49,10 +49,10 @@ export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
 
 const DeleteBoardContainer = styled.div`
   span {
-    font-weight: 500;
+    font-weight: var(--font-medium);
     font-size: 1.3rem;
     line-height: 2.3rem;
-    color: var(--red);
+    color: var(--color-red);
     cursor: pointer;
   }
 `;

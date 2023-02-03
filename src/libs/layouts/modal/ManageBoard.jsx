@@ -29,5 +29,5 @@ export const ManageBoard = ({ boardName }) => {
 };
 
 const ManageBoardContainer = styled.div`
-  padding-right: 32px;
+  padding-right: 3.2rem;
 `;

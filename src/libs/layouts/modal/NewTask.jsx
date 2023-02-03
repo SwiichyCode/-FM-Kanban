@@ -113,5 +113,5 @@ const Container = styled.div`
 
 const Form = styled.form`
   ${({ theme }) => theme.mixins.flexColumn}
-  gap: 24px;
+  gap: 2.4rem;
 `;

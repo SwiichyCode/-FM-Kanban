@@ -24,22 +24,23 @@ const SidebarNavContainer = styled.nav`
   color: var(--medium-grey);
 
   h2 {
-    font-weight: 700;
+    font-weight: var(--font-bold);
     font-size: 1.2rem;
     line-height: 1.5rem;
     letter-spacing: 2.4px;
     text-transform: uppercase;
-    padding: 0px 0 19px 24px;
+    padding: 0px 0 1.9rem 2.4rem;
     transition: all 200ms ease-in-out;
+
     @media screen and (min-width: 1024px) {
-      padding: 0px 0 19px 32px;
+      padding: 0px 0 1.9rem 3.2rem;
     }
   }
 
   li {
     width: 100%;
-    max-width: 240px;
-    font-weight: 700;
+    max-width: 24rem;
+    font-weight: var(--font-bold);
     font-size: 1.5rem;
     line-height: 1.9rem;
     text-transform: capitalize;
@@ -51,31 +52,32 @@ const SidebarNavContainer = styled.nav`
 
     .nav-item {
       width: 100%;
-      max-width: 240px;
+      max-width: 24rem;
       ${({ theme }) => theme.mixins.flexAlignCenter}
-      padding: 14px 0 15px 24px;
-      border-radius: 0px 100px 100px 0px;
+      padding: 1.4rem 0 1.5rem 2.4rem;
+      border-radius: var(--border-xl);
       text-decoration: none;
-      color: var(--medium-grey);
+      color: var(--color-grey);
       cursor: pointer;
       transition: all 200ms ease-in-out;
 
       &.activeClassName {
         color: #fff;
-        background: var(--main-purple);
+        background: var(--color-purple);
       }
 
       @media screen and (min-width: 1024px) {
-        padding: 14px 0 15px 32px;
+        padding: 1.4rem 0 1.5rem 3.2rem;
       }
 
       &:hover {
+        // ???
         background: #f0effa;
-        color: var(--main-purple);
+        color: var(--color-purple);
       }
 
       svg {
-        margin-right: 12px;
+        margin-right: 1.2rem;
       }
     }
   }

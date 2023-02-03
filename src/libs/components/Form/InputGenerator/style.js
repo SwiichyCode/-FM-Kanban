@@ -1,19 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
 
   .input-container {
-    display: flex;
-    flex-direction: column;
+    ${({ theme }) => theme.mixins.flexColumn}
     gap: 12px;
   }
 
   .input-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    ${({ theme }) => theme.mixins.flexBetween}
 
     svg {
       cursor: pointer;
@@ -21,6 +17,6 @@ export const Container = styled.div`
   }
 
   svg:hover.icon-close {
-    fill: #ea5555;
+    fill: var(--color-red);
   }
 `;

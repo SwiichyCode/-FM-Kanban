@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const CustomSelect = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  ${({ theme }) => theme.mixins.flexColumn}
+  gap: .8rem;
 
   label {
-    font-weight: 700;
-    font-size: 1.2rem;
+    font-weight: var(--font-bold);
+    font-size: var(--fz-xxs);
     line-height: 1.5rem;
     color: var(--medium-grey);
   }
@@ -16,47 +15,43 @@ export const CustomSelect = styled.div`
     position: relative;
     width: 100%;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    ${({ theme }) => theme.mixins.flexBetween}
     border: ${({ open }) =>
       open ? "1px solid var(--main-purple);" : "1px solid var(--white-grey);"};
-    border-radius: 4px;
-    padding: 0 16px;
+    border-radius: var(--borderR-lg);
+    padding: 0 1.6rem;
     cursor: pointer;
 
     &:hover {
-      border: 1px solid var(--main-purple);
+      border: 1px solid var(--color-purple);
     }
 
     span {
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 23px;
-      color: #000112;
+      font-weight: var(--font-medium);
+      font-size: 1.3rem;
+      line-height: 2.3rem;
+      color: var(--color-black);
     }
   }
 
   .current-items {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
+    ${({ theme }) => theme.mixins.flexColumn}
+    background: var(--color-white);
     box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: 0.8rem;
+    padding: 1.6rem;
 
     ul {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      ${({ theme }) => theme.mixins.flexColumn}
+      gap: 0.8rem;
 
       option {
-        font-weight: 500;
-        font-size: 13px;
-        line-height: 23px;
-        color: #828fa3;
+        font-weight: var(--font-medium);
+        font-size: 1.3rem;
+        line-height: 2.3rem;
+        color: var(--color-grey);
         cursor: pointer;
       }
     }

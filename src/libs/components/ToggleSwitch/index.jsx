@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ToggleSwitchContainer } from "./style";
+import { useThemeStore } from "../../../store/themeStore";
 
 export const ToggleSwitch = ({ isOn, handleToggle }) => {
+  const toggleTheme = useThemeStore((state) => state.toggleTheme);
+
   return (
     <ToggleSwitchContainer>
       <input
         checked={isOn}
-        onChange={handleToggle}
+        onChange={toggleTheme}
         className="react-switch-checkbox"
         id={`react-switch-new`}
         type="checkbox"

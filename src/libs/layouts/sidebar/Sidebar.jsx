@@ -36,13 +36,13 @@ export const Sidebar = () => {
 
 const SidebarShow = styled.div`
   position: absolute;
-  bottom: 32px;
-  width: 56px;
-  height: 48px;
+  bottom: 3.2rem;
+  width: 5.6rem;
+  height: 4.8rem;
 
   ${({ theme }) => theme.mixins.flexCenter}
   background: var(--main-purple);
-  border-radius: 0px 100px 100px 0px;
+  border-radius: 0px 10rem 10rem 0px;
   cursor: pointer;
 `;
 
@@ -51,22 +51,22 @@ const SidebarContainer = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
   justify-content: space-between;
   height: 100vh;
-  padding: 32px 0;
   border-right: 1px solid var(--line-light);
-  background: var(--white);
+  background: ${({ theme }) => theme.theme.sidebar};
   ${({ openSidebar }) => (openSidebar ? "width: 300px" : "width: 0px")};
   min-width: ${({ openSidebar }) => (openSidebar ? "300px" : "0px")} !important;
   left: ${({ openSidebar }) => (openSidebar ? "0" : "-300px")};
   opacity: ${({ openSidebar }) => (openSidebar ? "1" : "0")};
+  padding: 3.2rem 0;
   transition: all 0.2s ease-in-out;
 
   .sidebar-top {
     ${({ theme }) => theme.mixins.flexColumn}
-    gap: 54px;
+    gap: 5.4rem;
   }
 
   .sidebar-bottom {
     ${({ theme }) => theme.mixins.flexColumn}
-    gap: 16px;
+    gap: 1.6rem;
   }
 `;

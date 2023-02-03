@@ -1,10 +1,15 @@
 import { ThemeProvider } from "styled-components";
+import { useThemeStore } from "../store/themeStore";
 import { mixins } from "../styles/mixins";
-
-const theme = {
-  mixins,
-};
+import { lightTheme, darkTheme } from "../styles/theme";
 
 export const ThemeLayout = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  const theme = useThemeStore((state) => state.theme);
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  return (
+    <ThemeProvider theme={{ theme: themeMode, mixins: mixins }}>
+      {children}
+    </ThemeProvider>
+  );
 };

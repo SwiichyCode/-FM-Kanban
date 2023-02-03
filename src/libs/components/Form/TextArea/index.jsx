@@ -17,30 +17,26 @@ recharge the batteries a little."
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => theme.mixins.flexColumn}
 `;
 
 const StyledTextArea = styled.textarea`
-  min-height: 112px;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 23px;
-  color: #000112;
+  min-height: 11.2rem;
+  font-weight: var(--font-medium);
+  font-size: var(--fz-lg);
+  line-height: 2.3rem;
+  color: var(--color-black);
   border: 1px solid rgba(130, 143, 163, 0.25);
-  border-radius: 4px;
+  border-radius: var(--borderR-lg);
   resize: none;
-  padding: 8px 25px 0 16px;
+  padding: 0.8rem 2.5rem 0 1.6rem;
 
   &::placeholder {
-    color: #000112;
-
-    mix-blend-mode: normal;
-    opacity: 0.25;
+    color: var(--color-back-200);
   }
 
   &:focus {
     outline: 1px solid var(--main-purple);
-    box-shadow: 0px 0px 15px -2px #635fc7;
+    box-shadow: 0px 0px 1.5rem -2px var(--color-purple);
   }
 `;

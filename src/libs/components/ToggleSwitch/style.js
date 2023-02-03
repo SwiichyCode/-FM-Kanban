@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const ToggleSwitchContainer = styled.div`
   width: 100%;
-  display: flex;
-  max-width: 60px;
+  max-width: 6rem;
   position: relative;
 
   &:hover {
@@ -20,14 +19,12 @@ export const ToggleSwitchContainer = styled.div`
   }
 
   .react-switch-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    ${({ theme }) => theme.mixins.flexBetween}
     cursor: pointer;
-    width: 50px;
-    height: 26px;
+    width: 5rem;
+    height: 2.6rem;
     background: var(--main-purple);
-    border-radius: 100px;
+    border-radius: 10rem;
     position: relative;
     transition: all 200ms ease-in-out;
   }
@@ -37,12 +34,12 @@ export const ToggleSwitchContainer = styled.div`
     position: absolute;
     top: 4px;
     left: 4px;
-    width: 18px;
-    height: 18px;
-    border-radius: 45px;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 4.5rem;
     transition: 0.2s;
-    background: var(--white);
-    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+    background: var(--color-white);
+    box-shadow: var(--shadow-md);
   }
 
   .react-switch-checkbox:checked + .react-switch-label .react-switch-button {

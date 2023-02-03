@@ -24,5 +24,6 @@ export const Board = () => {
 const BoardContainer = styled.div`
   width: 100%;
   height: calc(100vh - var(--header-h));
-  padding: 24px;
+  padding: 2.4rem;
+  background: ${({ theme }) => theme.theme.board};
 `;

@@ -18,5 +18,5 @@ export const ColumnWrapper = ({ item }) => {
 
 const Container = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 2.4rem;
 `;

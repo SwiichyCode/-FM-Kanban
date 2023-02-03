@@ -41,7 +41,7 @@ const StyledButton = styled.button`
   width: 100%;
   max-width: ${({ maxW }) => `${maxW}px`};
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: var(--fz-md);
   line-height: 1.9rem;
   padding: 0.9rem;
   border: none;

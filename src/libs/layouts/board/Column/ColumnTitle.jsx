@@ -13,14 +13,13 @@ export const ColumnTitle = ({ title, item }) => {
 
 const Container = styled.div`
   ${({ theme }) => theme.mixins.flexAlignCenter}
-  gap: 12px;
-  /* padding-bottom: 4px; */
+  gap: 1.2rem;
 
   h2 {
-    font-size: 12px;
-    line-height: 15px;
+    font-size: var(--fz-xxs);
+    line-height: 1.5rem;
     letter-spacing: 2.4px;
     text-transform: uppercase;
-    color: #828fa3;
+    color: var(--color-grey);
   }
 `;

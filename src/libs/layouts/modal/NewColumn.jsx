@@ -16,21 +16,16 @@ export const NewColumn = () => {
 
 const Container = styled.div`
   width: 100%;
-  max-width: 280px;
+  max-width: 28rem;
   height: calc(100vh - var(--header-h) - 80px);
   ${({ theme }) => theme.mixins.flexCenter}
-  background: linear-gradient(
-    180deg,
-    #e9effa 0%,
-    rgba(233, 239, 250, 0.5) 100%
-  );
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-  color: #828fa3;
+  border-radius: var(--borderR-md);
+  font-weight: var(--font-bold);
+  font-size: var(--fz-xxl);
+  color: var(--color-grey);
+  margin-top: 4.4rem;
+  background: ${({ theme }) => theme.theme.newColumn};
   cursor: pointer;
-  margin-top: 44px;
 
   &:hover {
     color: var(--main-purple);
