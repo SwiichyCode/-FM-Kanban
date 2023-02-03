@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import useDashboardStore from "../../../store/dashboardStore";
-import { useRecoilState } from "recoil";
-import { boardState } from "../../../store/store";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { InputGenerator } from "../../components/Form/InputGenerator/index";
 import { Input } from "../../components/Form/Input/index";
@@ -20,7 +18,6 @@ export const NewBoard = () => {
   const [name, setName] = useState("");
   const [inputFields, setInputFields] = useState(initialInputFields);
   const [errorMessage, setErrorMessage] = useState("");
-  const [boardData, setBoardData] = useRecoilState(boardState);
   const addBoard = useDashboardStore((state) => state.addBoard);
 
   const handleSubmit = (e) => {
@@ -30,10 +27,11 @@ export const NewBoard = () => {
     if (name === "") {
       setErrorMessage("Board name cannot be empty");
       return;
-    } else if (boardData.map((board) => board.name).includes(name)) {
-      setErrorMessage("Board name already exist");
-      return;
     }
+    // } else if (boardData.map((board) => board.name).includes(name)) {
+    //   setErrorMessage("Board name already exist");
+    //   return;
+    // }
 
     const newBoard = {
       name: name,

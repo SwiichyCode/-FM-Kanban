@@ -29,7 +29,7 @@ const useDashboardStore = create(
             const board = draft.dashboard.find((b) => b.id === boardId);
             if (!board) return;
             const column = board.columns.find((c) => c.id === columnId);
-            // if (!column) return;
+            if (!column) return;
             column.tasks.push(task);
           })
         ),

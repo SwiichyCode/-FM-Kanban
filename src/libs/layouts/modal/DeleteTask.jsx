@@ -3,13 +3,9 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { LayoutModal } from "../../components/Wrapper/LayoutModal";
 import { Button } from "../../components/Button";
-import { useRecoilState } from "recoil";
-import { boardState } from "../../../store/store";
-import { urlSplit } from "../../../helpers/urlSplit";
 import useDashboardStore from "../../../store/dashboardStore";
 
 export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
-  const [boardData, setBoardData] = useRecoilState(boardState);
   const deleteTask = useDashboardStore((state) => state.deleteTask);
   let { id } = useParams();
 
