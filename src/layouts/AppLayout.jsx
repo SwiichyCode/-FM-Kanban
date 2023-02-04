@@ -13,8 +13,6 @@ export const AppLayout = ({ children }) => {
     if (location.pathname === "/" && board.length > 0) {
       const item = board[0].id;
       navigate(`/${item}`);
-    } else {
-      navigate("/");
     }
   }, [location, board]);
 
