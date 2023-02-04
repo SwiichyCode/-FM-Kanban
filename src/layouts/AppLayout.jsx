@@ -15,7 +15,7 @@ export const AppLayout = ({ children }) => {
 
   // Redirect to the 1st board of the list
   useEffect(() => {
-    if (location.pathname === "/" && board.length > 0) {
+    if (location.pathname === "/" && board.length > 0 && dataLoaded) {
       const item = board[0].id;
       navigate(`/${item}`);
     }
