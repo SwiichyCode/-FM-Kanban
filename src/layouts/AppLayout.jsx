@@ -13,18 +13,8 @@ export const AppLayout = ({ children }) => {
     if (location.pathname === "/" && board.length > 0) {
       const item = board[0].id;
       navigate(`/${item}`);
-    }
-  }, [location, board]);
-
-  //redirect to the current board after refresh
-  useEffect(() => {
-    if (location.pathname !== "/" && board.length > 0) {
-      const item = board.filter(
-        (item) => item.id === location.pathname.slice(1)
-      );
-      if (item.length === 0) {
-        navigate("/");
-      }
+    } else {
+      navigate("/");
     }
   }, [location, board]);
 
