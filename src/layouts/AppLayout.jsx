@@ -9,12 +9,12 @@ export const AppLayout = ({ children }) => {
   let navigate = useNavigate();
 
   // Redirect to the 1st board of the list
-  useEffect(() => {
-    if (location.pathname === "/" && board.length > 0) {
-      const item = board[0].id;
-      navigate(`/${item}`);
-    }
-  }, [location, board]);
+  // useEffect(() => {
+  //   if (location.pathname === "/" && board.length > 0) {
+  //     const item = board[0].id;
+  //     navigate(`/${item}`);
+  //   }
+  // }, [location, board]);
 
   return <AppLayoutContainer>{children}</AppLayoutContainer>;
 };
