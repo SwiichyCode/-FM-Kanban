@@ -9,6 +9,7 @@ import { EditTask } from "./EditTask";
 import { DeleteTask } from "./DeleteTask";
 import useDashboardStore from "../../../store/dashboardStore";
 import { useParams } from "react-router-dom";
+import { Label } from "../../components/Form/Label";
 
 export const TaskModal = ({
   open,
@@ -35,7 +36,12 @@ export const TaskModal = ({
   }, [openDelete, openEdit]);
 
   return (
-    <LayoutModal isOpen={open} onRequestClose={setOpen} visibility={visible}>
+    <LayoutModal
+      isOpen={open}
+      onRequestClose={setOpen}
+      visibility={visible}
+      // title={item.name}
+    >
       <div className="modal-header">
         <h2 className="modal-title">{item.name}</h2>
         <CustomPopover
@@ -68,9 +74,9 @@ export const TaskModal = ({
 
       <p className="modal-paragraph">{item.description}</p>
       <Subtasks className="modal-subtasks">
-        <Label>
-          Subtasks ({completedSubtasks.length} of {item.subtasks.length})
-        </Label>
+        <Label
+          labelText={`Subtasks (${completedSubtasks.length} of ${item.subtasks.length})`}
+        />
         <div className="subtasks-wrapper">
           {item.subtasks.map((i, index) => {
             return (
@@ -109,11 +115,4 @@ const Subtasks = styled.div`
     ${({ theme }) => theme.mixins.flexColumn}
     gap: .8rem;
   }
-`;
-
-const Label = styled.label`
-  font-weight: var(--font-bold);
-  font-size: var(--fz-xxs);
-  line-height: 1.5rem;
-  color: var(--color-grey);
 `;

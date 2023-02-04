@@ -7,9 +7,10 @@ export const Label = ({ labelText, labelFor }) => {
 
 const StyledLabel = styled.label`
   font-weight: var(--font-bold);
-  font-size: var(--fz-lg);
+  font-size: var(--fz-xxs);
   line-height: 1.5rem;
-  color: var(--color-grey);
-  text-transform: capitalize;
-  padding-bottom: 1.1rem;
+  /* color: var(--color-grey); */
+  color: ${({ theme }) => theme.theme.text};
+  /* text-transform: capitalize; */
+  /* padding-bottom: 1.1rem; */
 `;

@@ -1,9 +1,20 @@
 import styled from "styled-components";
-
+import { useThemeStore } from "../../../store/themeStore";
+import logoLight from "../../../assets/logo-light.svg";
+import logoDark from "../../../assets/logo-dark.svg";
 export const SidebarLogo = () => {
+  const theme = useThemeStore((state) => state.theme);
+
+  console.log(theme);
   return (
     <SidebarLogoContainer>
-      <img src="/logo-dark.svg" alt="" />
+      {theme === "light" ? (
+        <img src={logoDark} alt="" loading="lazy" />
+      ) : (
+        <img src={logoLight} alt="" loading="lazy" />
+      )}
+
+      {/* <img src="/logo-dark.svg" alt="" /> */}
     </SidebarLogoContainer>
   );
 };

@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
   ${({ theme }) => theme.mixins.flexAlignCenter}
   width: 100%;
-  height: 40px;
-  background: #f4f7fd;
+  height: 4rem;
+  background: ${({ theme }) => theme.theme.checkbox};
   border-radius: 4px;
-  padding: 0 12px;
-  gap: 16px;
+  padding: 0 1.2rem;
+  gap: 1.6rem;
   cursor: pointer;
 
   &:hover {
-    background: ${({ isChecked }) => (isChecked ? "#f4f7fd" : "#d8d7f1")};
+    background: ${({ theme }) => theme.theme.checkboxHover};
   }
 
   & > * {
@@ -19,8 +19,8 @@ export const Container = styled.div`
   }
 
   input {
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   input[type="checkbox"] {

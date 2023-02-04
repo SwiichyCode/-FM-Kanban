@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useToggle } from "../../../../hooks/useToggle";
 import chevronDown from "../../../../assets/icon-chevron-down.svg";
 import { CustomSelect } from "./style";
+import { Label } from "../Label";
 
 export const Select = ({
   label,
@@ -23,7 +24,7 @@ export const Select = ({
 
   return (
     <CustomSelect open={open}>
-      <label className="select-label">{label}</label>
+      <Label labelText={label} />
 
       <div className="current-select" onClick={() => isOpen((prev) => !prev)}>
         <span>{currentItem || currentValue || "Choose a status"}</span>
@@ -45,15 +46,6 @@ export const Select = ({
                 </option>
               );
             })}
-            {/* <option value="To Do" onClick={(e) => handleClick(e)}>
-              To Do
-            </option>
-            <option value="In Progress" onClick={(e) => handleClick(e)}>
-              In Progress
-            </option>
-            <option value="Done" onClick={(e) => handleClick(e)}>
-              Done
-            </option> */}
           </ul>
         </div>
       )}

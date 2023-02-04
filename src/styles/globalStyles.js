@@ -39,6 +39,8 @@ select {
     --color-grey-200: #bfbfc3;
     --color-grey-300: #7a7c88;
 
+    --color-border: rgba(130, 143, 163, 0.25);
+
     --hover-red: #ff9898;
     --hover-purple: #a6a6ff;
 

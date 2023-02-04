@@ -14,17 +14,19 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
-      <div className="left-side">
-        <h1>{currentBoard && currentBoard.name}</h1>
-        <button onClick={resetStorage}>reset storage</button>
-      </div>
-
-      {currentBoard && (
-        <div className="right-side">
-          <NewTask />
-          <ManageBoard boardName={currentBoard.name} />
+      <div className="header-wrapper">
+        <div className="left-side">
+          <h1>{currentBoard && currentBoard.name}</h1>
+          <button onClick={resetStorage}>reset storage</button>
         </div>
-      )}
+
+        {currentBoard && (
+          <div className="right-side">
+            <NewTask />
+            <ManageBoard boardName={currentBoard.name} />
+          </div>
+        )}
+      </div>
     </HeaderContainer>
   );
 };

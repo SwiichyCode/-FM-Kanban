@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
+
   min-height: 6.4rem;
   ${({ theme }) => theme.mixins.flexBetween}
   background: ${({ theme }) => theme.theme.header};
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: ${({ theme }) => theme.theme.border};
   transition: all 200ms ease-in-out;
 
   @media screen and (min-width: 750px) {
@@ -16,11 +17,18 @@ export const HeaderContainer = styled.header`
     height: 9.7rem;
   }
 
+  .header-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   h1 {
     font-weight: var(--font-bold);
     font-size: 1.8rem;
     line-height: 2.3rem;
-    color: var(--color-black);
+    color: ${({ theme }) => theme.theme.text};
     padding-left: 2.4rem;
 
     @media screen and (min-width: 750px) {

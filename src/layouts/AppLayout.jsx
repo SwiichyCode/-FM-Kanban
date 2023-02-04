@@ -25,5 +25,5 @@ const AppLayoutContainer = styled.div`
   height: 100vh;
 
   /* Temporaire */
-  background: var(--light-grey-light);
+  background: ${({ theme }) => theme.theme.board};
 `;

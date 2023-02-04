@@ -2,14 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { TaskModal } from "../../modal/ManageTask";
 import { useToggle } from "../../../../hooks/useToggle";
-
+import { motion } from "framer-motion";
 export const TaskCard = ({ item, columns }) => {
   const [open, setOpen] = useToggle();
   const completedSubtasks = item.subtasks.filter((item) => item.isCompleted);
 
   return (
     <>
-      <Container onClick={setOpen}>
+      <Container
+        onClick={setOpen}
+        as={motion.div}
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.2 }}
+      >
         <h2>{item.name}</h2>
         <p>
           {completedSubtasks.length} of {item.subtasks.length} subtasks

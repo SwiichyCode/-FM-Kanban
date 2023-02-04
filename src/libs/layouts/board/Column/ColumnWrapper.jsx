@@ -18,5 +18,7 @@ export const ColumnWrapper = ({ item }) => {
 
 const Container = styled.div`
   display: flex;
+  width: max-content;
   gap: 2.4rem;
+  padding-top: 0.4rem;
 `;

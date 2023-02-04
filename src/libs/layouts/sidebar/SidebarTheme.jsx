@@ -24,4 +24,9 @@ const SidebarThemeContainer = styled.div`
   padding: 1.4rem 0;
   gap: 2.36rem;
   background: ${({ theme }) => theme.theme.toggle};
+
+  @media (max-width: 1300px) {
+    max-width: 23.5rem;
+    margin-left: 1.3rem;
+  }
 `;
