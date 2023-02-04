@@ -19,7 +19,7 @@ export const Select = ({
     setCurrentValue(name);
     setStatus(id);
     // onChange();
-    // isOpen(false);
+    isOpen(false);
   };
 
   return (
