@@ -24,7 +24,9 @@ export const NewTask = () => {
   const board = useDashboardStore((state) => state.dashboard);
   const addTask = useDashboardStore((state) => state.addTask);
   const currentBoard = board.find((item) => item.id === id);
-  const [status, setStatus] = useState(currentBoard.columns[0].id);
+  const [status, setStatus] = useState(
+    currentBoard.columns.length > 0 ? currentBoard.columns[0].id : null
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();

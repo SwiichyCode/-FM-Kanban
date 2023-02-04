@@ -26,15 +26,10 @@ export const HeaderContainer = styled.header`
 
   h1 {
     font-weight: var(--font-bold);
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     line-height: 2.3rem;
     color: ${({ theme }) => theme.theme.text};
     padding-left: 2.4rem;
-
-    @media screen and (min-width: 750px) {
-      font-size: 2rem;
-      line-height: 2.5rem;
-    }
   }
 
   .left-side {

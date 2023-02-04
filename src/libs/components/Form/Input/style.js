@@ -5,6 +5,7 @@ export const Container = styled.div`
   max-width: ${(props) => (props.maxW ? `${props.maxW}px` : "initial")};
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
   ${({ theme }) => theme.mixins.flexColumn}
 `;
 
@@ -29,10 +30,11 @@ export const StyledInput = styled.input`
   line-height: 2.3rem;
   padding: 8px 16px 9px 16px;
   border-radius: var(--borderR-lg);
+  color: ${({ theme }) => theme.theme.text};
   border: ${({ error }) =>
     error
       ? "1px solid var(--color-red)"
-      : "1px solid rgba(130, 143, 163, 0.25)"};
+      : "1px solid rgba(130, 143, 163, 0.25);"};
 
   &:focus {
     outline: ${({ error }) =>

@@ -60,20 +60,6 @@ const Container = styled.div`
     gap: 16px;
   }
 
-  /* Popover */
-  .popover {
-    display: flex;
-    flex-direction: column;
-    width: 192px;
-    position: absolute;
-    top: 22px;
-    right: 0;
-    padding: 1.6rem;
-    border-radius: 8px;
-    box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
-    background: #ffffff;
-    gap: 16px;
-  }
   .popover.popover-center {
     left: 50%;
     transform: translate(-50%);

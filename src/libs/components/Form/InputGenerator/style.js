@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
+  gap: 12px;
 
   .input-container {
     ${({ theme }) => theme.mixins.flexColumn}

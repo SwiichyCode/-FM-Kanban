@@ -27,7 +27,8 @@ const BoardContainer = styled.div`
   width: 100%;
   max-width: ${({ sidebar }) => (sidebar ? "calc(100vw - 300px)" : "100vw")};
   height: calc(100vh - var(--header-h));
-  padding: 2.4rem;
+  padding: ${({ sidebar }) =>
+    sidebar ? "24px" : "24px 24px 24px calc(48px + 24px)"};
   overflow: auto;
   background: ${({ theme }) => theme.theme.board};
 `;

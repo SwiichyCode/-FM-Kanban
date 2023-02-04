@@ -33,7 +33,7 @@ const handleSizeType = (size) => {
       return "padding: 15px 0 14px 0; border-radius: 24px;";
 
     default:
-      return "padding: 8px 0 9px 0; border-radius: 2rem;";
+      return "padding: 10px 0 11px 0; border-radius: 2rem;";
   }
 };
 

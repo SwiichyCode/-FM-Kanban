@@ -8,6 +8,7 @@ import { Input } from "../../components/Form/Input/index";
 import { Button } from "../../components/Button";
 import { useToggle } from "../../../hooks/useToggle";
 import { IconBoard } from "../sidebar/SidebarIcon";
+import { useNavigate } from "react-router-dom";
 
 export const NewBoard = () => {
   const initialInputFields = [
@@ -19,6 +20,7 @@ export const NewBoard = () => {
   const [inputFields, setInputFields] = useState(initialInputFields);
   const [errorMessage, setErrorMessage] = useState("");
   const addBoard = useDashboardStore((state) => state.addBoard);
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +45,7 @@ export const NewBoard = () => {
 
     setName("");
     setInputFields(initialInputFields);
+    navigate(`/${newBoard.id}`);
     setIsOpen(false);
   };
 

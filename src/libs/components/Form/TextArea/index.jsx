@@ -18,6 +18,7 @@ recharge the batteries a little."
 
 const Container = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
+  gap: 1.2rem;
 `;
 
 const StyledTextArea = styled.textarea`
@@ -26,13 +27,15 @@ const StyledTextArea = styled.textarea`
   font-size: var(--fz-lg);
   line-height: 2.3rem;
   color: var(--color-black);
+  color: ${({ theme }) => theme.theme.text};
   border: 1px solid rgba(130, 143, 163, 0.25);
   border-radius: var(--borderR-lg);
   resize: none;
   padding: 0.8rem 2.5rem 0 1.6rem;
+  background: transparent;
 
   &::placeholder {
-    color: var(--color-back-200);
+    color: var(--color-grey-200);
   }
 
   &:focus {
