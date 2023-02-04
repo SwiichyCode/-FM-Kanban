@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import useDashboardStore from "../store/dashboardStore";
@@ -6,20 +6,27 @@ import useDashboardStore from "../store/dashboardStore";
 export const AppLayout = ({ children }) => {
   const board = useDashboardStore((state) => state.dashboard);
   const location = useLocation();
-  const [dataLoaded, setDataLoaded] = useState(false);
   let navigate = useNavigate();
-
-  useEffect(() => {
-    setDataLoaded(true);
-  }, [board]);
 
   // Redirect to the 1st board of the list
   useEffect(() => {
-    if (location.pathname === "/" && board.length > 0 && dataLoaded) {
+    if (location.pathname === "/" && board.length > 0) {
       const item = board[0].id;
       navigate(`/${item}`);
     }
-  }, [location, board, dataLoaded]);
+  }, [location, board]);
+
+  //redirect to the current board after refresh
+  useEffect(() => {
+    if (location.pathname !== "/" && board.length > 0) {
+      const item = board.filter(
+        (item) => item.id === location.pathname.slice(1)
+      );
+      if (item.length === 0) {
+        navigate("/");
+      }
+    }
+  }, [location, board]);
 
   return <AppLayoutContainer>{children}</AppLayoutContainer>;
 };
