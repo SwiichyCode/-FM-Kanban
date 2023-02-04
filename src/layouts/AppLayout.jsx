@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import useDashboardStore from "../store/dashboardStore";
@@ -6,7 +6,12 @@ import useDashboardStore from "../store/dashboardStore";
 export const AppLayout = ({ children }) => {
   const board = useDashboardStore((state) => state.dashboard);
   const location = useLocation();
+  const [dataLoaded, setDataLoaded] = useState(false);
   let navigate = useNavigate();
+
+  useEffect(() => {
+    setDataLoaded(true);
+  }, [board]);
 
   // Redirect to the 1st board of the list
   useEffect(() => {
@@ -14,7 +19,7 @@ export const AppLayout = ({ children }) => {
       const item = board[0].id;
       navigate(`/${item}`);
     }
-  }, [location, board]);
+  }, [location, board, dataLoaded]);
 
   return <AppLayoutContainer>{children}</AppLayoutContainer>;
 };
