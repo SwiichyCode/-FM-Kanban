@@ -76,26 +76,11 @@ export const NewTask = () => {
               placeholder={inputFields.placeholder}
               setInputFields={setInputFields}
             />
-            {/* <Select
+            <Select
               label="Status"
               columns={currentBoard.columns}
-              // currentItem={currentBoard.status}
               setStatus={setStatus}
             />
-            <select> */}
-            <select>
-              {currentBoard &&
-                currentBoard.columns.map((item) => {
-                  return (
-                    <option
-                      value={item.id}
-                      onClick={(e) => setStatus(e.target.value)}
-                    >
-                      {item.name}
-                    </option>
-                  );
-                })}
-            </select>
             <Button
               theme="primary"
               text="Create Task"

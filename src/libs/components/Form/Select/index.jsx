@@ -15,11 +15,11 @@ export const Select = ({
   const [open, isOpen] = useToggle(false);
   const [currentValue, setCurrentValue] = useState("");
 
-  const handleClick = (id) => {
-    setCurrentValue(id);
+  const handleClick = (id, name) => {
+    setCurrentValue(name);
     setStatus(id);
-    onChange();
-    isOpen(false);
+    // onChange();
+    // isOpen(false);
   };
 
   return (
@@ -40,7 +40,7 @@ export const Select = ({
                 <option
                   value={item.name}
                   key={index}
-                  onClick={(e) => handleClick(item.id)}
+                  onClick={() => handleClick(item.id, item.name)}
                 >
                   {item.name}
                 </option>

@@ -50,6 +50,19 @@ const useDashboardStore = create(
       //     })
       //   ),
 
+      editTask: (boardId, columnId, taskId, newTask) =>
+        set(
+          produce((draft) => {
+            const board = draft.dashboard.find((b) => b.id === boardId);
+            if (!board) return;
+            const column = board.columns.find((c) => c.id === columnId);
+            if (!column) return;
+            column.tasks = column.tasks.map((task) =>
+              task.id === taskId ? newTask : task
+            );
+          })
+        ),
+
       deleteTask: (boardId, columnId, taskId) =>
         set(
           produce((draft) => {
