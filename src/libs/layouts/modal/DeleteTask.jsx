@@ -21,6 +21,8 @@ export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
         isOpen={openDelete}
         onRequestClose={setOpenDelete}
         title="Edit Board"
+        selector={"#root"}
+        portalClassName="delete-task"
       >
         <div className="modal-header">
           <h2 className="modal-title alert">Delete task</h2>

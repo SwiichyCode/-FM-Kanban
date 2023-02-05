@@ -24,6 +24,8 @@ export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
         isOpen={openDelete}
         onRequestClose={setOpenDelete}
         title="Delete this board?"
+        selector={"#manage-board"}
+        portalClassName="delete-board"
       >
         <div className="modal-header">
           <h2 className="modal-title alert">Delete this board?</h2>

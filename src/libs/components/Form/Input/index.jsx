@@ -13,6 +13,7 @@ export const Input = ({
   errorMessage,
   maxW,
   value,
+  register,
 }) => {
   return (
     <S.Container maxW={maxW}>
@@ -27,8 +28,9 @@ export const Input = ({
           onChange={onChange}
           defaultValue={defaultValue}
           error={error}
+          {...register}
         />
-        {error && <S.Error>{errorMessage}</S.Error>}
+        {error && <S.Error>{error}</S.Error>}
       </S.Wrapper>
     </S.Container>
   );

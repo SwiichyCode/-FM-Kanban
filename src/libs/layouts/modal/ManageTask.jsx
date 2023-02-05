@@ -37,10 +37,11 @@ export const TaskModal = ({
 
   return (
     <LayoutModal
+      selector={"#root"}
       isOpen={open}
       onRequestClose={setOpen}
       visibility={visible}
-      // title={item.name}
+      portalClassName="task-modal"
     >
       <div className="modal-header">
         <h2 className="modal-title">{item.name}</h2>

@@ -64,7 +64,13 @@ export const NewBoard = () => {
           <span className="nav-newBoard">+ create new board</span>
         </SidebarModalContainer>
       </li>
-      <LayoutModal isOpen={isOpen} onRequestClose={setIsOpen} title="new board">
+      <LayoutModal
+        selector={"#root"}
+        isOpen={isOpen}
+        onRequestClose={setIsOpen}
+        title="new board"
+        portalClassName={"modal-portal"}
+      >
         <div className="modal-header">
           <h2 className="modal-title">Add New Board</h2>
         </div>

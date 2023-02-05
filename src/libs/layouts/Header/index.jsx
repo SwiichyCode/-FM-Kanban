@@ -21,7 +21,7 @@ export const Header = () => {
         </div>
 
         {currentBoard && (
-          <div className="right-side">
+          <div className="right-side" id="manage-board">
             <NewTask />
             <ManageBoard boardName={currentBoard.name} />
           </div>
