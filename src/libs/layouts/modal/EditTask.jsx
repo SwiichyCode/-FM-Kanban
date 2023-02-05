@@ -14,16 +14,39 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
   const { id } = useParams();
   const board = useDashboardStore((state) => state.dashboard);
   const currentBoard = board.find((board) => board.id === id);
-
+  const editTask = useDashboardStore((state) => state.editTask);
+  const changeTaskColumn = useDashboardStore((state) => state.changeTaskColumn);
   const [status, setStatus] = useState(
     currentBoard.columns.length > 0 ? currentBoard.columns[0].id : null
   );
+  const [actualBoard, setActualBoard] = useState({
+    name: "",
+    description: "",
+  });
 
   useEffect(() => {
-    setInputFields(item.subtasks);
-  }, [item.subtasks]);
+    if (!currentBoard) return;
 
-  console.log(inputFields);
+    setInputFields(item.subtasks);
+    setActualBoard({ name: item.name, description: item.description });
+  }, [currentBoard]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const task = {
+      id: item.id,
+      name: actualBoard.name,
+      description: actualBoard.description,
+      subtasks: inputFields,
+      columnId: status,
+    };
+
+    editTask(currentBoard.id, item.columnId, item.id, task);
+    changeTaskColumn(currentBoard.id, item.columnId, item.id, status);
+    setOpenEdit();
+  };
+
   return (
     <Container>
       <span onClick={setOpenEdit}>Edit Task</span>
@@ -37,12 +60,22 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
         </div>
 
         <Form>
-          <Input name="name" labelText={"Task Name"} value={item.name} />
+          <Input
+            name="name"
+            labelText={"Task Name"}
+            value={actualBoard.name}
+            onChange={(e) =>
+              setActualBoard({ ...actualBoard, name: e.target.value })
+            }
+          />
 
           <TextArea
             name="description"
             labelText={"Description"}
-            value={item.description}
+            value={actualBoard.description}
+            onChange={(e) =>
+              setActualBoard({ ...actualBoard, description: e.target.value })
+            }
           />
 
           <InputGeneratorTest
@@ -56,7 +89,12 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
             setStatus={setStatus}
           />
 
-          <Button theme="primary" text="Save Changes" type="submit" />
+          <Button
+            theme="primary"
+            text="Save Changes"
+            type="submit"
+            onClick={handleSubmit}
+          />
         </Form>
       </LayoutModal>
     </Container>
@@ -73,7 +111,7 @@ const Container = styled.div`
   }
 `;
 
-const Form = styled.form`
+const Form = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
   gap: 2.4rem;
 `;
