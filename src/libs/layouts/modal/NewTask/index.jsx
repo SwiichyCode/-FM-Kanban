@@ -1,17 +1,17 @@
-import styled from "styled-components";
 import Select from "react-select";
 import { v4 as uuidv4 } from "uuid";
 import { Controller, useForm } from "react-hook-form";
-import useDashboardStore from "../../../store/dashboardStore";
-import { useToggle } from "../../../hooks/useToggle";
-import { useRouteId } from "../../../hooks/useRouteId";
-import { useCurrentBoard } from "../../../hooks/useCurrentBoard";
-import { Button } from "../../components/Button";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
-import { Input } from "../../components/Form/Input/index";
-import { TextArea } from "../../components/Form/TextArea";
-
-import { InputGenerator } from "../../components/Form/InputGenerator/index";
+import useDashboardStore from "../../../../store/dashboardStore";
+import { useToggle } from "../../../../hooks/useToggle";
+import { useRouteId } from "../../../../hooks/useRouteId";
+import { useCurrentBoard } from "../../../../hooks/useCurrentBoard";
+import { Button } from "../../../components/Button";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
+import { Input } from "../../../components/Form/Input/index";
+import { TextArea } from "../../../components/Form/TextArea";
+import { FormWrapper } from "../../../components/Wrapper/FormWrapper";
+import * as S from "./styles";
+import { InputGenerator } from "../../../components/Form/InputGenerator/index";
 
 export const NewTask = () => {
   const [open, setOpen] = useToggle();
@@ -37,7 +37,7 @@ export const NewTask = () => {
   // const [inputFields, setInputFields] = useState([]);
 
   return (
-    <Container id="new-task">
+    <S.Container id="new-task">
       <Button
         text="+ Add New Task"
         theme="primary"
@@ -47,7 +47,7 @@ export const NewTask = () => {
       />
 
       {currentBoard && (
-        <LayoutModal
+        <ModalWrapper
           isOpen={open}
           onRequestClose={setOpen}
           portalClassName="new task"
@@ -56,7 +56,8 @@ export const NewTask = () => {
           <div className="modal-header">
             <h2 className="modal-title">Add New Task</h2>
           </div>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
+          <FormWrapper onSubmit={handleSubmit(onSubmit)}>
             <Input
               labelText="Title"
               placeholder="e.g Take coffee break"
@@ -95,18 +96,9 @@ export const NewTask = () => {
               type="submit"
               onClick={handleSubmit}
             />
-          </Form>
-        </LayoutModal>
+          </FormWrapper>
+        </ModalWrapper>
       )}
-    </Container>
+    </S.Container>
   );
 };
-
-const Container = styled.div`
-  width: 100%;
-`;
-
-const Form = styled.form`
-  ${({ theme }) => theme.mixins.flexColumn}
-  gap: 2.4rem;
-`;

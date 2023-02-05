@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
-import { Checkbox } from "../../components/Form/Checkbox/index";
-import { Select } from "../../components/Form/Select";
-import { CustomPopover } from "../../components/Popover";
-import { useToggle } from "../../../hooks/useToggle";
-import { EditTask } from "./EditTask";
-import { DeleteTask } from "./DeleteTask";
-import useDashboardStore from "../../../store/dashboardStore";
-import { useParams } from "react-router-dom";
-import { Label } from "../../components/Form/Label";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
+import { Checkbox } from "../../../components/Form/Checkbox/index";
+import { Select } from "../../../components/Form/Select";
+import { CustomPopover } from "../../../components/Popover";
+import { useToggle } from "../../../../hooks/useToggle";
+import { EditTask } from "../EditTask";
+import { DeleteTask } from "../DeleteTask";
+import useDashboardStore from "../../../../store/dashboardStore";
+import { Label } from "../../../components/Form/Label";
+import { useCurrentBoard } from "../../../../hooks/useCurrentBoard";
+import { useRouteId } from "../../../../hooks/useRouteId";
+import * as S from "./styles";
 
 export const TaskModal = ({
   open,
@@ -21,22 +22,19 @@ export const TaskModal = ({
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
   const [visible, setVisible] = useState();
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
   const toggleSubtask = useDashboardStore((state) => state.toggleSubtask);
-  // const toggleTaskColumn = useDashboardStore((state) => state.toggleTaskColumn);
-  const board = useDashboardStore((state) => state.dashboard);
-  const { id } = useParams();
 
-  const currentBoard = board.find((item) => item.id === id);
+  const id = useRouteId();
+  const currentBoard = useCurrentBoard(id);
 
-  // console.log(status);
-
+  // ???
   useEffect(() => {
     openDelete || openEdit ? setVisible(false) : setVisible(true);
   }, [openDelete, openEdit]);
 
   return (
-    <LayoutModal
+    <ModalWrapper
       selector={"#root"}
       isOpen={open}
       onRequestClose={setOpen}
@@ -66,7 +64,6 @@ export const TaskModal = ({
                 setOpenDelete={setOpenDelete}
                 setOpen={setOpen}
                 item={item}
-                columns={columns}
               />
             </div>
           }
@@ -74,7 +71,7 @@ export const TaskModal = ({
       </div>
 
       <p className="modal-paragraph">{item.description}</p>
-      <Subtasks className="modal-subtasks">
+      <S.Subtasks className="modal-subtasks">
         <Label
           labelText={`Subtasks (${completedSubtasks.length} of ${item.subtasks.length})`}
         />
@@ -92,28 +89,17 @@ export const TaskModal = ({
             );
           })}
         </div>
-      </Subtasks>
+      </S.Subtasks>
 
       <Select
         label="Current Status"
         currentItem={item.status}
         columns={columns}
-        setStatus={setStatus}
+        // setStatus={setStatus}
         // onChange={() =>
         //   toggleTaskColumn(currentBoard.id, item.columnId, item.id, status)
         // }
       />
-    </LayoutModal>
+    </ModalWrapper>
   );
 };
-
-const Subtasks = styled.div`
-  ${({ theme }) => theme.mixins.flexColumn}
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-
-  .subtasks-wrapper {
-    ${({ theme }) => theme.mixins.flexColumn}
-    gap: .8rem;
-  }
-`;

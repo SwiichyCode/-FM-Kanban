@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 // Modal.setAppElement("#root");
 
-export const LayoutModal = ({
+export const ModalWrapper = ({
   isOpen,
   onRequestClose,
   children,
@@ -39,6 +39,7 @@ export const LayoutModal = ({
       overlayClassName="overlay"
       portalClassName={portalClassName}
       parentSelector={() => document.querySelector(selector)}
+      ariaHideApp={false}
     >
       <Container>{children}</Container>
     </Modal>
