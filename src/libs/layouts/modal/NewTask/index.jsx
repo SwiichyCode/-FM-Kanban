@@ -86,6 +86,19 @@ export const NewTask = () => {
                     value: column.id,
                     label: column.name,
                   }))}
+                  styles={{
+                    control: (provided, state) => ({
+                      ...provided,
+                      boxShadow: "none",
+                      borderColor: state.isFocused
+                        ? "#635FC7"
+                        : "rgba(130, 143, 163, 0.25)",
+
+                      "&:hover": {
+                        border: "1px solid #635FC7",
+                      },
+                    }),
+                  }}
                 />
               )}
             />
