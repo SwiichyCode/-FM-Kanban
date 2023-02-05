@@ -1,9 +1,8 @@
-import React from "react";
-import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
-import useDashboardStore from "../../../store/dashboardStore";
-import { Button } from "../../components/Button";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
+import useDashboardStore from "../../../../store/dashboardStore";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
+import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
+import { Button } from "../../../components/Button";
 
 export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
   let { id } = useParams();
@@ -18,9 +17,9 @@ export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
   };
 
   return (
-    <DeleteBoardContainer>
+    <ConfirmWrapper status="delete">
       <span onClick={setOpenDelete}>Delete Board</span>
-      <LayoutModal
+      <ModalWrapper
         isOpen={openDelete}
         onRequestClose={setOpenDelete}
         title="Delete this board?"
@@ -44,17 +43,7 @@ export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
           />
           <Button text="Cancel" theme="secondary" onClick={setOpenDelete} />
         </div>
-      </LayoutModal>
-    </DeleteBoardContainer>
+      </ModalWrapper>
+    </ConfirmWrapper>
   );
 };
-
-const DeleteBoardContainer = styled.div`
-  span {
-    font-weight: var(--font-medium);
-    font-size: 1.3rem;
-    line-height: 2.3rem;
-    color: var(--color-red);
-    cursor: pointer;
-  }
-`;

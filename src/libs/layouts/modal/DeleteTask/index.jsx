@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
-import { Button } from "../../components/Button";
-import useDashboardStore from "../../../store/dashboardStore";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
+import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
+import { Button } from "../../../components/Button";
+import useDashboardStore from "../../../../store/dashboardStore";
 
-export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
+export const DeleteTask = ({ openDelete, setOpenDelete, item }) => {
   const deleteTask = useDashboardStore((state) => state.deleteTask);
   let { id } = useParams();
 
@@ -15,9 +15,9 @@ export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
   };
 
   return (
-    <Container>
+    <ConfirmWrapper status="delete">
       <span onClick={setOpenDelete}>Delete Task</span>
-      <LayoutModal
+      <ModalWrapper
         isOpen={openDelete}
         onRequestClose={setOpenDelete}
         title="Edit Board"
@@ -42,17 +42,7 @@ export const DeleteTask = ({ openDelete, setOpenDelete, item, columns }) => {
           />
           <Button text="Cancel" theme="secondary" onClick={setOpenDelete} />
         </div>
-      </LayoutModal>
-    </Container>
+      </ModalWrapper>
+    </ConfirmWrapper>
   );
 };
-
-const Container = styled.div`
-  span {
-    font-weight: var(--font-medium);
-    font-size: 1.3rem;
-    line-height: 2.3rem;
-    color: var(--color-red);
-    cursor: pointer;
-  }
-`;

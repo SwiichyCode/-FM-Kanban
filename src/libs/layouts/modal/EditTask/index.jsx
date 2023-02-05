@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { Input } from "../../components/Form/Input";
-import { Select } from "../../components/Form/Select";
-import { InputGeneratorTest } from "../../components/Form/Test/InputGeneratorTest";
-import { TextArea } from "../../components/Form/TextArea";
-import { LayoutModal } from "../../components/Wrapper/LayoutModal";
+import { Input } from "../../../components/Form/Input";
+import { Select } from "../../../components/Form/Select";
+import { InputGeneratorTest } from "../../../components/Form/Test/InputGeneratorTest";
+import { TextArea } from "../../../components/Form/TextArea";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
 import { useParams } from "react-router-dom";
-import useDashboardStore from "../../../store/dashboardStore";
-import { Button } from "../../components/Button";
+import useDashboardStore from "../../../../store/dashboardStore";
+import { Button } from "../../../components/Button";
+import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
+import { FormWrapper } from "../../../components/Wrapper/FormWrapper";
 
 export const EditTask = ({ openEdit, setOpenEdit, item }) => {
   const [inputFields, setInputFields] = useState([]);
@@ -48,9 +49,9 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
   };
 
   return (
-    <Container>
+    <ConfirmWrapper status="edit">
       <span onClick={setOpenEdit}>Edit Task</span>
-      <LayoutModal
+      <ModalWrapper
         selector={"#root"}
         isOpen={openEdit}
         onRequestClose={setOpenEdit}
@@ -61,7 +62,7 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
           <h2 className="modal-title">Edit task</h2>
         </div>
 
-        <Form>
+        <FormWrapper>
           <Input
             name="name"
             labelText={"Task Name"}
@@ -97,23 +98,8 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
             type="submit"
             onClick={handleSubmit}
           />
-        </Form>
-      </LayoutModal>
-    </Container>
+        </FormWrapper>
+      </ModalWrapper>
+    </ConfirmWrapper>
   );
 };
-
-const Container = styled.div`
-  span {
-    font-weight: var(--font-medium);
-    font-size: 1.3rem;
-    line-height: 2.3rem;
-    color: var(--color-grey);
-    cursor: pointer;
-  }
-`;
-
-const Form = styled.div`
-  ${({ theme }) => theme.mixins.flexColumn}
-  gap: 2.4rem;
-`;
