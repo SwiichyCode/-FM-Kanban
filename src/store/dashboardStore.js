@@ -34,21 +34,21 @@ const useDashboardStore = create(
           })
         ),
 
-      // toggleTaskColumn: (boardId, columnId, taskId, newColumnId) =>
-      //   set(
-      //     produce((draft) => {
-      //       const board = draft.dashboard.find((b) => b.id === boardId);
-      //       if (!board) return;
-      //       const column = board.columns.find((c) => c.id === columnId);
-      //       if (!column) return;
-      //       const task = column.tasks.find((t) => t.id === taskId);
-      //       if (!task) return;
-      //       const newColumn = board.columns.find((c) => c.id === newColumnId);
-      //       if (!newColumn) return;
-      //       newColumn.tasks.push(task);
-      //       column.tasks = column.tasks.filter((t) => t.id !== taskId);
-      //     })
-      //   ),
+      changeTaskColumn: (boardId, columnId, taskId, newColumnId) =>
+        set(
+          produce((draft) => {
+            const board = draft.dashboard.find((b) => b.id === boardId);
+            if (!board) return;
+            const column = board.columns.find((c) => c.id === columnId);
+            if (!column) return;
+            const task = column.tasks.find((t) => t.id === taskId);
+            if (!task) return;
+            const newColumn = board.columns.find((c) => c.id === newColumnId);
+            if (!newColumn) return;
+            column.tasks = column.tasks.filter((t) => t.id !== taskId);
+            newColumn.tasks.push(task);
+          })
+        ),
 
       editTask: (boardId, columnId, taskId, newTask) =>
         set(

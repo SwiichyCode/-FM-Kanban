@@ -4,14 +4,13 @@ import { SidebarLogo } from "./SidebarLogo";
 import { SidebarNav } from "./SidebarNav";
 import { SidebarTheme } from "./SidebarTheme";
 import { SidebarHide } from "./SidebarHide";
-import { useToggle } from "../../../hooks/useToggle";
 import iconShow from "../../../assets/icon-show-sidebar.svg";
 import { useSidebarStore } from "../../../store/sidebarStore";
+import { Tooltip } from "../Tooltip";
 
 // Todo 1: Refact animation sidebar
 
 export const Sidebar = () => {
-  // const [openSidebar, setOpenSidebar] = useToggle(true);
   const sidebar = useSidebarStore((state) => state.sidebar);
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
 
@@ -21,6 +20,7 @@ export const Sidebar = () => {
         <div className="sidebar-top">
           <SidebarLogo />
           <SidebarNav />
+          {/* <Tooltip /> */}
         </div>
         <div className="sidebar-bottom">
           <SidebarTheme />
