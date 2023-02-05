@@ -5,7 +5,6 @@ import logoDark from "../../../assets/logo-dark.svg";
 export const SidebarLogo = () => {
   const theme = useThemeStore((state) => state.theme);
 
-  console.log(theme);
   return (
     <SidebarLogoContainer>
       {theme === "light" ? (
@@ -13,8 +12,6 @@ export const SidebarLogo = () => {
       ) : (
         <img src={logoLight} alt="" loading="lazy" />
       )}
-
-      {/* <img src="/logo-dark.svg" alt="" /> */}
     </SidebarLogoContainer>
   );
 };
