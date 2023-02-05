@@ -7,7 +7,12 @@ import { v4 as uuidv4 } from "uuid";
 import hexaGenerator from "../../../../helpers/hexaGenerator";
 import iconClose from "../../../../assets/icon-cross.svg";
 
-export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
+export const InputGenerator = ({
+  labelText,
+  inputFields,
+  setInputFields,
+  register,
+}) => {
   const handleFormChange = (index, event) => {
     let data = [...inputFields];
 
@@ -48,6 +53,7 @@ export const InputGenerator = ({ labelText, inputFields, setInputFields }) => {
                 placeholder={input.placeholder}
                 onChange={(event) => handleFormChange(index, event)}
                 maxW={385}
+                {...register}
               />
               {/* <img src={iconClose} alt="" onClick={() => removeFields(index)} /> */}
               <svg

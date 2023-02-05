@@ -51,9 +51,11 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
     <Container>
       <span onClick={setOpenEdit}>Edit Task</span>
       <LayoutModal
+        selector={"#root"}
         isOpen={openEdit}
         onRequestClose={setOpenEdit}
         title="Edit Board"
+        portalClassName="edit-task"
       >
         <div className="modal-header">
           <h2 className="modal-title">Edit task</h2>
