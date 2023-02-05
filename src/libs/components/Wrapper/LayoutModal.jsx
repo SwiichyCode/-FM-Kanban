@@ -3,14 +3,15 @@ import Modal from "react-modal";
 import { useThemeStore } from "../../../store/themeStore";
 import styled from "styled-components";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 export const LayoutModal = ({
   isOpen,
   onRequestClose,
   children,
   visibility = true,
-  title,
+  selector,
+  portalClassName,
 }) => {
   const theme = useThemeStore((state) => state.theme);
   const customStyles = {
@@ -26,6 +27,7 @@ export const LayoutModal = ({
       display: visibility ? "initial" : "none",
       background: theme === "light" ? "#fff" : "#2B2C37",
       border: "none",
+      overflow: "initial",
     },
   };
   return (
@@ -35,6 +37,8 @@ export const LayoutModal = ({
       style={customStyles}
       contentLabel="Example Modal"
       overlayClassName="overlay"
+      portalClassName={portalClassName}
+      parentSelector={() => document.querySelector(selector)}
     >
       <Container>{children}</Container>
     </Modal>

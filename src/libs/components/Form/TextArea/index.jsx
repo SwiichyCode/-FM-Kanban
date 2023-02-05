@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Label } from "../Label";
 
-export const TextArea = ({ labelText, onChange, value }) => {
+export const TextArea = ({ labelText, onChange, value, register }) => {
   return (
     <Container>
       <Label labelText={labelText} />
@@ -11,6 +11,7 @@ export const TextArea = ({ labelText, onChange, value }) => {
 recharge the batteries a little."
         onChange={onChange}
         value={value || ""}
+        {...register}
       />
     </Container>
   );

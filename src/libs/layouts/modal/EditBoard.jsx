@@ -40,9 +40,11 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
     <DeleteBoardContainer>
       {trigger && <span onClick={setOpenEdit}>Edit board</span>}
       <LayoutModal
+        selector={"#root"}
         isOpen={openEdit}
         onRequestClose={setOpenEdit}
         title="Edit Board"
+        portalClassName="edit-board"
       >
         <div className="modal-header">
           <h2 className="modal-title">Edit Board</h2>
