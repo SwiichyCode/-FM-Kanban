@@ -12,7 +12,6 @@ import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
 
 export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   const [inputFields, setInputFields] = useState([]);
-
   const editBoard = useDashboardStore((state) => state.editBoard);
   const id = useRouteId();
   const currentBoard = useCurrentBoard(id);
@@ -28,7 +27,7 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
     const board = {
       id: currentBoard.id,
       name: data.name,
-      columns: inputFields,
+      columns: data.columns,
     };
 
     editBoard(currentBoard.id, board);
