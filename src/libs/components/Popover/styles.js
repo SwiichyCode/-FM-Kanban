@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const StyledPopoverContent = styled.div`
-  position: relative;
-
-  img {
-    cursor: pointer;
-  }
-`;
-
 const handlePosition = (position) => {
   switch (position) {
     case "bottom":
@@ -16,6 +8,14 @@ const handlePosition = (position) => {
       return "top: calc(100% + 1.4rem); left: 50%; transform: translate(-50%, 0);";
   }
 };
+
+export const StyledPopoverContent = styled.div`
+  position: relative;
+
+  img {
+    cursor: pointer;
+  }
+`;
 
 export const StyledPopover = styled.div`
   display: ${({ openPopover }) => (openPopover ? "flex" : "none")};

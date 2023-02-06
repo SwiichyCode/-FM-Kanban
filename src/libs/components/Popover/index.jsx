@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
 import { useToggle } from "../../../hooks/useToggle";
 import IconManage from "../../../assets/icon-vertical-ellipsis.svg";
 import * as S from "./styles";
@@ -11,9 +10,12 @@ export const CustomPopover = ({
   setOpenPopover,
   children,
   position,
+  parentState,
 }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (parentState) return;
+
       if (!event.target.closest("#popover") && openPopover) {
         setOpenPopover(false);
       }
@@ -22,7 +24,7 @@ export const CustomPopover = ({
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [openPopover, setOpenPopover]);
+  }, [openPopover, setOpenPopover, parentState]);
 
   return (
     <S.StyledPopoverContent id="popover">

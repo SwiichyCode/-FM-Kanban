@@ -36,6 +36,8 @@ export const TaskModal = ({
     openDelete || openEdit ? setVisible(false) : setVisible(true);
   }, [openDelete, openEdit]);
 
+  console.log(open);
+
   return (
     <ModalWrapper
       selector={"#root"}
@@ -50,6 +52,7 @@ export const TaskModal = ({
           openPopover={openPopover}
           setOpenPopover={setOpenPopover}
           position={"bottom-center"}
+          parentState={openEdit || openDelete}
         >
           <EditTask
             openEdit={openEdit}
