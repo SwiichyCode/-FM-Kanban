@@ -6,11 +6,17 @@ import { Container } from "./styles";
 import { Input } from "../Input";
 import { Button } from "../../Button";
 
+interface InputGeneratorTestProps {
+  inputFields?: any[];
+  setInputFields: (inputFields: any[]) => void;
+  labelText: string;
+}
+
 export const InputGeneratorTest = ({
   inputFields = [],
   setInputFields,
   labelText,
-}) => {
+}: InputGeneratorTestProps) => {
   const [fields, setFields] = useState(inputFields);
 
   const handleAddField = useCallback(() => {
@@ -24,14 +30,14 @@ export const InputGeneratorTest = ({
     setInputFields([...inputFields, newfield]);
   }, [fields, inputFields]);
 
-  const removeFields = (index) => {
+  const removeFields = (index: any) => {
     const newFields = [...fields];
     newFields.splice(index, 1);
     setFields(newFields);
     setInputFields(newFields);
   };
 
-  const handleInputChange = (e, index) => {
+  const handleInputChange = (e: any, index: any) => {
     const newFields = [...fields];
     newFields[index] = { ...newFields[index], name: e.target.value };
     setFields(newFields);
@@ -48,7 +54,6 @@ export const InputGeneratorTest = ({
               name="name"
               value={field.name}
               onChange={(e) => handleInputChange(e, index)}
-              maxW={385}
             />
             <svg
               width="15"
