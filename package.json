@@ -20,6 +20,7 @@
     "preact-router": "^4.1.0",
     "prop-types": "^15.8.1",
     "react": "npm:@preact/compat",
+    "react-detect-click-outside": "^1.1.7",
     "react-dom": "npm:@preact/compat",
     "react-hook-form": "^7.43.0",
     "react-icons": "^4.7.1",
