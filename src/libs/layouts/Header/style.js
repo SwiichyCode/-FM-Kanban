@@ -2,8 +2,21 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   width: 100%;
+  height: 100%;
   max-width: 100%;
   display: flex;
+`;
+
+export const Logo = styled.div`
+  ${({ theme }) => theme.mixins.flexAlignCenter}
+  width: 100%;
+  height: 100%;
+  max-width: 20.9rem;
+  border-right: ${({ theme }) => theme.theme.border};
+
+  img {
+    margin: auto;
+  }
 `;
 
 export const HeaderContainer = styled.header`
