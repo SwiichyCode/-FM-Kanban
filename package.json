@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "framer-motion": "^9.0.1",
     "immer": "^9.0.19",
     "preact": "^10.11.2",
@@ -24,6 +25,7 @@
     "react-tiny-popover": "^7.2.0",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0",
+    "yup": "^0.32.11",
     "zustand": "^4.3.2"
   },
   "devDependencies": {
