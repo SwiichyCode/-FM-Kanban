@@ -16,6 +16,7 @@ export const ManageBoard = ({ boardName }) => {
         openPopover={openPopover}
         setOpenPopover={setOpenPopover}
         position="bottom"
+        parentState={openEdit || openDelete}
       >
         <EditBoard openEdit={openEdit} setOpenEdit={setOpenEdit} />
         <DeleteBoard
