@@ -27,7 +27,7 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
     const board = {
       id: currentBoard.id,
       name: data.name,
-      columns: data.columns,
+      columns: inputFields,
     };
 
     editBoard(currentBoard.id, board);

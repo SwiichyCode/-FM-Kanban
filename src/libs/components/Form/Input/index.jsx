@@ -27,7 +27,7 @@ export const Input = ({
           placeholder={placeholder}
           onChange={onChange}
           defaultValue={defaultValue}
-          error={error}
+          // error={error}
           {...register}
         />
         {error && <S.Error>{error}</S.Error>}
