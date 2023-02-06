@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-export const Button = ({ theme, text, type, onClick, maxW, size }) => {
+export const Button = ({ theme, text, type, onClick, maxW, size, width }) => {
   return (
     <StyledButton
       theme={theme}
@@ -10,6 +10,7 @@ export const Button = ({ theme, text, type, onClick, maxW, size }) => {
       type={type}
       maxW={maxW}
       size={size}
+      width={width}
     >
       {text}
     </StyledButton>
@@ -38,7 +39,7 @@ const handleSizeType = (size) => {
 };
 
 const StyledButton = styled.button`
-  width: 100%;
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
   max-width: ${({ maxW }) => `${maxW}px`};
   font-weight: 700;
   font-size: var(--fz-md);
