@@ -21,6 +21,7 @@ export const TaskModal = ({
 }) => {
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
+  const [openPopover, setOpenPopover] = useToggle();
   const [visible, setVisible] = useState();
   const [status, setStatus] = useState("");
   const toggleSubtask = useDashboardStore((state) => state.toggleSubtask);
@@ -46,30 +47,23 @@ export const TaskModal = ({
       <div className="modal-header">
         <h2 className="modal-title">{item.name}</h2>
         <CustomPopover
-          state={[openDelete, openEdit]}
-          children={
-            <div
-              className={`${
-                openDelete || openEdit
-                  ? "popoverInvisible"
-                  : "popover popover-center"
-              }`}
-            >
-              <EditTask
-                openEdit={openEdit}
-                setOpenEdit={setOpenEdit}
-                setOpen={setOpen}
-                item={item}
-              />
-              <DeleteTask
-                openDelete={openDelete}
-                setOpenDelete={setOpenDelete}
-                setOpen={setOpen}
-                item={item}
-              />
-            </div>
-          }
-        />
+          openPopover={openPopover}
+          setOpenPopover={setOpenPopover}
+          position={"bottom-center"}
+        >
+          <EditTask
+            openEdit={openEdit}
+            setOpenEdit={setOpenEdit}
+            setOpen={setOpen}
+            item={item}
+          />
+          <DeleteTask
+            openDelete={openDelete}
+            setOpenDelete={setOpenDelete}
+            setOpen={setOpen}
+            item={item}
+          />
+        </CustomPopover>
       </div>
 
       <p className="modal-paragraph">{item.description}</p>

@@ -8,22 +8,22 @@ import { CustomPopover } from "../../../components/Popover";
 export const ManageBoard = ({ boardName }) => {
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
+  const [openPopover, setOpenPopover] = useToggle();
 
   return (
     <ManageBoardContainer>
       <CustomPopover
-        state={[openDelete, openEdit]}
-        children={
-          <div className="popover">
-            <EditBoard openEdit={openEdit} setOpenEdit={setOpenEdit} />
-            <DeleteBoard
-              openDelete={openDelete}
-              setOpenDelete={setOpenDelete}
-              boardName={boardName}
-            />
-          </div>
-        }
-      />
+        openPopover={openPopover}
+        setOpenPopover={setOpenPopover}
+        position="bottom"
+      >
+        <EditBoard openEdit={openEdit} setOpenEdit={setOpenEdit} />
+        <DeleteBoard
+          openDelete={openDelete}
+          setOpenDelete={setOpenDelete}
+          boardName={boardName}
+        />
+      </CustomPopover>
     </ManageBoardContainer>
   );
 };
