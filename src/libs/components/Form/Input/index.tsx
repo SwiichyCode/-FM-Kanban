@@ -1,7 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { Label } from "../Label";
 import * as S from "./style";
+
+interface InputProps {
+  name: string;
+  labelText?: string;
+  placeholder?: string;
+  defaultValue?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+  value?: string;
+  register?: any;
+}
 
 export const Input = ({
   name,
@@ -10,24 +22,20 @@ export const Input = ({
   defaultValue,
   onChange,
   error,
-  errorMessage,
-  maxW,
   value,
   register,
-}) => {
+}: InputProps) => {
   return (
-    <S.Container maxW={maxW}>
-      {labelText && <Label for={name} labelText={labelText} />}
+    <S.Container>
+      {labelText && <Label labelFor={name} labelText={labelText} />}
 
       <S.Wrapper>
         <S.StyledInput
           name={name}
-          type="text"
           value={value}
           placeholder={placeholder}
           onChange={onChange}
           defaultValue={defaultValue}
-          // error={error}
           {...register}
         />
         {error && <S.Error>{error}</S.Error>}

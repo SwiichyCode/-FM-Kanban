@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
 import { Checkbox } from "../../../components/Form/Checkbox/index";
-import { Select } from "../../../components/Form/Select";
 import { CustomPopover } from "../../../components/Popover";
 import { useToggle } from "../../../../hooks/useToggle";
 import { EditTask } from "../EditTask";
@@ -11,6 +10,7 @@ import { Label } from "../../../components/Form/Label";
 import { useCurrentBoard } from "../../../../hooks/useCurrentBoard";
 import { useRouteId } from "../../../../hooks/useRouteId";
 import * as S from "./styles";
+import Select from "react-select";
 
 export const TaskModal = ({
   open,
@@ -22,8 +22,10 @@ export const TaskModal = ({
   const [openDelete, setOpenDelete] = useToggle();
   const [openEdit, setOpenEdit] = useToggle();
   const [visible, setVisible] = useState();
-  // const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("");
   const toggleSubtask = useDashboardStore((state) => state.toggleSubtask);
+  const editTask = useDashboardStore((state) => state.editTask);
+  const changeTaskColumn = useDashboardStore((state) => state.changeTaskColumn);
 
   const id = useRouteId();
   const currentBoard = useCurrentBoard(id);
@@ -92,13 +94,19 @@ export const TaskModal = ({
       </S.Subtasks>
 
       <Select
-        label="Current Status"
-        currentItem={item.status}
-        columns={columns}
-        // setStatus={setStatus}
-        // onChange={() =>
-        //   toggleTaskColumn(currentBoard.id, item.columnId, item.id, status)
-        // }
+        options={currentBoard.columns.map((column) => ({
+          value: column.id,
+          label: column.name,
+        }))}
+        onChange={(e) => {
+          setStatus(e.value);
+
+          editTask(currentBoard.id, item.columnId, item.id, {
+            ...item,
+            columnId: e.value,
+          });
+          changeTaskColumn(currentBoard.id, item.columnId, item.id, e.value);
+        }}
       />
     </ModalWrapper>
   );

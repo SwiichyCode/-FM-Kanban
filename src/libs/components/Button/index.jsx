@@ -59,4 +59,5 @@ Button.propTypes = {
   type: PropTypes.oneOf(["submit", "reset", "button"]),
   onClick: PropTypes.func,
   maxW: PropTypes.number,
+  width: PropTypes.number,
 };
