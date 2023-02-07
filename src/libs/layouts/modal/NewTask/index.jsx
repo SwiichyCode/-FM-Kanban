@@ -46,7 +46,7 @@ export const NewTask = () => {
     addTask(id, data.status.value, newTask);
     setInputFields([]);
 
-    // reset();
+    reset();
     setOpen();
   };
 
