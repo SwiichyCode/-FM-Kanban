@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  maxW?: number;
+}
+
+interface InputProps {
+  error?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 100%;
   max-width: ${(props) => (props.maxW ? `${props.maxW}px` : "initial")};
 
@@ -22,7 +30,7 @@ export const Error = styled.span`
   line-height: 2.3rem;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<InputProps>`
   width: 100%;
   background: transparent;
   border: none;

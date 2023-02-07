@@ -1,23 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
-export const Button = ({ theme, text, type, onClick, maxW, size, width }) => {
-  return (
-    <StyledButton
-      theme={theme}
-      onClick={onClick}
-      type={type}
-      maxW={maxW}
-      size={size}
-      width={width}
-    >
-      {text}
-    </StyledButton>
-  );
-};
+interface StyledButtonProps {
+  theme: "primary" | "secondary" | "destructive";
+  size?: string;
+  maxW?: number;
+  width?: number;
+}
 
-const handleColorType = (theme) => {
+const handleColorType = (theme: any) => {
   switch (theme) {
     case "primary":
       return "color: var(--white); background: var(--main-purple); &:hover {background: var(--main-purple-hover)};";
@@ -28,7 +18,7 @@ const handleColorType = (theme) => {
   }
 };
 
-const handleSizeType = (size) => {
+const handleSizeType = (size: any) => {
   switch (size) {
     case "xl":
       return "padding: 15px 0 14px 0; border-radius: 24px;";
@@ -38,7 +28,7 @@ const handleSizeType = (size) => {
   }
 };
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button<StyledButtonProps>`
   width: ${({ width }) => (width ? `${width}px` : "100%")};
   max-width: ${({ maxW }) => `${maxW}px`};
   font-weight: 700;
@@ -49,15 +39,5 @@ const StyledButton = styled.button`
   cursor: pointer;
   ${({ theme }) => handleColorType(theme)};
   ${({ size }) => handleSizeType(size)};
-  transition: all 0.2s ease-in-out;
+  transition: var(--current-transition);
 `;
-
-Button.propTypes = {
-  theme: PropTypes.oneOf(["primary", "secondary", "destructive"]).isRequired,
-  size: PropTypes.string,
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["submit", "reset", "button"]),
-  onClick: PropTypes.func,
-  maxW: PropTypes.number,
-  width: PropTypes.number,
-};

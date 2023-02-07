@@ -78,7 +78,7 @@ export const TaskModal = ({
           {item.subtasks.map((i, index) => {
             return (
               <Checkbox
-                label={i.title}
+                label={i.name}
                 completed={i.isCompleted}
                 key={index}
                 onChange={() =>

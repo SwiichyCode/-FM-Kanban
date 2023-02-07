@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "../../../components/Form/Input";
 import { Select } from "../../../components/Form/Select";
-import { InputGeneratorTest } from "../../../components/Form/Test/InputGeneratorTest";
+import { InputGenerator } from "../../../components/Form/InputGenerator";
 import { TextArea } from "../../../components/Form/TextArea";
 import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
 import { useParams } from "react-router-dom";
@@ -81,10 +81,7 @@ export const EditTask = ({ openEdit, setOpenEdit, item }) => {
             }
           />
 
-          <InputGeneratorTest
-            inputFields={item.subtasks}
-            labelText={"Subtasks"}
-          />
+          <InputGenerator inputFields={item.subtasks} labelText={"Subtasks"} />
 
           <Select
             label="Status"

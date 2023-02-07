@@ -21,7 +21,7 @@ export const Checkbox = ({
   };
 
   return (
-    <Container onClick={handleClick}>
+    <Container isChecked={isChecked} onClick={handleClick}>
       <input type="checkbox" checked={isChecked} />
       <label>{label}</label>
     </Container>

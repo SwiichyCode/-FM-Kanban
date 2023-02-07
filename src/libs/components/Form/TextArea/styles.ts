@@ -1,28 +1,11 @@
-import React from "react";
 import styled from "styled-components";
-import { Label } from "../Label";
 
-export const TextArea = ({ labelText, onChange, value, register }) => {
-  return (
-    <Container>
-      <Label labelText={labelText} />
-      <StyledTextArea
-        placeholder="e.g. It’s always good to take a break. This 15 minute break will 
-recharge the batteries a little."
-        onChange={onChange}
-        value={value || ""}
-        {...register}
-      />
-    </Container>
-  );
-};
-
-const Container = styled.div`
+export const Container = styled.div`
   ${({ theme }) => theme.mixins.flexColumn}
   gap: 1.2rem;
 `;
 
-const StyledTextArea = styled.textarea`
+export const StyledTextArea = styled.textarea`
   min-height: 11.2rem;
   font-weight: var(--font-medium);
   font-size: var(--fz-lg);

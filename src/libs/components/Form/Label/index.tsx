@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import PropTypes from "prop-types";
+import * as S from "./styles";
 
 interface LabelProps {
   labelText: string;
@@ -7,12 +8,10 @@ interface LabelProps {
 }
 
 export const Label = ({ labelText, labelFor }: LabelProps) => {
-  return <StyledLabel htmlFor={labelFor}>{labelText}</StyledLabel>;
+  return <S.StyledLabel htmlFor={labelFor}>{labelText}</S.StyledLabel>;
 };
 
-const StyledLabel = styled.label`
-  font-weight: var(--font-bold);
-  font-size: var(--fz-xxs);
-  line-height: 1.5rem;
-  color: ${({ theme }) => theme.theme.label};
-`;
+Label.propTypes = {
+  labelText: PropTypes.string.isRequired,
+  labelFor: PropTypes.string,
+};

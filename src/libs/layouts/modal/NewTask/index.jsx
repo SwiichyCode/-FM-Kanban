@@ -12,9 +12,10 @@ import { TextArea } from "../../../components/Form/TextArea";
 import { FormWrapper } from "../../../components/Wrapper/FormWrapper";
 import { schema } from "./schema";
 import * as S from "./styles";
-import { InputGenerator } from "../../../components/Form/InputGenerator/index";
 
+import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { InputGenerator } from "../../../components/Form/InputGenerator";
 
 export const NewTask = () => {
   const [open, setOpen] = useToggle();
@@ -30,6 +31,7 @@ export const NewTask = () => {
   const id = useRouteId();
   const currentBoard = useCurrentBoard(id);
   const addTask = useDashboardStore((state) => state.addTask);
+  const [inputFields, setInputFields] = useState([]);
 
   const onSubmit = (data) => {
     const newTask = {
@@ -37,7 +39,7 @@ export const NewTask = () => {
       name: data.title,
       description: data.description,
 
-      subtasks: [],
+      subtasks: inputFields,
       columnId: data.status.value,
     };
 
@@ -46,8 +48,6 @@ export const NewTask = () => {
     reset();
     setOpen();
   };
-
-  // const [inputFields, setInputFields] = useState([]);
 
   return (
     <S.Container id="new-task">
@@ -80,13 +80,13 @@ export const NewTask = () => {
               labelText="Description"
               register={register("description", { required: false })}
             />
-            {/* <InputGenerator
-              label="Subtasks"
+            <InputGenerator
+              labelText="Subtasks"
               inputFields={inputFields}
-              placeholder={inputFields.placeholder}
+              // placeholder={inputFields.placeholder}
               setInputFields={setInputFields}
               // register={register("subtasks", { required: true })}
-            /> */}
+            />
             <Controller
               name="status"
               control={control}

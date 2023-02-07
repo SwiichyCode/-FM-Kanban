@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useToggle } from "../../../hooks/useToggle";
 import IconManage from "../../../assets/icon-vertical-ellipsis.svg";
 import * as S from "./styles";
+
+interface CustomPopoverProps {
+  openPopover: boolean;
+  setOpenPopover: (value: boolean) => void;
+  children: React.ReactNode;
+  position?: "bottom" | "bottom-center";
+  parentState?: boolean;
+}
 
 export const CustomPopover = ({
   openPopover,
   setOpenPopover,
   children,
-  position,
+  position = "bottom",
   parentState,
-}) => {
+}: CustomPopoverProps) => {
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (parentState) return;
 
       if (!event.target.closest("#popover") && openPopover) {

@@ -61,6 +61,7 @@ select {
     --header-h: 97px;
 
     --shadow-md: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+    --current-transition: all 0.2s ease-in-out;
 
     /* color: ${({ isChecked }) =>
       isChecked ? "var(--color-grey-300)" : "var(--color-black)"}; */
