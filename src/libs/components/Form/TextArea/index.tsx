@@ -9,12 +9,7 @@ interface TextAreaProps {
   register?: any;
 }
 
-export const TextArea = ({
-  labelText,
-  onChange,
-  value,
-  register,
-}: TextAreaProps) => {
+export const TextArea = ({ labelText, onChange, register }: TextAreaProps) => {
   return (
     <S.Container>
       <Label labelText={labelText} />
@@ -22,7 +17,6 @@ export const TextArea = ({
         placeholder="e.g. It’s always good to take a break. This 15 minute break will 
 recharge the batteries a little."
         onChange={onChange}
-        value={value || ""}
         {...register}
       />
     </S.Container>

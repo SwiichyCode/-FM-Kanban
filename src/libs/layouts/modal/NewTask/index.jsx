@@ -46,7 +46,7 @@ export const NewTask = () => {
     addTask(id, data.status.value, newTask);
     setInputFields([]);
 
-    reset();
+    // reset();
     setOpen();
   };
 
@@ -84,9 +84,7 @@ export const NewTask = () => {
             <InputGenerator
               labelText="Subtasks"
               inputFields={inputFields}
-              // placeholder={inputFields.placeholder}
               setInputFields={setInputFields}
-              // register={register("subtasks", { required: true })}
             />
             <Controller
               name="status"
