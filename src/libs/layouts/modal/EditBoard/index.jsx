@@ -7,7 +7,7 @@ import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
 import { FormWrapper } from "../../../components/Wrapper/FormWrapper";
 import { Input } from "../../../components/Form/Input";
 import { Button } from "../../../components/Button";
-import { InputGeneratorTest } from "../../../components/Form/Test/InputGeneratorTest";
+import { InputGenerator } from "../../../components/Form/InputGenerator";
 import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
 
 export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
@@ -58,7 +58,7 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
               register={register("name", { required: true })}
             />
 
-            <InputGeneratorTest
+            <InputGenerator
               labelText={"Board Columns"}
               inputFields={currentBoard.columns}
               setInputFields={setInputFields}

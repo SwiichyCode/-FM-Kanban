@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  isChecked: boolean;
+}
+
+export const Container =
+  styled.div <
+  ContainerProps >
+  `
   ${({ theme }) => theme.mixins.flexAlignCenter}
   width: 100%;
   height: 4rem;

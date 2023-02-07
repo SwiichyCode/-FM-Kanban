@@ -12,7 +12,7 @@ interface InputGeneratorTestProps {
   labelText: string;
 }
 
-export const InputGeneratorTest = ({
+export const InputGenerator = ({
   inputFields = [],
   setInputFields,
   labelText,

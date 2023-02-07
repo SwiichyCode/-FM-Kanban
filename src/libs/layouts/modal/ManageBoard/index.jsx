@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useToggle } from "../../../../hooks/useToggle";
-import { DeleteBoard } from "../DeleteBoard";
+import { DeleteBoard } from "../DeleteTask/DeleteBoard";
 import { EditBoard } from "../EditBoard";
 import { CustomPopover } from "../../../components/Popover";
 

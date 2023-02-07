@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-const handlePosition = (position) => {
+interface StyledPopoverProps {
+  openPopover: boolean;
+  position: string;
+}
+
+const handlePosition = (position: string) => {
   switch (position) {
     case "bottom":
       return "top: calc(100% + 2.8rem); right: 0;";
@@ -17,7 +22,7 @@ export const StyledPopoverContent = styled.div`
   }
 `;
 
-export const StyledPopover = styled.div`
+export const StyledPopover = styled.div<StyledPopoverProps>`
   display: ${({ openPopover }) => (openPopover ? "flex" : "none")};
   ${({ position }) => handlePosition(position)}
   position: absolute;
