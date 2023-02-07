@@ -12,6 +12,8 @@ export const Board = () => {
   const currentBoard = board.filter((item: any) => item.id === id);
   const sidebar = useSidebarStore((state) => state.sidebar);
 
+  console.log(board);
+
   return (
     <BoardContainer sidebar={sidebar}>
       {currentBoard.length > 0 ? (

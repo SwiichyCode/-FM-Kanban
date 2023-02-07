@@ -12,7 +12,7 @@ export const Header = () => {
   const board = useDashboardStore((state) => state.dashboard);
   const sidebar = useSidebarStore((state) => state.sidebar);
   const currentBoard = board.find((item: any) => item.id === id);
-
+  const resetStorage = useDashboardStore((state) => state.resetStorage);
   return (
     <S.HeaderContainer>
       <S.HeaderWrapper>
@@ -24,6 +24,7 @@ export const Header = () => {
           )}
 
           <h1>{currentBoard && currentBoard.name}</h1>
+          <button onClick={resetStorage}>Reset Storage</button>
         </div>
 
         {currentBoard && (

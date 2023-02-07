@@ -17,17 +17,17 @@ export const initialDashboard = [
             subtasks: [
               {
                 id: "68633346-daa5-48b3-ba80-e35887551d8e",
-                title: "Sign up page",
+                name: "Sign up page",
                 isCompleted: true,
               },
               {
                 id: "68633346-dna5-48b3-ba80-e35887551d8e",
-                title: "Sign in page",
+                name: "Sign in page",
                 isCompleted: false,
               },
               {
                 id: "68633346-dua5-48b3-ba80-e35887551d8e",
-                title: "Welcome page",
+                name: "Welcome page",
                 isCompleted: false,
               },
             ],
@@ -39,7 +39,8 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Search page",
+                id: "68o33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Search page",
                 isCompleted: false,
               },
             ],
@@ -51,7 +52,8 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Search page",
+                id: "68o33346-daa5-48b3-bl80-e35887561d8v",
+                name: "Search page",
                 isCompleted: false,
               },
             ],
@@ -64,7 +66,8 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Search page",
+                id: "68o33346-daa5-48b3-ba80-e35887561d8g",
+                name: "Search page",
                 isCompleted: false,
               },
             ],
@@ -83,15 +86,18 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Settings - Account page",
+                id: "68o33346-daa5-48b3-ba80-e35g87561d8v",
+                name: "Settings - Account page",
                 isCompleted: true,
               },
               {
-                title: "Settings - Billing page",
+                id: "68o33346-taa5-48b3-ba80-e35887561d8v",
+                name: "Settings - Billing page",
                 isCompleted: true,
               },
               {
-                title: "Search page",
+                id: "68o33346-dai5-48b3-ba80-e35887561d8v",
+                name: "Search page",
                 isCompleted: false,
               },
             ],
@@ -103,15 +109,18 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Upgrade plan",
+                id: "68o33346-daa5-48b3-ba89-e35887561d8v",
+                name: "Upgrade plan",
                 isCompleted: true,
               },
               {
-                title: "Cancel plan",
+                id: "68o33346-daa5-48b3-ba70-e35887561d8v",
+                name: "Cancel plan",
                 isCompleted: true,
               },
               {
-                title: "Update payment method",
+                id: "68o33346-dla5-48b3-ba80-e35887561d8v",
+                name: "Update payment method",
                 isCompleted: false,
               },
             ],
@@ -123,15 +132,18 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Sign up page",
+                id: "68o3c46-daa5-48b3-ba80-e35887561d8v",
+                name: "Sign up page",
                 isCompleted: true,
               },
               {
-                title: "Sign in page",
+                id: "68o33346-daa5-48b3-ba80-e35887561dgv",
+                name: "Sign in page",
                 isCompleted: false,
               },
               {
-                title: "Welcome page",
+                id: "68o33346-daa5-48b3-ba8u-e35887561d8v",
+                name: "Welcome page",
                 isCompleted: false,
               },
             ],
@@ -143,11 +155,13 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Add search endpoint",
+                id: "68f33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Add search endpoint",
                 isCompleted: true,
               },
               {
-                title: "Define search filters",
+                id: "68o33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Define search filters",
                 isCompleted: false,
               },
             ],
@@ -159,11 +173,13 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Define user model",
+                id: "68o3ze46-daa5-48b3-ba80-e35887561d8v",
+                name: "Define user model",
                 isCompleted: true,
               },
               {
-                title: "Add auth endpoints",
+                id: "68o33346-daa5-48b3-ba80-e34387561d8v",
+                name: "Add auth endpoints",
                 isCompleted: false,
               },
             ],
@@ -176,16 +192,18 @@ export const initialDashboard = [
             columnId: "68633346-daa5-48b3-ba80-e35887561d6a",
             subtasks: [
               {
-                title: "Research competitor pricing and business models",
+                id: "68o33346-daze5-48b3-ba80-e35887561d8v",
+                name: "Research competitor pricing and business models",
                 isCompleted: true,
               },
               {
-                title: "Outline a business model that works for our solution",
+                id: "68o3kl346-daa5-48b3-ba80-e35887561d8v",
+                name: "Outline a business model that works for our solution",
                 isCompleted: false,
               },
               {
-                title:
-                  "Talk to potential customers about our proposed solution and ask for fair price expectancy",
+                id: "6dso33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Talk to potential customers about our proposed solution and ask for fair price expectancy",
                 isCompleted: false,
               },
             ],
@@ -205,7 +223,8 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Complete 5 wireframe prototype tests",
+                id: "68o33346-daazef-48b3-ba80-e35887561d8v",
+                name: "Complete 5 wireframe prototype tests",
                 isCompleted: true,
               },
             ],
@@ -218,7 +237,8 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Create clickable wireframe prototype in Balsamiq",
+                id: "68o33346-daa5-48b3-ba80-e358zef87561d8v",
+                name: "Create clickable wireframe prototype in Balsamiq",
                 isCompleted: true,
               },
             ],
@@ -231,16 +251,18 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title:
-                  "Meet to review notes from previous tests and plan changes",
+                id: "68o33346-daa5-48ezfb3-ba80-e35887561d8v",
+                name: "Meet to review notes from previous tests and plan changes",
                 isCompleted: true,
               },
               {
-                title: "Make changes to paper prototypes",
+                id: "68o333ez46-daa5-48b3-ba80-e35887561d8v",
+                name: "Make changes to paper prototypes",
                 isCompleted: true,
               },
               {
-                title: "Conduct 5 usability tests",
+                id: "68o33fgb346-daa5-48b3-ba80-e35887561d8v",
+                name: "Conduct 5 usability tests",
                 isCompleted: true,
               },
             ],
@@ -252,11 +274,13 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Create paper prototypes for version one",
+                id: "68o333rg46-daa5-48b3-ba80-e35887561d8v",
+                name: "Create paper prototypes for version one",
                 isCompleted: true,
               },
               {
-                title: "Complete 10 usability tests",
+                id: "68o333erg46-daa5-48b3-ba80-e35887561d8v",
+                name: "Complete 10 usability tests",
                 isCompleted: true,
               },
             ],
@@ -269,7 +293,8 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Interview 10 prospective customers",
+                id: "68ozef33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Interview 10 prospective customers",
                 isCompleted: true,
               },
             ],
@@ -281,11 +306,13 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Find direct and indirect competitors",
+                id: "6zef8o33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Find direct and indirect competitors",
                 isCompleted: true,
               },
               {
-                title: "SWOT analysis for each competitor",
+                id: "68o33346-daa5-48b3-ba80-e35ef887561d8v",
+                name: "SWOT analysis for each competitor",
                 isCompleted: true,
               },
             ],
@@ -298,11 +325,13 @@ export const initialDashboard = [
             columnId: "68633346-dba5-48b3-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Write up research analysis",
+                id: "68o3ezf3346-daa5-48b3-ba80-e35887561d8v",
+                name: "Write up research analysis",
                 isCompleted: true,
               },
               {
-                title: "Calculate TAM",
+                id: "68o33346-daaef5-48b3-ba80-e35887561d8v",
+                name: "Calculate TAM",
                 isCompleted: true,
               },
             ],
@@ -327,27 +356,33 @@ export const initialDashboard = [
             columnId: "58631346-dba5-08b3-ba80-e35t87561d8c",
             subtasks: [
               {
-                title: "Find hunter",
+                id: "68o33346-daa5-48b3-baerg80-e35887561d8v",
+                name: "Find hunter",
                 isCompleted: false,
               },
               {
-                title: "Gather assets",
+                id: "68o33346-daa5-48zadb3-baerg80-e35887561d8v",
+                name: "Gather assets",
                 isCompleted: false,
               },
               {
-                title: "Draft product page",
+                id: "68o33346-daa5-48b3-ba8erg0-e35887561d8v",
+                name: "Draft product page",
                 isCompleted: false,
               },
               {
-                title: "Notify customers",
+                id: "68o33346-daa5-48zeb3-ba80-e35887561d8v",
+                name: "Notify customers",
                 isCompleted: false,
               },
               {
-                title: "Notify network",
+                id: "68o33346-daa5-48b3-ba80-e3588756gt1d8v",
+                name: "Notify network",
                 isCompleted: false,
               },
               {
-                title: "Launch!",
+                id: "68o33346-daa5-48b3-ba80-e3588756ez1d8v",
+                name: "Launch!",
                 isCompleted: false,
               },
             ],
@@ -359,15 +394,18 @@ export const initialDashboard = [
             columnId: "58631346-dba5-08b3-ba80-e35t87561d8c",
             subtasks: [
               {
-                title: "Draft out HN post",
+                id: "68o33346-daa5-48berg3-ba80-e35887561d8v",
+                name: "Draft out HN post",
                 isCompleted: false,
               },
               {
-                title: "Get feedback and refine",
+                id: "68o33346-daafd5-48b3-ba80-e35887561d8v",
+                name: "Get feedback and refine",
                 isCompleted: false,
               },
               {
-                title: "Publish post",
+                id: "68o3zz3346-daa5-48b3-ba80-e35887561d8v",
+                name: "Publish post",
                 isCompleted: false,
               },
             ],
@@ -379,19 +417,23 @@ export const initialDashboard = [
             columnId: "58631346-dba5-08b3-ba80-e35t87561d8c",
             subtasks: [
               {
-                title: "Write article",
+                id: "68o33za346-daa5-48b3-ba80-e35887561d8v",
+                name: "Write article",
                 isCompleted: false,
               },
               {
-                title: "Publish on LinkedIn",
+                id: "68zerho33346-daa5-48b3-ba80-e35887561d8v",
+                name: "Publish on LinkedIn",
                 isCompleted: false,
               },
               {
-                title: "Publish on Inndie Hackers",
+                id: "68o33346-dartha5-48b3-ba80-e35887561d8v",
+                name: "Publish on Inndie Hackers",
                 isCompleted: false,
               },
               {
-                title: "Publish on Medium",
+                id: "68o33eehy346-daa5-48b3-ba80-e35887561d8v",
+                name: "Publish on Medium",
                 isCompleted: false,
               },
             ],
@@ -428,11 +470,13 @@ export const initialDashboard = [
             columnId: "68633346-daa5-4813-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Launch privately to our waitlist",
+                id: "68o33346-daa5-48rrb3-ba80-e35887561d8v",
+                name: "Launch privately to our waitlist",
                 isCompleted: false,
               },
               {
-                title: "Launch publicly on PH, HN, etc.",
+                id: "68o33346-daa5-48bzz3-ba80-e35887561d8v",
+                name: "Launch publicly on PH, HN, etc.",
                 isCompleted: false,
               },
             ],
@@ -445,15 +489,18 @@ export const initialDashboard = [
             columnId: "68633346-daa5-4813-ba80-e35887561d8c",
             subtasks: [
               {
-                title: "Interview 10 customers",
+                id: "68o333gg46-daa5-48b3-ba80-e35887561d8v",
+                name: "Interview 10 customers",
                 isCompleted: false,
               },
               {
-                title: "Review common customer pain points and suggestions",
+                id: "68o33zefr346-daa5-48b3-ba80-e35887561d8v",
+                name: "Review common customer pain points and suggestions",
                 isCompleted: false,
               },
               {
-                title: "Outline next steps for our roadmap",
+                id: "68o33346-daa5-48b3-bgh80-e35887561d8v",
+                name: "Outline next steps for our roadmap",
                 isCompleted: false,
               },
             ],
