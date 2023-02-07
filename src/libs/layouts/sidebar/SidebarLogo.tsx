@@ -1,7 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 import { useThemeStore } from "../../../store/themeStore";
 import logoLight from "../../../assets/logo-light.svg";
 import logoDark from "../../../assets/logo-dark.svg";
+
 export const SidebarLogo = () => {
   const theme = useThemeStore((state) => state.theme);
 

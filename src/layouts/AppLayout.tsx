@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import useDashboardStore from "../store/dashboardStore";
 
-export const AppLayout = ({ children }) => {
+interface AppLayoutProps {
+  children: React.ReactNode;
+}
+
+export const AppLayout = ({ children }: AppLayoutProps) => {
   const board = useDashboardStore((state) => state.dashboard);
   const location = useLocation();
   let navigate = useNavigate();
@@ -23,7 +27,5 @@ const AppLayoutContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-
-  /* Temporaire */
   background: ${({ theme }) => theme.theme.board};
 `;

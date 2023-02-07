@@ -4,6 +4,15 @@ import { useThemeStore } from "../../../store/themeStore";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+interface ModalWrapperProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  children: React.ReactNode;
+  visibility?: boolean;
+  selector?: any;
+  portalClassName?: string;
+}
+
 export const ModalWrapper = ({
   isOpen,
   onRequestClose,
@@ -11,7 +20,7 @@ export const ModalWrapper = ({
   visibility = true,
   selector,
   portalClassName,
-}) => {
+}: ModalWrapperProps) => {
   const theme = useThemeStore((state) => state.theme);
   const customStyles = {
     content: {
@@ -36,7 +45,9 @@ export const ModalWrapper = ({
       contentLabel="Example Modal"
       overlayClassName="overlay"
       portalClassName={portalClassName}
-      parentSelector={() => document.querySelector(selector)}
+      parentSelector={() =>
+        selector ? document.querySelector(selector) : document.body
+      }
       ariaHideApp={false}
     >
       <Container

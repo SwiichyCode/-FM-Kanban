@@ -9,13 +9,15 @@ import { useSidebarStore } from "../../../../store/sidebarStore";
 export const Board = () => {
   const { id } = useParams();
   const board = useDashboardStore((state) => state.dashboard);
-  const currentBoard = board.filter((item) => item.id === id);
+  const currentBoard = board.filter((item: any) => item.id === id);
   const sidebar = useSidebarStore((state) => state.sidebar);
 
   return (
     <BoardContainer sidebar={sidebar}>
       {currentBoard.length > 0 ? (
-        currentBoard.map((item) => <ColumnWrapper item={item} key={board.id} />)
+        currentBoard.map((item: any) => (
+          <ColumnWrapper item={item} key={board.id} />
+        ))
       ) : (
         <EmptyBoard />
       )}
@@ -23,7 +25,11 @@ export const Board = () => {
   );
 };
 
-const BoardContainer = styled.div`
+interface BoardContainerProps {
+  sidebar: boolean;
+}
+
+const BoardContainer = styled.div<BoardContainerProps>`
   width: 100%;
   max-width: ${({ sidebar }) => (sidebar ? "calc(100vw - 300px)" : "100vw")};
   height: calc(100vh - var(--header-h));

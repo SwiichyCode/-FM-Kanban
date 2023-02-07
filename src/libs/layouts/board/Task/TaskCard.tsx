@@ -4,14 +4,20 @@ import { TaskModal } from "../../modal/ManageTask";
 import { useToggle } from "../../../../hooks/useToggle";
 import { motion } from "framer-motion";
 
-export const TaskCard = ({ item, columns }) => {
+interface TaskCardProps {
+  item: any;
+  columns: any;
+}
+
+export const TaskCard = ({ item, columns }: TaskCardProps) => {
   const [open, setOpen] = useToggle();
-  const completedSubtasks = item.subtasks.filter((item) => item.isCompleted);
+  const completedSubtasks = item.subtasks.filter(
+    (item: any) => item.isCompleted
+  );
 
   return (
     <>
       <Container
-        onClick={setOpen}
         as={motion.div}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
@@ -19,6 +25,7 @@ export const TaskCard = ({ item, columns }) => {
         transition={{ duration: 0.2 }}
         whileHover={{ scale: 1.03 }}
         id="task-card"
+        onClick={setOpen}
       >
         <h2>{item.name}</h2>
         <p>
@@ -36,7 +43,12 @@ export const TaskCard = ({ item, columns }) => {
   );
 };
 
-const Container = styled.div`
+interface ContainerProps {
+  theme: any;
+  onClick: any;
+}
+
+const Container = styled.div<ContainerProps>`
   width: 100%;
   max-width: 28rem;
   ${({ theme }) => theme.mixins.flexColumn}

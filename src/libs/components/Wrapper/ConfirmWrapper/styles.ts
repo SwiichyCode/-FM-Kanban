@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const ConfirmWrapper = ({ children, status }) => {
-  return <Container status={status}>{children}</Container>;
-};
+interface ContainerProps {
+  status: "delete" | "confirm";
+}
 
-const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   span {
     font-weight: var(--font-medium);
     font-size: 1.3rem;

@@ -1,9 +1,14 @@
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import { useThemeStore } from "../store/themeStore";
 import { mixins } from "../styles/mixins";
 import { lightTheme, darkTheme } from "../styles/theme";
 
-export const ThemeLayout = ({ children }) => {
+interface ThemeLayoutProps {
+  children: React.ReactNode;
+}
+
+export const ThemeLayout = ({ children }: ThemeLayoutProps) => {
   const theme = useThemeStore((state) => state.theme);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 

@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { ColumnTitle } from "./ColumnTitle";
 import { TaskCard } from "../Task/TaskCard";
 
-export const Column = ({ item, columns }) => {
+interface ColumnProps {
+  item: any;
+  columns: any;
+}
+
+export const Column = ({ item, columns }: ColumnProps) => {
   const { tasks } = item;
 
   return (
@@ -14,7 +19,7 @@ export const Column = ({ item, columns }) => {
       </div>
       <div className="column-cards">
         {tasks &&
-          tasks.map((item, index) => {
+          tasks.map((item: any, index: any) => {
             return <TaskCard item={item} key={index} columns={columns} />;
           })}
       </div>
