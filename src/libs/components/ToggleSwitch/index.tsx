@@ -3,17 +3,13 @@ import PropTypes from "prop-types";
 import { ToggleSwitchContainer } from "./style";
 import { useThemeStore } from "../../../store/themeStore";
 
-interface ToggleSwitchProps {
-  isOn: boolean;
-}
-
-export const ToggleSwitch = ({ isOn }: ToggleSwitchProps) => {
+export const ToggleSwitch = () => {
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   return (
     <ToggleSwitchContainer>
       <input
-        checked={isOn}
+        // checked={isOn}
         onChange={toggleTheme}
         className="react-switch-checkbox"
         id={`react-switch-new`}

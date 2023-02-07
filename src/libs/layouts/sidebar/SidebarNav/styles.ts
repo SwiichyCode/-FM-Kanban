@@ -1,26 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import { SidebarNavLink } from "./SidebarNavLink";
-import { NewBoard } from "../modal/NewBoard";
-import useDashboardStore from "../../../store/dashboardStore";
 
-export const SidebarNav = () => {
-  const board = useDashboardStore((state) => state.dashboard);
-
-  return (
-    <SidebarNavContainer>
-      <h2>all boards ({board.length})</h2>
-      <ul>
-        {board.map((item, index) => {
-          return <SidebarNavLink item={item} index={index} />;
-        })}
-        <NewBoard />
-      </ul>
-    </SidebarNavContainer>
-  );
-};
-
-const SidebarNavContainer = styled.nav`
+export const SidebarNavContainer = styled.nav`
   color: var(--medium-grey);
 
   h2 {

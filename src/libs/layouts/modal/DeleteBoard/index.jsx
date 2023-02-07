@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import useDashboardStore from "../../../../../store/dashboardStore";
-import { ModalWrapper } from "../../../../components/Wrapper/ModalWrapper";
-import { ConfirmWrapper } from "../../../../components/Wrapper/ConfirmWrapper";
-import { Button } from "../../../../components/Button";
+import useDashboardStore from "../../../../store/dashboardStore";
+import { ModalWrapper } from "../../../components/Wrapper/ModalWrapper";
+import { ConfirmWrapper } from "../../../components/Wrapper/ConfirmWrapper";
+import { Button } from "../../../components/Button";
 
 export const DeleteBoard = ({ openDelete, setOpenDelete, boardName }) => {
   let { id } = useParams();

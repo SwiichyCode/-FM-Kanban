@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { IconBoard } from "./SidebarIcon";
 
-export const SidebarNavLink = ({ item, index }) => {
+interface SidebarNavLinkProps {
+  item: any;
+  index: any;
+}
+
+export const SidebarNavLink = ({ item, index }: SidebarNavLinkProps) => {
   return (
     <Container>
       <NavLink
