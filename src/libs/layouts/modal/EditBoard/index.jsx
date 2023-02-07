@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useCurrentBoard } from "../../../../hooks/useCurrentBoard";
 import { useRouteId } from "../../../../hooks/useRouteId";
@@ -16,12 +16,14 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
   const id = useRouteId();
   const currentBoard = useCurrentBoard(id);
 
-  const { register, handleSubmit } = useForm({
-    defaultValues: currentBoard && {
+  const { register, handleSubmit, reset } = useForm();
+
+  useEffect(() => {
+    reset({
       name: currentBoard.name,
       columns: currentBoard.columns,
-    },
-  });
+    });
+  }, [currentBoard]);
 
   const onSubmit = (data) => {
     const board = {
@@ -31,6 +33,7 @@ export const EditBoard = ({ openEdit, setOpenEdit, trigger = true }) => {
     };
 
     editBoard(currentBoard.id, board);
+    reset();
     setOpenEdit();
   };
 

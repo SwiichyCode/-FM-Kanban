@@ -13,11 +13,11 @@ export const TaskCard = ({ item, columns }) => {
       <Container
         onClick={setOpen}
         as={motion.div}
-        exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.2 }}
+        whileHover={{ scale: 1.03 }}
         id="task-card"
       >
         <h2>{item.name}</h2>
