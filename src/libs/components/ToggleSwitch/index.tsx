@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import { ToggleSwitchContainer } from "./style";
 import { useThemeStore } from "../../../store/themeStore";
 
-export const ToggleSwitch = ({ isOn, handleToggle }) => {
+interface ToggleSwitchProps {
+  isOn: boolean;
+}
+
+export const ToggleSwitch = ({ isOn }: ToggleSwitchProps) => {
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   return (

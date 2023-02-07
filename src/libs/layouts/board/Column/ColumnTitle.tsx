@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ColumnTitle = ({ title, item }) => {
+interface ColumnTitleProps {
+  title: string;
+  item: any;
+}
+
+export const ColumnTitle = ({ title, item }: ColumnTitleProps) => {
   return (
     <Container>
       <h2>

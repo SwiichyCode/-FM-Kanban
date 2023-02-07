@@ -3,12 +3,16 @@ import styled from "styled-components";
 import { Column } from "./Column";
 import { NewColumn } from "../../modal/NewColumn";
 
-export const ColumnWrapper = ({ item }) => {
+interface ColumnWrapperProps {
+  item: any;
+}
+
+export const ColumnWrapper = ({ item }: ColumnWrapperProps) => {
   const { columns } = item;
 
   return (
     <Container>
-      {columns.map((item) => {
+      {columns.map((item: any) => {
         return <Column item={item} key={item.id} columns={columns} />;
       })}
       <NewColumn />
