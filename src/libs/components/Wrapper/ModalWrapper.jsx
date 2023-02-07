@@ -2,8 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { useThemeStore } from "../../../store/themeStore";
 import styled from "styled-components";
-
-// Modal.setAppElement("#root");
+import { motion } from "framer-motion";
 
 export const ModalWrapper = ({
   isOpen,
@@ -20,7 +19,6 @@ export const ModalWrapper = ({
       left: "50%",
       right: "auto",
       bottom: "auto",
-
       transform: "translate(-50%, -50%)",
       width: "480px",
       padding: "32px",
@@ -41,7 +39,15 @@ export const ModalWrapper = ({
       parentSelector={() => document.querySelector(selector)}
       ariaHideApp={false}
     >
-      <Container>{children}</Container>
+      <Container
+        as={motion.div}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      >
+        {children}
+      </Container>
     </Modal>
   );
 };
