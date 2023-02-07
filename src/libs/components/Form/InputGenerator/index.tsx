@@ -23,7 +23,7 @@ export const InputGenerator = ({
     let newfield = {
       id: uuidv4(),
       name: "",
-
+      descripton: "",
       color: hexaGenerator(),
       tasks: [],
     };
