@@ -6,7 +6,7 @@ import produce from "immer";
 const useDashboardStore = create(
   persist(
     (set, get) => ({
-      dashboard: initialDashboard,
+      dashboard: [],
 
       addBoard: (board) =>
         set((state) => ({ dashboard: [...state.dashboard, board] })),

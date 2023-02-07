@@ -18,7 +18,7 @@ export const NewBoard = () => {
 
   const addBoard = useDashboardStore((state) => state.addBoard);
   let navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     const newBoard = {
@@ -29,6 +29,7 @@ export const NewBoard = () => {
 
     addBoard(newBoard);
     setInputFields(initialInputFields);
+    reset();
     navigate(`/${newBoard.id}`);
     setOpen();
   };
