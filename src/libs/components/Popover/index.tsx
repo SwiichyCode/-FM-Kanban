@@ -5,7 +5,7 @@ import * as S from "./styles";
 
 interface CustomPopoverProps {
   openPopover: boolean;
-  setOpenPopover: (value: boolean) => void;
+  setOpenPopover: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode;
   position?: "bottom" | "bottom-center";
   parentState?: boolean;

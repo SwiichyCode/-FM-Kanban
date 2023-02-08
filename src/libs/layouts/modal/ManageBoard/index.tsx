@@ -5,10 +5,14 @@ import { DeleteBoard } from "../DeleteBoard";
 import { EditBoard } from "../EditBoard";
 import { CustomPopover } from "../../../components/Popover";
 
-export const ManageBoard = ({ boardName }) => {
-  const [openDelete, setOpenDelete] = useToggle();
-  const [openEdit, setOpenEdit] = useToggle();
-  const [openPopover, setOpenPopover] = useToggle();
+interface ManageBoardProps {
+  boardName: string;
+}
+
+export const ManageBoard = ({ boardName }: ManageBoardProps) => {
+  const { state: openDelete, toggle: setOpenDelete } = useToggle();
+  const { state: openEdit, toggle: setOpenEdit } = useToggle();
+  const { state: openPopover, toggle: setOpenPopover } = useToggle();
 
   return (
     <ManageBoardContainer>
@@ -16,7 +20,7 @@ export const ManageBoard = ({ boardName }) => {
         openPopover={openPopover}
         setOpenPopover={setOpenPopover}
         position="bottom"
-        parentState={openEdit || openDelete}
+        // parentState={openEdit || openDelete}
       >
         <EditBoard openEdit={openEdit} setOpenEdit={setOpenEdit} />
         <DeleteBoard

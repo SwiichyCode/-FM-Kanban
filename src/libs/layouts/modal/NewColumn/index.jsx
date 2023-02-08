@@ -4,7 +4,7 @@ import { useToggle } from "../../../../hooks/useToggle";
 import * as S from "./styles";
 
 export const NewColumn = () => {
-  const [open, setOpen] = useToggle(false);
+  const { state: open, toggle: setOpen } = useToggle(false);
 
   return (
     <>

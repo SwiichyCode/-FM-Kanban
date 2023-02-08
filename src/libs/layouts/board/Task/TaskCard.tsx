@@ -10,7 +10,7 @@ interface TaskCardProps {
 }
 
 export const TaskCard = ({ item, columns }: TaskCardProps) => {
-  const [open, setOpen] = useToggle();
+  const { state: open, toggle: setOpen } = useToggle();
   const completedSubtasks = item.subtasks.filter(
     (item: any) => item.isCompleted
   );

@@ -18,7 +18,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { InputGenerator } from "../../../components/Form/InputGenerator";
 
 export const NewTask = () => {
-  const [open, setOpen] = useToggle();
+  const { state: open, toggle: setOpen } = useToggle();
   const {
     register,
     handleSubmit,

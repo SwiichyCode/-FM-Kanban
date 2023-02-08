@@ -19,9 +19,10 @@ export const TaskModal = ({
   completedSubtasks,
   columns,
 }) => {
-  const [openDelete, setOpenDelete] = useToggle();
-  const [openEdit, setOpenEdit] = useToggle();
-  const [openPopover, setOpenPopover] = useToggle();
+  const { state: openDelete, toggle: setOpenDelete } = useToggle();
+  const { state: openEdit, toggle: setOpenEdit } = useToggle();
+  const { state: openPopover, toggle: setOpenPopover } = useToggle();
+
   const [visible, setVisible] = useState();
   const [status, setStatus] = useState("");
   const toggleSubtask = useDashboardStore((state) => state.toggleSubtask);

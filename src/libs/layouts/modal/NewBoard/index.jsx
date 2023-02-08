@@ -13,7 +13,7 @@ import * as S from "./styles";
 
 export const NewBoard = () => {
   const initialInputFields = [];
-  const [open, setOpen] = useToggle();
+  const { state: open, toggle: setOpen } = useToggle();
   const [inputFields, setInputFields] = useState(initialInputFields);
 
   const addBoard = useDashboardStore((state) => state.addBoard);
