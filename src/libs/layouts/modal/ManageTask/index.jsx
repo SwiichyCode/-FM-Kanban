@@ -16,7 +16,7 @@ export const TaskModal = ({
   open,
   setOpen,
   item,
-  completedSubtasks,
+  // completedSubtasks,
   columns,
 }) => {
   const { state: openDelete, toggle: setOpenDelete } = useToggle();
@@ -72,10 +72,10 @@ export const TaskModal = ({
 
       <p className="modal-paragraph">{item.description}</p>
       <S.Subtasks className="modal-subtasks">
-        <Label
+        {/* <Label
           labelText={`Subtasks (${completedSubtasks.length} of ${item.subtasks.length})`}
-        />
-        <div className="subtasks-wrapper">
+        /> */}
+        {/* <div className="subtasks-wrapper">
           {item.subtasks.map((i, index) => {
             return (
               <Checkbox
@@ -88,7 +88,7 @@ export const TaskModal = ({
               />
             );
           })}
-        </div>
+        </div> */}
       </S.Subtasks>
 
       <Select
