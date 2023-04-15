@@ -9,7 +9,6 @@ export const lightTheme = {
   newColumn:
     "linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%)",
   border: "1px solid #E4EBFA",
-  label: "#828FA3",
   checkbox: "#F4F7FD",
   checkboxHover: "#D8D7F1",
   selectBorder: "1px solid rgba(130, 143, 163, 0.25)",
@@ -26,7 +25,6 @@ export const darkTheme = {
   newColumn:
     "linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%)",
   border: "1px solid #3E3F4E",
-  label: "#FFFFFF",
   checkbox: "#20212C",
   checkboxHover: "#39395B",
   selectBorder: "1px solid rgba(130, 143, 163, 0.25)",
