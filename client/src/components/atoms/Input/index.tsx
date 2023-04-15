@@ -12,6 +12,8 @@ export const Input = ({
   value,
   register,
   maxW,
+  type,
+  required,
 }: InputProps) => {
   return (
     <S.Container maxW={maxW}>
@@ -24,7 +26,8 @@ export const Input = ({
           placeholder={placeholder}
           onChange={onChange}
           defaultValue={defaultValue}
-          {...register}
+          type={type}
+          {...register?.(name as string, { required: required })}
         />
         {error && <S.Error>{error}</S.Error>}
       </S.Wrapper>

@@ -4,6 +4,10 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
 ${reset}
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -39,11 +43,13 @@ select {
     --fz-lg: 1.5rem;
     --fz-xl: 1.8rem;
     --fz-xxl: 2.4rem;
+    --fz-xxxl: 3.2rem;
     --font-medium: 500;
     --font-bold: 700;
     --borderR-lg: 4px;
     --borderR: 6px;
     --borderR-md: 8px;
+    --borderR-xl: 20px;
     --border-xl: 0px 10rem 10rem 0px;
     --header-h: 97px;
     --shadow-md: 0 0 2px 0 rgba(10, 10, 10, 0.29);

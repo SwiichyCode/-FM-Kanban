@@ -8,4 +8,6 @@ export interface InputProps {
   value?: string;
   register?: any;
   maxW?: number;
+  type: string;
+  required?: boolean;
 }

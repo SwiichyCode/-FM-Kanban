@@ -1,3 +1,5 @@
+import { SigninCard } from "../organisms/SigninCard";
+
 export const Signin = () => {
-  return <div>Signin</div>;
+  return <SigninCard />;
 };
