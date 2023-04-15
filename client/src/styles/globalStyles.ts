@@ -1,12 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+${reset}
 
 html {
     font-size: 62.5%;
@@ -24,9 +20,6 @@ select {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-
-
-
 :root {
     --color-purple: #635FC7;
     --color-purple-200: rgba(99, 95, 199, 0.25);
@@ -38,31 +31,21 @@ select {
     --color-grey: #828fa3;
     --color-grey-200: #bfbfc3;
     --color-grey-300: #7a7c88;
-
     --color-border: rgba(130, 143, 163, 0.25);
-    
     --hover-red: #ff9898;
     --hover-purple: #a6a6ff;
-
     --fz-xxs: 1.2rem;
     --fz-md: 1.3rem;
     --fz-lg: 1.5rem;
     --fz-xl: 1.8rem;
     --fz-xxl: 2.4rem;
-
     --font-medium: 500;
     --font-bold: 700;
-
     --borderR-lg: 4px;
     --borderR: 6px;
     --borderR-md: 8px;
     --border-xl: 0px 10rem 10rem 0px;
-
     --header-h: 97px;
-
     --shadow-md: 0 0 2px 0 rgba(10, 10, 10, 0.29);
-
-    /* color: ${({ isChecked }) =>
-      isChecked ? "var(--color-grey-300)" : "var(--color-black)"}; */
 }
 `;
