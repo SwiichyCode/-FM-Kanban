@@ -6,6 +6,7 @@ import { Input } from "../../../atoms/form/Input";
 import { Button } from "../../../atoms/form/Button";
 import { Sublink } from "../../../atoms/Sublink";
 import AuthService from "../../../../services/auth.service";
+import { Error } from "../../../atoms/form/Input/styles";
 
 type FormProps = {
   title: string;
@@ -54,7 +55,6 @@ export const AuthForm = ({ title, buttonText }: FormProps) => {
             type="email"
             register={register}
             name="email"
-            authError={authError}
           />
           <Input
             labelText="Password"
@@ -62,6 +62,8 @@ export const AuthForm = ({ title, buttonText }: FormProps) => {
             register={register}
             name="password"
           />
+
+          {authError && <Error>{authError}</Error>}
 
           <Button type="submit" theme="primary" text={buttonText} />
 

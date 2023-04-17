@@ -8,7 +8,7 @@ export const Input = ({
   placeholder,
   defaultValue,
   onChange,
-  authError,
+  error,
   value,
   register,
   maxW,
@@ -19,7 +19,7 @@ export const Input = ({
     <S.Container maxW={maxW}>
       <S.LabelWrapper>
         {labelText && <Label labelFor={name} labelText={labelText} />}
-        {authError && <S.Error>{authError}</S.Error>}
+        {error && <S.Error>{error}</S.Error>}
       </S.LabelWrapper>
       <S.Wrapper>
         <S.StyledInput
