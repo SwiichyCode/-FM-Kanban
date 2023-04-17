@@ -6,6 +6,43 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+require("dotenv").config();
+const nodemailer = require("nodemailer");
+
+// Créer un transporteur SMTP réutilisable
+let transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "kanbantaskverif@gmail.com",
+    pass: "tsgajrogioxmzczb",
+  },
+});
+
+exports.sendConfirmationEmail = (req, res) => {
+  User.findOneAndUpdate({ email: req.body.email }, (err, user) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+
+    // Send confirmation email to user
+    const mailOptions = {
+      from: "kanbantaskverif@gmail.com",
+      to: user.email,
+      subject: "Confirm inscription",
+      text: `Congratulations! Your registration has been successfully completed. Thank you for joining our community.`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        res.status(500).send({ message: err });
+        return;
+      }
+      res.send({ message: "Confirmation email sent!" });
+    });
+  });
+};
+
 exports.signup = (req, res) => {
   const user = new User({
     username: req.body.username,
@@ -37,6 +74,8 @@ exports.signup = (req, res) => {
               return;
             }
 
+            sendConfirmationEmail(user.email);
+
             res.send({ message: "User was registered successfully!" });
           });
         }
@@ -54,6 +93,8 @@ exports.signup = (req, res) => {
             res.status(500).send({ message: err });
             return;
           }
+
+          sendConfirmationEmail(user.email);
 
           res.send({ message: "User was registered successfully!" });
         });
@@ -110,3 +151,21 @@ exports.signin = (req, res) => {
       });
     });
 };
+
+// Fonction pour envoyer un e-mail de confirmation
+function sendConfirmationEmail(email) {
+  let mailOptions = {
+    from: "votre_email@gmail.com",
+    to: email,
+    subject: "Confirm inscription",
+    html: "<p>Congratulations! Your registration has been successfully completed. Thank you for joining our community.</p>",
+  };
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(info);
+    }
+  });
+}
