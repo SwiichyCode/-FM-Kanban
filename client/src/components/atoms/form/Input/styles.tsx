@@ -15,11 +15,15 @@ export const Wrapper = styled.div`
   gap: 8px;
 `;
 
+export const LabelWrapper = styled.div`
+  ${({ theme }) => theme.mixins.flexBetween}
+`;
+
 export const Error = styled.span`
-  font-weight: var(--font-medium);
-  font-size: var(--fz-md);
+  font-weight: var(--font-bold);
+  font-size: var(--fz-xxs);
+  line-height: 1.5rem;
   color: var(--color-red);
-  line-height: 2.3rem;
 `;
 
 export const StyledInput = styled.input<Partial<InputProps>>`
@@ -52,7 +56,7 @@ export const StyledInput = styled.input<Partial<InputProps>>`
 export const StyledLabel = styled.label`
   font-weight: var(--font-bold);
   font-size: var(--fz-lg);
-  line-height: 15px;
+  line-height: 1.5rem;
   color: var(--color-grey);
   text-transform: capitalize;
 `;

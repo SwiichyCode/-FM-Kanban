@@ -8,7 +8,7 @@ export const Input = ({
   placeholder,
   defaultValue,
   onChange,
-  error,
+  authError,
   value,
   register,
   maxW,
@@ -17,8 +17,10 @@ export const Input = ({
 }: InputProps) => {
   return (
     <S.Container maxW={maxW}>
-      {labelText && <Label labelFor={name} labelText={labelText} />}
-
+      <S.LabelWrapper>
+        {labelText && <Label labelFor={name} labelText={labelText} />}
+        {authError && <S.Error>{authError}</S.Error>}
+      </S.LabelWrapper>
       <S.Wrapper>
         <S.StyledInput
           name={name}
@@ -29,7 +31,6 @@ export const Input = ({
           type={type}
           {...register?.(name as string, { required: required })}
         />
-        {error && <S.Error>{error}</S.Error>}
       </S.Wrapper>
     </S.Container>
   );

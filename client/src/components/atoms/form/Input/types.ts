@@ -4,7 +4,7 @@ export interface InputProps {
   placeholder?: string;
   defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
+  authError?: string;
   value?: string;
   register?: any;
   maxW?: number;
