@@ -48,6 +48,7 @@ exports.signup = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
+    ownerID: req.body.ownerID,
   });
 
   user.save((err, user) => {
@@ -148,6 +149,7 @@ exports.signin = (req, res) => {
         email: user.email,
         roles: authorities,
         accessToken: token,
+        ownerID: user.ownerID,
       });
     });
 };
