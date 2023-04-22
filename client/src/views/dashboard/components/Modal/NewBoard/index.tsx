@@ -8,15 +8,15 @@ import { InputGenerator } from "../../../../../components/InputGenerator";
 import { Input } from "../../../../../components/Input";
 import { Button } from "../../../../../components/Button";
 import { IconBoard } from "../../Sidebar/SidebarIcon";
-import BoardService from "../../../services/board.service";
 import AuthService from "../../../../auth/services/auth.service";
+import useBoardStore from "../../../stores/boardStore";
 import * as S from "./styles";
 
 export const NewBoard = () => {
   const [inputFields, setInputFields] = useState([]);
   const { state: openNewBoard, toggle: setOpenNewBoard } = useToggle();
   const { register, handleSubmit } = useForm();
-
+  const createBoard = useBoardStore((state) => state.addBoard);
   // let navigate = useNavigate();
 
   const onSubmit = async (data: any) => {
@@ -24,17 +24,13 @@ export const NewBoard = () => {
     const user = await AuthService.getCurrentUser();
 
     const newBoard = {
-      name: data.name,
       id: uuidv4(),
+      name: data.name,
       // columns: data.columns,
       ownerID: user.ownerID,
     };
 
-    await BoardService.createBoard(
-      newBoard.name,
-      newBoard.id,
-      newBoard.ownerID
-    );
+    await createBoard(newBoard);
 
     setInputFields([]);
     // navigate(`/${newBoard.id}`);

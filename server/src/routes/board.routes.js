@@ -9,8 +9,8 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/board/:id", controller.getBoard);
   app.post("/api/board/create", controller.createBoard);
-  //   app.put("/api/board/:id", controller.updateBoard);
-  //   app.delete("/api/board/:id", controller.deleteBoard);
+  app.get("/api/board/get/:id", controller.getBoard);
+  // app.put("/api/board/:id", controller.updateBoard);
+  // app.delete("/api/board/:id", controller.deleteBoard);
 };

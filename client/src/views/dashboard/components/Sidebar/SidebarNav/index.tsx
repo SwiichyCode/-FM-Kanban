@@ -1,16 +1,22 @@
 import { SidebarNavLink } from "../SidebarNavLink";
-
 import { SidebarNavContainer } from "./styles";
 import { NewBoard } from "../../Modal/NewBoard";
+import { useEffect } from "react";
+import useBoardStore from "../../../stores/boardStore";
 
 export const SidebarNav = () => {
-  const board = [] as any;
+  const boards = useBoardStore((state) => state.boards);
+  const getBoards = useBoardStore((state) => state.getBoards);
+
+  useEffect(() => {
+    getBoards();
+  }, [boards]);
 
   return (
     <SidebarNavContainer>
-      <h2>all boards ({board.length})</h2>
+      <h2>all boards ({boards.length})</h2>
       <ul>
-        {board.map((item: any, index: any) => {
+        {boards.map((item: any, index: any) => {
           return <SidebarNavLink item={item} index={index} />;
         })}
         <NewBoard />
