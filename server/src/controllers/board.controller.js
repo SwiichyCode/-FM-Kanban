@@ -32,8 +32,6 @@ exports.createBoard = (req, res) => {
 exports.getBoard = (req, res) => {
   const id = req.params.id;
 
-  console.log(id);
-
   Board.find({ ownerID: id })
     .then((data) => {
       if (!data)
@@ -45,24 +43,26 @@ exports.getBoard = (req, res) => {
     });
 };
 
-// exports.deleteBoard = (req, res) => {
-//   const id = req.query.id;
+exports.deleteBoard = (req, res) => {
+  const id = req.params.id;
 
-//   Board.findByIdAndRemove(id)
-//     .then((data) => {
-//       if (!data) {
-//         res.status(404).send({
-//           message: `Cannot delete Board with id=${id}. Maybe Board was not found!`,
-//         });
-//       } else {
-//         res.send({
-//           message: "Board was deleted successfully!",
-//         });
-//       }
-//     })
-//     .catch((err) => {
-//       res.status(500).send({
-//         message: "Could not delete Board with id=" + id,
-//       });
-//     });
-// };
+  console.log(id);
+
+  Board.findOneAndRemove({ id: id })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete Board with id=${id}. Maybe Board was not found!`,
+        });
+      } else {
+        res.send({
+          message: "Board was deleted successfully!",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Board with id=" + id,
+      });
+    });
+};

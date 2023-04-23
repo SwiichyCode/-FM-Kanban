@@ -11,10 +11,10 @@ export const SidebarHideContainer = styled.div`
   padding-left: 3.7rem;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+
   &:hover {
-    // ???
     background: #f0effa;
-    color: var(--color-purple) !important;
+    color: var(--color-purple);
     .icon-hide-sidebar {
       fill: var(--color-purple);
     }
@@ -26,7 +26,7 @@ export const SidebarHideContainer = styled.div`
     font-weight: var(--font-bold);
     font-size: 1.5rem;
     height: 2rem;
-    color: var(--medium-grey);
+    color: var(--color-grey);
     line-height: auto;
     padding-top: 2px;
   }

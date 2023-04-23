@@ -1,5 +1,6 @@
 const db = require("../models");
 const Role = db.role;
+const Board = db.board;
 
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
@@ -32,6 +33,22 @@ function initial() {
         }
 
         console.log("added 'admin' to roles collection");
+      });
+    }
+  });
+
+  Board.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new Board({
+        name: "Platform Launch",
+        id: "1",
+        ownerID: "747a7d05-592c-4dba-b4f1-bb446ec1db8f",
+      }).save((err) => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'Board 1' to boards collection");
       });
     }
   });

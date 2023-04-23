@@ -8,6 +8,7 @@ export const ModalWrapper = ({
   onRequestClose,
   children,
   visible = true,
+  // title,
   selector,
   portalClassName,
 }: ModalWrapperProps) => {

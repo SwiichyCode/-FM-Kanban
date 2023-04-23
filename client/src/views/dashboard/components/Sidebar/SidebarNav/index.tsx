@@ -1,8 +1,8 @@
+import { useEffect } from "react";
+import { useBoardStore } from "../../../stores/boardStore";
 import { SidebarNavLink } from "../SidebarNavLink";
 import { SidebarNavContainer } from "./styles";
 import { NewBoard } from "../../Modal/NewBoard";
-import { useEffect } from "react";
-import useBoardStore from "../../../stores/boardStore";
 
 export const SidebarNav = () => {
   const boards = useBoardStore((state) => state.boards);
@@ -10,7 +10,7 @@ export const SidebarNav = () => {
 
   useEffect(() => {
     getBoards();
-  }, [boards]);
+  }, []);
 
   return (
     <SidebarNavContainer>

@@ -1,4 +1,3 @@
-// import authHeader from "../../../services/auth-header";
 import api from "../../../api/api";
 
 const API_URL = "http://localhost:8080/api/board/";
@@ -26,15 +25,15 @@ const createBoard = async (data: Board) => {
 //   return await axios.put(API_URL + "update/" + data.id, data);
 // };
 
-// const deleteBoard = (id: string) => {
-//   return axios.delete(API_URL + "delete/" + id, { headers: authHeader() });
-// };
+const deleteBoard = (id: string) => {
+  return api.delete(API_URL + "delete/" + id);
+};
 
 const BoardService = {
   getBoard,
   createBoard,
   // updateBoard,
-  // deleteBoard,
+  deleteBoard,
 };
 
 export default BoardService;

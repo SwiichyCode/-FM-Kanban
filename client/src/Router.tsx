@@ -18,6 +18,7 @@ export const Router = () => {
 
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/:id" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

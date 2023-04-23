@@ -24,6 +24,6 @@
   },
   "include": [
     "additional.d.ts","src/**/*" // *** The files TypeScript should type check ***
-  ],
+, "src/views/dashboard/components/Modal/ManageBoard"  ],
   "exclude": ["node_modules", "build"] // *** The files to not type check ***
 }

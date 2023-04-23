@@ -33,6 +33,7 @@ const login = async (email: string, password: string) => {
 
 const logout = () => {
   localStorage.removeItem("user");
+  window.location.reload();
 };
 
 const getCurrentUser = () => {

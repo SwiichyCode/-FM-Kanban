@@ -1,4 +1,6 @@
+import AuthService from "../../services/auth.service";
 import { useState } from "react";
+import { v4 as uuidV4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AuthCard } from "../AuthCard";
 import { AuthFormContainer } from "../AuthFormContainer";
@@ -10,8 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { Confirmation } from "../Confirmation";
 import { InputPassword } from "../InputPassword";
 import { FormProps, Inputs } from "./types";
-import AuthService from "../../services/auth.service";
-import { v4 as uuidV4 } from "uuid";
 
 export const AuthForm = ({ title, buttonText }: FormProps) => {
   const { register, handleSubmit } = useForm<Inputs>();
@@ -24,7 +24,7 @@ export const AuthForm = ({ title, buttonText }: FormProps) => {
     try {
       if (title === "Login") {
         await AuthService.login(data.email, data.password).then(() => {
-          navigate("/dashboard");
+          navigate(`/dashboard`);
         });
         setAuthError("");
       } else {

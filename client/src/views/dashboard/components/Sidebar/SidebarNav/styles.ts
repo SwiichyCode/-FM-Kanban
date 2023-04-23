@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const SidebarNavContainer = styled.nav`
-  color: var(--medium-grey);
+  color: var(--color-grey);
+
   h2 {
     font-weight: var(--font-bold);
     font-size: 1.2rem;
@@ -14,6 +15,7 @@ export const SidebarNavContainer = styled.nav`
       padding: 0px 0 1.9rem 3.2rem;
     }
   }
+
   li {
     width: 100%;
     max-width: 24rem;
@@ -25,16 +27,24 @@ export const SidebarNavContainer = styled.nav`
   ul {
     ${({ theme }) => theme.mixins.flexColumn}
     width: 100%;
+
     .nav-item {
       width: 100%;
       max-width: 24rem;
-      ${({ theme }) => theme.mixins.flexAlignCenter}
+      ${({ theme }) => theme.mixins.flexBetween}
+      align-items: center;
       padding: 1.4rem 0 1.5rem 2.4rem;
       border-radius: var(--border-xl);
       text-decoration: none;
       color: var(--color-grey);
       cursor: pointer;
       transition: all 200ms ease-in-out;
+
+      .left-side {
+        display: flex;
+        align-items: center;
+      }
+
       &.activeClassName {
         color: #fff;
         background: var(--color-purple);

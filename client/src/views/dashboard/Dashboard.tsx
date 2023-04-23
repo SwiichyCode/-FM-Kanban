@@ -1,22 +1,22 @@
-import AuthService from "../auth/services/auth.service";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { Sidebar } from "./components/Sidebar/Sidebar";
+import { Header } from "./components/Header";
+import { BoardLayout } from "./layouts/BoardLayout";
+import { Board } from "./components/Board";
+import styled from "styled-components";
 
-const DashboardWrapper = styled.div``;
+const DashboardWrapper = styled.div`
+  width: 100%;
+  display: flex;
+`;
 
 export const Dashboard = () => {
-  let navigate = useNavigate();
-
-  const handleLogout = () => {
-    AuthService.logout();
-    navigate("/signin");
-  };
-
   return (
     <DashboardWrapper>
       <Sidebar />
-      <button onClick={() => handleLogout()}>logout</button>
+      <BoardLayout>
+        <Header />
+        <Board />
+      </BoardLayout>
     </DashboardWrapper>
   );
 };

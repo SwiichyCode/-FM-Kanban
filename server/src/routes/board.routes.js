@@ -12,5 +12,5 @@ module.exports = function (app) {
   app.post("/api/board/create", controller.createBoard);
   app.get("/api/board/get/:id", controller.getBoard);
   // app.put("/api/board/:id", controller.updateBoard);
-  // app.delete("/api/board/:id", controller.deleteBoard);
+  app.delete("/api/board/delete/:id", controller.deleteBoard);
 };

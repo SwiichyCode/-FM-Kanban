@@ -7,16 +7,16 @@ export const SidebarNavLink = ({ item, index }: SidebarNavLinkProps) => {
   return (
     <SidebarNavLinkWrapper>
       <NavLink
-        // to={`/${item.id}`}
-        to="/dashboard"
-        // className={({ isActive }) =>
-        //   isActive ? "nav-item activeClassName" : "nav-item"
-        // }
-        className="nav-item"
+        to={`/dashboard/${item.id}`}
+        className={({ isActive }) =>
+          isActive ? "nav-item activeClassName" : "nav-item"
+        }
         key={index}
       >
-        <IconBoard />
-        <span>{item.name}</span>
+        <div className="left-side">
+          <IconBoard />
+          <span>{item.name}</span>
+        </div>
       </NavLink>
     </SidebarNavLinkWrapper>
   );
